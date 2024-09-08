@@ -1,0 +1,26 @@
+[
+    {
+        "image":"https://www.kceisco.com/static/img/img1.jpg",
+        "title":"Welcome Kceians",
+        "subtitle":" Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloribus ullam aliquam voluptates distinctio doloremque nesciunt aperi",
+        "interval":"1000"
+    },
+    {
+        "image":"https://pbs.twimg.com/media/DVHlu5MU0AAZQH1.jpg",
+        "title":"Celebration of Dhurva",
+        "subtitle":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloribus ullam aliquam voluptates distinctio doloremque nesciunt aperi",
+        "interval":"1000"
+    },
+    {
+        "image":"https://media.licdn.com/dms/image/C5612AQHyHqK3pLpZuA/article-cover_image-shrink_600_2000/0/1520113442123?e=2147483647&v=beta&t=pU-n2nzAW03bo96RZQ3YASQn31Uo6aWBow8yQsw6cts",
+        "title":"Event Celebration",
+        "subtitle":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloribus ullam aliquam voluptates distinctio doloremque nesciunt aperi",
+        "interval":"1000"
+    },
+    {
+        "image":"https://media.getmyuni.com/azure/college-image/big/karpagam-college-of-engineering-coimbatore.jpg",
+        "title":"Happy Kce",
+        "subtitle":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloribus ullam aliquam voluptates distinctio doloremque nesciunt aperi",
+        "interval":"1000"
+    }
+]
