@@ -1,15 +1,9 @@
-/* FilterResults.css */
-
 .filter-results-container {
-  width: 72vw;
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 1rem;
-  position: relative;
-  height: calc(100vh - 70px);
   overflow-y: auto;
-  position: relative;
-  top: 250px;
 }
 
 .filter-results-title {
@@ -95,31 +89,29 @@
   color: #6b7280;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .filter-results-container {
-      padding: 1rem 0.5rem;
+    padding: 1rem 0.5rem;
   }
+}
 
+@media (max-width: 768px) {
   .filter-results-grid {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
 
 @media (max-width: 480px) {
-  .filter-results-container {
-      height: calc(100vh - 170px);
-  }
-
   .filter-results-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .result-card-content {
-      flex-direction: column;
-      text-align: center;
+    flex-direction: column;
+    text-align: center;
   }
 
   .result-info {
-      width: 100%;
+    width: 100%;
   }
 }

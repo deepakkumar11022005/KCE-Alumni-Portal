@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CustomNavbar, FilterBar, FilterAndSort, FilterResults, Footer } from '../';
 import './FilterPage.css';
 
-const Filter = () => {
+const FilterPage = () => {
   const [showFilterBar, setShowFilterBar] = useState(false);
 
   const toggleFilterBar = () => {
@@ -11,7 +11,6 @@ const Filter = () => {
 
   return (
     <div className="filter-page">
-      
       <div className="filter-content">
         <FilterBar showFilterBar={showFilterBar} toggleFilterBar={toggleFilterBar} />
         <div className="main-content">
@@ -19,9 +18,8 @@ const Filter = () => {
           <FilterResults />
         </div>
       </div>
-    
     </div>
   );
 };
 
-export default Filter;
+export default FilterPage;
