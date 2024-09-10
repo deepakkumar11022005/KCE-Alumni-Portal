@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaTimes, FaFilter } from 'react-icons/fa';
 import './FilterBar.css';
 
 const FilterBar = ({ onFilter }) => {
@@ -8,11 +9,11 @@ const FilterBar = ({ onFilter }) => {
         domain: '',
         location: '',
         company: '',
-        role: '' // employer or entrepreneur
+        role: ''
     });
 
     const [showFilter, setShowFilter] = useState(false);
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -24,6 +25,9 @@ const FilterBar = ({ onFilter }) => {
 
     const handleFilter = () => {
         onFilter(filters);
+        if (windowWidth < 768) {
+            setShowFilter(false);
+        }
     };
 
     const toggleFilterBar = () => {
@@ -31,60 +35,34 @@ const FilterBar = ({ onFilter }) => {
     };
 
     useEffect(() => {
-        const checkScreenSize = () => {
-            setIsSmallScreen(window.innerWidth < 820);
-        };
-
-        checkScreenSize();
-        window.addEventListener('resize', checkScreenSize);
-
-        return () => window.removeEventListener('resize', checkScreenSize);
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    const filterOptions = [
+        { name: 'department', label: 'Department', options: ['CSE', 'ECE', 'EEE'] },
+        { name: 'batch', label: 'Batch', options: ['2020', '2021', '2022'] },
+        { name: 'domain', label: 'Domain', options: ['Software', 'Hardware', 'Research'] },
+        { name: 'location', label: 'Location', options: ['Chennai', 'Bangalore', 'Hyderabad'] },
+        { name: 'role', label: 'Role', options: ['Employer', 'Entrepreneur'] }
+    ];
 
     return (
         <>
-            <div className={`filter-component ${isSmallScreen && showFilter ? 'show' : ''}`}>
+            <div className={`filter-component ${showFilter ? 'show' : ''}`}>
                 <h4>Filter Records</h4>
-                <div className="filter-group">
-                    <label>Department:</label>
-                    <select name="department" value={filters.department} onChange={handleChange}>
-                        <option value="">Select Department</option>
-                        <option value="CSE">CSE</option>
-                        <option value="ECE">ECE</option>
-                        <option value="EEE">EEE</option>
-                        {/* Add more departments as needed */}
-                    </select>
-                </div>
-                <div className="filter-group">
-                    <label>Batch:</label>
-                    <select name="batch" value={filters.batch} onChange={handleChange}>
-                        <option value="">Select Batch</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        {/* Add more batches as needed */}
-                    </select>
-                </div>
-                <div className="filter-group">
-                    <label>Domain:</label>
-                    <select name="domain" value={filters.domain} onChange={handleChange}>
-                        <option value="">Select Domain</option>
-                        <option value="Software">Software</option>
-                        <option value="Hardware">Hardware</option>
-                        <option value="Research">Research</option>
-                        {/* Add more domains as needed */}
-                    </select>
-                </div>
-                <div className="filter-group">
-                    <label>Location:</label>
-                    <select name="location" value={filters.location} onChange={handleChange}>
-                        <option value="">Select Location</option>
-                        <option value="Chennai">Chennai</option>
-                        <option value="Bangalore">Bangalore</option>
-                        <option value="Hyderabad">Hyderabad</option>
-                        {/* Add more locations as needed */}
-                    </select>
-                </div>
+                {filterOptions.map(({ name, label, options }) => (
+                    <div className="filter-group" key={name}>
+                        <label>{label}:</label>
+                        <select name={name} value={filters[name]} onChange={handleChange}>
+                            <option value="">Select {label}</option>
+                            {options.map(option => (
+                                <option key={option} value={option}>{option}</option>
+                            ))}
+                        </select>
+                    </div>
+                ))}
                 <div className="filter-group">
                     <label>Company:</label>
                     <input
@@ -95,23 +73,12 @@ const FilterBar = ({ onFilter }) => {
                         placeholder="Enter Company Name"
                     />
                 </div>
-                <div className="filter-group">
-                    <label>Role:</label>
-                    <select name="role" value={filters.role} onChange={handleChange}>
-                        <option value="">Select Role</option>
-                        <option value="Employer">Employer</option>
-                        <option value="Entrepreneur">Entrepreneur</option>
-                    </select>
-                </div>
-                <button className="filter-btn" onClick={handleFilter}>Filter</button>
+                <button className="filter-btn" onClick={handleFilter}>Apply Filters</button>
             </div>
 
-            {/* Toggle Button for Filter Bar */}
-            {isSmallScreen && (
-                <div className="filter-toggle" onClick={toggleFilterBar}>
-                    <i className={`fas ${showFilter ? 'fa-times' : 'fa-filter'}`}></i>
-                </div>
-            )}
+            <button className={`filter-toggle ${showFilter ? 'show' : ''}`} onClick={toggleFilterBar}>
+                {showFilter ? <FaTimes /> : <FaFilter />}
+            </button>
         </>
     );
 };

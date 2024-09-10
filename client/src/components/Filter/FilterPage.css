@@ -1,9 +1,11 @@
-/* Filter.css */
+
 .filter-page {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     margin-top: 30px;
+    position: relative;
+    width: 100%;
 
   }
   
@@ -17,6 +19,14 @@
     padding: 20px;
     overflow-y: auto;
   }
+  .filter-and-sort {
+  
+    
+    position: absolute;
+    top: 5px;
+    /* background-color: aqua; */
+  }
+
   
   @media (max-width: 900px) {
     .filter-content {

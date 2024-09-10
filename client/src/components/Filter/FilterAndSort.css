@@ -1,23 +1,25 @@
 /* FilterAndSort.css */
 
 .filter-and-sort {
-    width: 100%;
-    padding: 10px 20px;
-    /* background-color: #ffffff; */
-    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
-    box-sizing: border-box;
+    width: 72vw;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
     border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .top-bar {
     display: flex;
     align-items: center;
-    margin-right: auto;
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 .filter-icon {
@@ -35,27 +37,28 @@
 .sort-group, .limit-group {
     display: flex;
     align-items: center;
-    margin-right: 15px;
+    margin: 10px 15px 10px 0;
+    flex-grow: 1;
 }
 
-.sort-group label,
-.limit-group label {
+.sort-group label, .limit-group label {
     margin-right: 10px;
     font-weight: bold;
     color: #555;
+    white-space: nowrap;
 }
 
-.sort-group select,
-.limit-group input {
-    padding: 5px 10px;
+.sort-group select, .limit-group input {
+    padding: 8px 12px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 1em;
     transition: border 0.3s ease;
+    flex-grow: 1;
+    max-width: 200px;
 }
 
-.sort-group select:focus,
-.limit-group input:focus {
+.sort-group select:focus, .limit-group input:focus {
     border-color: #007bff;
     outline: none;
 }
@@ -69,8 +72,52 @@
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    margin-left: auto;
 }
 
 .clear-btn:hover {
     background-color: #cc0000;
+}
+
+@media (max-width: 1200px){
+    
+}
+@media (max-width: 768px) {
+    .filter-and-sort {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sort-group, .limit-group {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .sort-group select, .limit-group input {
+        max-width: none;
+    }
+
+    .clear-btn {
+        margin-top: 15px;
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-bar {
+        justify-content: center;
+    }
+
+    .sort-group, .limit-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sort-group label, .limit-group label {
+        margin-bottom: 5px;
+    }
+
+    .clear-btn {
+        width: 100%;
+    }
 }

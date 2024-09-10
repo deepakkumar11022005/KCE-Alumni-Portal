@@ -31,14 +31,14 @@ const FilterAndSort = ({ onSort, onLimitChange, onClear }) => {
                 <span className="top-bar-title">Filter & Sort Options</span>
             </div>
             <div className="sort-group">
-                <label>Sort by:</label>
+                <label>Sort by :</label>
                 <select value={sortOrder} onChange={handleSortChange}>
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
             </div>
             <div className="limit-group">
-                <label>Limit:</label>
+                <label>Limit :</label>
                 <input
                     type="number"
                     value={limit}

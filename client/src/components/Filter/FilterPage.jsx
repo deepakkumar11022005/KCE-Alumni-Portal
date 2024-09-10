@@ -15,8 +15,8 @@ const Filter = () => {
       <div className="filter-content">
         <FilterBar showFilterBar={showFilterBar} toggleFilterBar={toggleFilterBar} />
         <div className="main-content">
-          {/* <FilterAndSort /> */}
-          {/* <FilterResults /> */}
+          <FilterAndSort />
+          <FilterResults />
         </div>
       </div>
     
