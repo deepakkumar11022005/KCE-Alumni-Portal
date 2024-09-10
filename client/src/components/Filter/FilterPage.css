@@ -1,0 +1,25 @@
+/* Filter.css */
+.filter-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-top: 30px;
+
+  }
+  
+  .filter-content {
+    display: flex;
+    flex: 1;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  @media (max-width: 900px) {
+    .filter-content {
+      flex-direction: column;
+    }
+  }

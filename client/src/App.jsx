@@ -4,16 +4,18 @@ import {AluminiSlider, CustomNavbar,Dashboard,Footer,Swiper} from './components/
 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Filter from './sections/Filter';
 
 
 function App(){
   return (
     <>
-      <CustomNavbar />
-      <Swiper/>
-      <Dashboard/>
-      <AluminiSlider/>
-      <Footer/>
+      {/* <CustomNavbar /> */}
+      {/* <Swiper/> */}
+      {/* <Dashboard/> */}
+      {/* <AluminiSlider/> */}
+      {/* <Footer/> */}
+      <Filter/>
     </>
   )
 }

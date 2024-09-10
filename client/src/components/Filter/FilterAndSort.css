@@ -1,0 +1,76 @@
+/* FilterAndSort.css */
+
+.filter-and-sort {
+    width: 100%;
+    padding: 10px 20px;
+    /* background-color: #ffffff; */
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.filter-icon {
+    font-size: 1.5em;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+.top-bar-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.sort-group, .limit-group {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.sort-group label,
+.limit-group label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.sort-group select,
+.limit-group input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    transition: border 0.3s ease;
+}
+
+.sort-group select:focus,
+.limit-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.clear-btn {
+    padding: 8px 15px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.clear-btn:hover {
+    background-color: #cc0000;
+}

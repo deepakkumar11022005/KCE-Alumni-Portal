@@ -1,0 +1,103 @@
+/* Container for the filter results */
+.filter-results {
+  width: 100%;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns layout */
+  gap: 20px; /* Space between the result bars */
+}
+
+/* Header for the filter results */
+.filter-results h3 {
+  grid-column: span 2; /* Ensure the title spans both columns */
+  /* margin-bottom: 20px; */
+  font-size: 1.6em;
+  color: #333;
+  text-align: center;
+  font-weight: 400;
+  /* text-transform: uppercase; */
+  /* border-bottom: 2px solid #ddd; Bottom border for a formal look */
+  /* padding-bottom: 10px; */
+}
+
+/* Each result bar */
+.result-bar {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid orange; /* Blue accent line for formality */
+}
+
+/* Hover effect for the result bar */
+.result-bar:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slight lift on hover */
+}
+
+/* Container for the icon or image */
+.result-img-container {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgb(211, 209, 209); /* Blue background for the icon */
+  color: white;
+  font-size: 1.2em;
+  margin-right: 15px;
+}
+
+/* Container for the result information */
+.result-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Name in the result bar */
+.result-name {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 3px;
+}
+
+/* Batch information in the result bar */
+.result-batch,
+.result-department {
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Subtle slide-in animation for the result bars */
+.result-bar {
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+      transform: translateY(10px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
