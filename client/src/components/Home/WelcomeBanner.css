@@ -1,7 +1,8 @@
 .welcome-banner {
     display: flex;
     justify-content: space-between;
-    background: linear-gradient(240deg, #02edca 15%, #f5de14 60%);
+    /* background: linear-gradient(240deg, #02edca 15%, #f5de14 60%); */
+    background-color: rgb(244, 241, 237);
     padding: 40px;
     border-radius: 18px 18px;
     /* color: white; */

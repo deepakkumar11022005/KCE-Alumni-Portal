@@ -60,7 +60,7 @@ font-weight: bold;} /* "Our" */
 .marquee-content {
   display: flex;
   gap: 36px;
-  animation: marquee 40s linear infinite;
+  animation: marquee 10s linear infinite;
 }
 
 /* Keyframes for smooth horizontal scrolling */
@@ -84,7 +84,6 @@ font-weight: bold;} /* "Our" */
 @media (max-width: 768px) {
   .service-card {
     min-width: 300px;
-    
   }
 
   .title {

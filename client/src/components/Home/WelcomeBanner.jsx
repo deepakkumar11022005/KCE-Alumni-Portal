@@ -9,13 +9,6 @@ const WelcomeBanner = () => {
         <h1>Connect with fellow alumni, share achievements, and access resources for career development and lifelong growth.</h1>
         <button className="discover-button">Discover</button>
       </div>
-      <div className="banner-illustration">
-        {/* Use an online image link */}
-          <img 
-            src={alumini}
-            alt="Alumni Illustration" 
-          />
-      </div>
     </div>
   );
 };

@@ -1,15 +1,15 @@
-import React from 'react'
-import { CustomNavbar, FilterPage, FilterResults, Footer } from '../components'
+import React from "react";
+import { CustomNavbar, FilterPage, FilterResults, Footer } from "../components";
 
 const Filter = () => {
   return (
-   <div className="">
-     <CustomNavbar/>
-    <FilterPage/>
-  
-    <Footer/>
-   </div>
-  )
-}
+    <div className="">
+      <CustomNavbar />
+      <FilterPage />
 
-export default Filter
+      <Footer />
+    </div>
+  );
+};
+
+export default Filter;

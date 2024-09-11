@@ -1,18 +1,20 @@
-import { useState } from 'react'
-
- 
-
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Filter from './sections/Filter';
 import Home from './sections/Home';
+import Event from './sections/Event';
+import TotalEvents from './sections/TotalEvents';
 
 
 function App(){
   return (
     <>
-      <Home/>
-      <Filter/>
+      
+      {/* <TotalEvents/> */}
+      {/* <Event/> */}
+      {/* <Home/> */}
+      {/* <Filter/> */}
+
     </>
   )
 }
