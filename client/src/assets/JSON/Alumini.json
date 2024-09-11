@@ -1,0 +1,82 @@
+[
+  {
+    "imgURL": "https://via.placeholder.com/96",
+    "name": "Alice Johnson",
+    "batch": "2010",
+    "company": "Tech Innovations",
+    "salary": "$90,000",
+    "isActive": true
+  },
+  {
+    "imgURL": "https://via.placeholder.com/96",
+    "name": "Bob Smith",
+    "batch": "2012",
+    "company": "Creative Solutions",
+    "salary": "$85,000",
+    "isActive": false
+  },
+  {
+    "imgURL": "https://via.placeholder.com/96",
+    "name": "Charlie Brown",
+    "batch": "2015",
+    "company": "Future Tech",
+    "salary": "$100,000",
+    "isActive": true
+  },
+  {
+    "imgURL": "https://via.placeholder.com/96",
+    "name": "Diana Prince",
+    "batch": "2013",
+    "company": "Innovate LLC",
+    "salary": "$92,000",
+    "isActive": false
+  },
+  {
+    "imgURL": "https://via.placeholder.com/96",
+    "name": "Edward Green",
+    "batch": "2014",
+    "company": "Growth Enterprises",
+    "salary": "$105,000",
+    "isActive": true
+  },
+  {
+    "imgURL": "https://via.placeholder.com/96",
+    "name": "Fiona Adams",
+    "batch": "2016",
+    "company": "Tech Pioneers",
+    "salary": "$88,000",
+    "isActive": true
+  },
+  {
+    "imgURL": "https://via.placeholder.com/96",
+    "name": "George Lee",
+    "batch": "2017",
+    "company": "Visionary Systems",
+    "salary": "$93,000",
+    "isActive": false
+  },
+  {
+    "imgURL": "https://via.placeholder.com/96",
+    "name": "Hannah Wilson",
+    "batch": "2018",
+    "company": "Digital Solutions",
+    "salary": "$95,000",
+    "isActive": true
+  },
+  {
+    "imgURL": "https://via.placeholder.com/96",
+    "name": "Ian Turner",
+    "batch": "2011",
+    "company": "Advanced Technologies",
+    "salary": "$102,000",
+    "isActive": false
+  },
+  {
+    "imgURL": "https://via.placeholder.com/96",
+    "name": "Julia White",
+    "batch": "2019",
+    "company": "Next Gen Innovations",
+    "salary": "$97,000",
+    "isActive": true
+  }
+]

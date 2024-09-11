@@ -46,7 +46,7 @@ const FilterAndSort = ({ onSort, onLimitChange, onClear }) => {
                     placeholder="Enter limit"
                 />
             </div>
-            <button className="clear-btn" onClick={handleClear}>Clear Filters</button>
+            <button className="clear-btn" onClick={handleClear}>Clear</button>
         </div>
     );
 };

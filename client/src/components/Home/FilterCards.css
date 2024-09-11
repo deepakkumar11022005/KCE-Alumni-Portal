@@ -1,132 +1,117 @@
 .filter-cards {
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
-  justify-content: space-around;
-  margin-top: 30px;
-  padding-left: 50px;
-  padding-right: 50px;
   flex-wrap: wrap;
-  background-color: transparent;
-  z-index: -20;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 20px;
+  /* background-color: #f5f5f5; Subtle light grey background */
 }
 
 .filter-card {
-  background-color: #f7f7f7;
+  background: #ffffff;
   padding: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-radius: 16px;
+  border-radius: 8px;
   text-align: center;
-  width: 20%;
-  cursor: pointer;
-  justify-content: space-around;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 250px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #dcdcdc; /* Light grey border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-top 0.3s ease;
   position: relative;
-  margin: 10px;
+  border-top: 6px solid orange;
+  overflow: hidden; /* Ensures that the pseudo-element doesn't overflow */
 }
 
 .filter-card:hover {
-  transform: translateY(-10px);
-  background-color: #e8f5ff64;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: transparent; /* Hide default border */
 }
 
-.filter-icon {
-  font-size: 36px;
-  color: #707070;
-  margin-bottom: 8px;
-  transition: color 0.3s ease;
+.filter-card:hover::before {
+  height: 8px; /* Thicker top border on hover */
+  
+  border-bottom: 5px solid orange;
+  background: linear-gradient(to right, #a5a8ab, #c6c9cb); /* Darker gradient on hover */
 }
 
 .icon-bar {
-  height: 80px;
-  width: 80px;
-  background-color: #e8f5ff;
+  width: 60px;
+  height: 60px;
+  background-color: #e0e0e0; /* Subtle background color for the circle */
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.filter-card:hover .filter-icon {
-  color: #0086b3;
+.filter-icon {
+  font-size: 28px;
+  color: #333; /* Dark color for icons */
+  line-height: 1; /* Ensures text alignment */
 }
 
 .filter-card h2 {
-  font-size: 22px;
+  font-size: 1rem;
   color: #333;
-  margin: 25px 0;
-  font-weight: 600;
+  margin: 10px 0;
+  font-weight: 500; /* Medium weight for text */
 }
 
 .bar {
-  width: 40px;
-  height: 4px;
-  background-color: #0086b3;
+  width: 50px; /* Slightly smaller for a more elegant look */
+  height: 6px; /* Thicker bar for emphasis */
+  background-color: #007bff; /* Blue color for a professional appearance */
   margin: 10px auto 0;
-  border-radius: 2px;
+  border-radius: 3px;
   transition: width 0.3s ease, opacity 0.3s ease;
 }
 
 .filter-card:hover .bar {
-  width: 60px;
+  width: 60px; /* Slightly wider on hover */
   opacity: 1;
 }
 
-.filter-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  background: linear-gradient(to right, #ff6a00, #ee0979);
-}
+ 
 
 /* Responsive Design */
 @media (max-width: 1200px) {
   .filter-card {
-      width: 45%; /* Two cards per row on medium screens */
+    width: 45%; /* Two cards per row on medium screens */
   }
 }
 
 @media (max-width: 768px) {
   .filter-card {
-      width: 90%; /* One card per row on small screens */
+    width: 90%; /* One card per row on small screens */
   }
 }
 
-
-@media (max-width: 350px) {
-  .filter-cards {
-      justify-content: space-between;
-      padding: 0 10px; /* Adjust padding for small screens */
-  }
-  
+@media (max-width: 480px) {
   .filter-card {
-      width: 100%; /* 2 cards per row on very small screens */
-      padding: 25px;
-      margin: 10px;
+    width: 100%;
+    padding: 15px;
   }
 
   .filter-icon {
-      font-size: 30px;
+    font-size: 24px;
   }
 
   .icon-bar {
-      height: 60px;
-      width: 60px;
+    width: 50px;
+    height: 50px;
   }
 
   .filter-card h2 {
-      font-size: 18px;
-      margin: 15px 0;
+    font-size: 0.9rem;
   }
 
   .bar {
-      width: 30px;
+    width: 40px; /* Adjusted for small screens */
   }
 }
