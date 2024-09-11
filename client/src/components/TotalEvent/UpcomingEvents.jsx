@@ -1,26 +1,24 @@
-import React from 'react';
-import UpcomingEvents from './UpcomingEvents';
+import React from "react";
+import "./UpcomingEvents.css"; // Corresponding CSS for styling
+import EventCard from "./EventCard"; // Ensure EventCard is imported correctly
 
-const events = [
-  {
-    image: 'https://via.placeholder.com/300x180',
-    title: 'Event 1',
-    date: '2024-09-15',
-    description: 'This is a description of the first event.',
-  },
-  {
-    image: 'https://via.placeholder.com/300x180',
-    title: 'Event 2',
-    date: '2024-09-22',
-    description: 'This is a description of the second event.',
-  },
-  // Add more events here
-];
+const UpcomingEvents = ({ events }) => {
+  
+  return (
+    <div className="upcoming-events-container">
+      <h2 className="upcoming-events-title">Upcoming Events</h2>
+      <div className="events-cards-container">
+        {events.map((event, index) => (
+          <EventCard 
+            key={index} // Ensure a unique key is added
+            image={event.image} 
+            title={event.title} 
+            description={event.description}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-const App = () => (
-  <div>
-    <UpcomingEvents events={events} />
-  </div>
-);
-
-export default App;
+export default UpcomingEvents;

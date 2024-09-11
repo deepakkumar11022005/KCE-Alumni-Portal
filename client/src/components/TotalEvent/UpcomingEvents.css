@@ -3,13 +3,20 @@
     background-color: #f4f4f4;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100vh;
   }
   
   .upcoming-events-title {
-    text-align: center;
-    font-size: 2rem;
+    background-color: #00796b;
+    color: white;
+    width: auto;
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: start;
+    font-size: 1.5rem;
     margin-bottom: 20px;
-    color: #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    
   }
   
   .events-cards-container {
@@ -18,45 +25,4 @@
     gap: 20px;
     justify-content: center;
   }
-  
-  .event-card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 300px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .event-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .event-card-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-  
-  .event-card-content {
-    padding: 15px;
-  }
-  
-  .event-card-title {
-    font-size: 1.5rem;
-    margin: 0;
-    color: #333;
-  }
-  
-  .event-card-date {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .event-card-description {
-    font-size: 0.875rem;
-    color: #666;
-    margin-top: 10px;
-  }
-  
+   

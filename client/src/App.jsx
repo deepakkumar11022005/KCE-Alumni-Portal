@@ -10,7 +10,7 @@ function App(){
   return (
     <>
       
-      {/* <TotalEvents/> */}
+      <TotalEvents/>
       {/* <Event/> */}
       {/* <Home/> */}
       {/* <Filter/> */}
