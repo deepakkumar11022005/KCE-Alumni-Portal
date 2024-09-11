@@ -1,6 +1,6 @@
 // src/index.js (or the file where you export your components)
 export { default as CustomNavbar } from './Common/NavBar.jsx';  
-export { default as Swiper } from './Home/Swiper.jsx'; // Ensure capitalization matches
+export { default as Swiper } from '../components/Home/swiper.jsx'; // Ensure capitalization matches
 export { default as Dashboard } from './Home/Dashboard.jsx';
 export { default as Footer } from './Common/Footer.jsx';
 export { default as FilterBar } from './Filter/FilterBar.jsx';
