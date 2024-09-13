@@ -11,6 +11,7 @@ const FilterPage = () => {
 
   return (
     <div className="filter-page">
+     
       <div className="filter-content">
         <FilterBar showFilterBar={showFilterBar} toggleFilterBar={toggleFilterBar} />
         <div className="main-content">
@@ -18,6 +19,7 @@ const FilterPage = () => {
           <FilterResults />
         </div>
       </div>
+    
     </div>
   );
 };

@@ -1,6 +1,7 @@
 .filter-component {
     width: 25vw;
     padding: 20px;
+    
     height: 100vh;
     box-sizing: border-box;
     display: flex;
@@ -9,6 +10,14 @@
     background-color: #ffffff;
     z-index: 999;
     transition: transform 0.3s ease-in-out;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+}
+
+.filter-component.show {
+    transform: translateX(0);
 }
 
 .filter-component h4 {
@@ -29,8 +38,7 @@
     color: #555;
 }
 
-.filter-group select,
-.filter-group input {
+.filter-group select, .filter-group input {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
@@ -42,24 +50,25 @@
 .filter-btn {
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
+    background-color: #009688;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.1em;
     font-weight: bold;
+    margin-top: auto;
 }
 
 .filter-toggle {
-    display: none;
-    position: fixed;
-    top: 100px;
-    left: 20px;
+    position: relative;
+    top: 10px;
+    
     background-color: #0056b3;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    border-radius: 0 5px 5px 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
     justify-content: center;
     align-items: center;
     color: white;
@@ -67,22 +76,30 @@
     border: none;
     cursor: pointer;
     z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.filter-toggle:hover {
+    background-color: #003d7a;
+}
+
+@media (min-width: 1201px) {
+    .filter-component {
+        position: static;
+        transform: translateX(0);
+         
+    }
+    
+    .filter-toggle {
+        display: none;
+    }
 }
 
 @media (max-width: 1200px) {
     .filter-component {
-        position: fixed;
-        left: 0;
-        top: 10vh;
-        transform: translateX(-100%);
-    }
-
-    .filter-component.show {
-        transform: translateX(0);
-    }
-
-    .filter-toggle {
-        display: flex;
+        width: 80vw;
+        position: absolute;
+        top: 12vh;
     }
 }
 

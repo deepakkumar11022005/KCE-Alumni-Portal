@@ -38,12 +38,12 @@ const FilterAndSort = ({ onSort, onLimitChange, onClear }) => {
                 </select>
             </div>
             <div className="limit-group">
-                <label>Limit :</label>
+                 
                 <input
                     type="number"
                     value={limit}
                     onChange={handleLimitChange}
-                    placeholder="Enter limit"
+                    placeholder="Search Records"
                 />
             </div>
             <button className="clear-btn" onClick={handleClear}>Clear</button>

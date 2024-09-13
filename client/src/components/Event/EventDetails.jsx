@@ -32,6 +32,7 @@ const EventDetails = ({
 
   return (
     <div className="event-details">
+       
       {/* Left Section */}
       <div className="left-section">
         {/* Event Name with Experience Design Bar */}

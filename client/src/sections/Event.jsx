@@ -28,6 +28,7 @@ const Event = () => {
         eventStatus="Upcoming"
         specialGuest={specialGuest}
       />
+      
       <Footer/>
     </div>
   );

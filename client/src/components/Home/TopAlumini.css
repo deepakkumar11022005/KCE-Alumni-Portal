@@ -60,7 +60,7 @@ font-weight: bold;} /* "Our" */
 .marquee-content {
   display: flex;
   gap: 36px;
-  animation: marquee 10s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 
 /* Keyframes for smooth horizontal scrolling */

@@ -91,23 +91,27 @@
 
 @media (max-width: 1200px) {
   .filter-results-container {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.5rem; 
   }
 }
 
 @media (max-width: 768px) {
   .filter-results-grid {
+
+    margin: 15px auto;
+    width: 70vw;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
 
 @media (max-width: 480px) {
   .filter-results-grid {
+ 
     grid-template-columns: 1fr;
   }
 
   .result-card-content {
-    flex-direction: column;
+    /* flex-direction: column; */
     text-align: center;
   }
 
