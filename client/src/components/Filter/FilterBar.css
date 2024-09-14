@@ -1,7 +1,6 @@
 .filter-component {
     width: 25vw;
     padding: 20px;
-    
     height: 100vh;
     box-sizing: border-box;
     display: flex;
@@ -10,7 +9,7 @@
     background-color: #ffffff;
     z-index: 999;
     transition: transform 0.3s ease-in-out;
-    position: fixed;
+    position: static;
     left: 0;
     top: 0;
     transform: translateX(-100%);
@@ -63,7 +62,6 @@
 .filter-toggle {
     position: relative;
     top: 10px;
-    
     background-color: #0056b3;
     border-radius: 0 5px 5px 0;
     width: 40px;
@@ -87,7 +85,6 @@
     .filter-component {
         position: static;
         transform: translateX(0);
-         
     }
     
     .filter-toggle {
