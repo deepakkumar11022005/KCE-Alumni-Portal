@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaBell, FaTimes, FaUserCircle } from 'react-icons/fa';
 import KceLogo from '../../assets/images/kce.gif';
-import './Navbar.css';
+import './NavBar.css';
 
 const CustomNavbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
