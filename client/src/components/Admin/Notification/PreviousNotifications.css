@@ -1,0 +1,29 @@
+.previous-notifications {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+  
+  .previous-notifications h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .notification-item {
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .notification-item p {
+    margin: 0 0 5px 0;
+    color: #1f2937;
+  }
+  
+  .notification-item span {
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+  

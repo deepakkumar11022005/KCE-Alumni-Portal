@@ -1,5 +1,5 @@
 import React from 'react'
-import {  AlumniSlider, CustomNavbar,Dashboard,Footer,Swiper } from '../components'
+import {  AlumniSlider, CustomNavbar,Dashboard,Footer,Swiper } from '../../components'
  
 const  Home = () => {
   return (

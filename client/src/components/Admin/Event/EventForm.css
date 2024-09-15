@@ -1,0 +1,35 @@
+.event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .event-form input,
+  .event-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .event-form textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .event-form button {
+    background-color: #10b981;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+  }
+  
+  .event-form button:hover {
+    background-color: #059669;
+  }
+  

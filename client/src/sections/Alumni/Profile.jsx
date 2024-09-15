@@ -5,7 +5,7 @@ import {
   Footer,
   PersonalInfo,
   WorkExperience,
-} from "../components";
+} from "../../components";
 
 import './Profile.css'
 const Profile = () => {

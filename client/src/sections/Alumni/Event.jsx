@@ -4,7 +4,7 @@ import {
   EventBackground,
   EventDetails,
   Footer,
-} from "../components";
+} from "../../components";
 
 const Event = () => {
   const specialGuest = {

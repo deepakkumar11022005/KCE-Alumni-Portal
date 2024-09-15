@@ -111,7 +111,6 @@
   margin-bottom: 0;
   color: #007bff;
 }
-
 .toggle-btn {
   background: none;
   border: none;
@@ -120,7 +119,6 @@
   font-size: 14px;
 }
 
-/* Experience details (shown when expanded) */
 .experience-details {
   margin-top: 10px;
   animation: slideDown 0.3s ease-in-out;
@@ -168,7 +166,8 @@
 /* Responsive Layout for Mobile */
 @media (max-width: 768px) {
   .work-experience {
-    width: 100%;
+    width: 100vw;
+    /* padding: 0; */
   }
   .experience-header h4 {
     font-size: 16px;

@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomNavbar, FilterPage, FilterResults, Footer } from "../components";
+import { CustomNavbar, FilterPage, FilterResults, Footer } from "../../components";
 
 const Filter = () => {
   return (

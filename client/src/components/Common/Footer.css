@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #1b1b2f;
+    --blue-color: #1b1b2f;
     /* Dark blue for background */
-    --secondary-color: #f39c12;
+    --kceOrange-color: #f39c12;
     /* Gold for premium look */
-    --text-color: #f4f4f9;
+    --white-color: #f4f4f9;
     /* Light color for text */
     --accent-color: #e74c3c;
     /* Accent color for special elements */
@@ -13,8 +13,8 @@
 
 .footer {
     overflow: hidden;
-    background-color: var(--primary-color);
-    color: var(--text-color);
+    background-color: var(--blue-color);
+    color: var(--white-color);
     padding: 60px 20px;
     font-family: 'Roboto', sans-serif;
     margin-top: 30px;
@@ -28,7 +28,7 @@
     flex-wrap: wrap;
     margin: 0 auto;
     padding-bottom: 30px;
-    border-bottom: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--kceOrange-color);
 }
  
 .footer-section,
@@ -41,7 +41,7 @@
  
 .footer-section h4,
 .footer-section-details h4 {
-    color: var(--secondary-color);
+    color: var(--kceOrange-color);
     text-align: start;
     padding-left: 9vw;
     padding-bottom: 20px;
@@ -73,7 +73,7 @@
 }
 
 .footer-position {
-    color: var(--secondary-color);
+    color: var(--kceOrange-color);
     font-size: 1.1rem;
 }
 
@@ -84,7 +84,7 @@
 }
 
 .footer-social-icon {
-    color: var(--secondary-color);
+    color: var(--kceOrange-color);
     font-size: 20px;
     margin: 0 10px;
     transition: color 0.3s ease;
@@ -105,7 +105,7 @@
 }
 
 .footer-link {
-    color: var(--secondary-color);
+    color: var(--kceOrange-color);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -119,9 +119,9 @@
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
-    color: var(--text-color);
+    color: var(--white-color);
     font-size: 14px;
-    border-top: 1px solid var(--text-color);
+    border-top: 1px solid var(--white-color);
 }
 
 .footer-map {
@@ -197,6 +197,6 @@
 .footer-flower-icon {
     font-size: 2rem;
     /* Adjust size as needed */
-    color: var(--secondary-color);
+    color: var(--kceOrange-color);
     margin: 0 20px;
 }

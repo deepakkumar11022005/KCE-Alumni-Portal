@@ -1,5 +1,5 @@
 import React from 'react'
-import { CustomNavbar, EventBackground, UpcomingEvents } from '../components'
+import { CustomNavbar, EventBackground, UpcomingEvents } from '../../components'
 
 const TotalEvents = () => {
     

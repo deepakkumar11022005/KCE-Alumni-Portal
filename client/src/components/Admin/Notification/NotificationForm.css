@@ -1,0 +1,40 @@
+.notification-form {
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  
+  .notification-form textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 10px;
+  }
+  
+  .form-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .notification-form select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .notification-form button {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .notification-form button:hover {
+    background-color: #4338ca;
+  }
+  
