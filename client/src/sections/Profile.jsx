@@ -7,7 +7,7 @@ import {
   WorkExperience,
 } from "../components";
 
-
+import './Profile.css'
 const Profile = () => {
   const [alumniData, setAlumniData] = useState({
     image: '../../assets/images/me.jpg',
@@ -60,7 +60,8 @@ const Profile = () => {
         alumniData={alumniData}
         onEdit={(section) => handleEdit(section)}
       />
-      <WorkExperience
+     <div className="profile-content">
+     <WorkExperience
         experiences={alumniData.experiences}
         onEdit={(index) => handleEdit("experience", index)}
         onDelete={handleDelete}
@@ -69,6 +70,7 @@ const Profile = () => {
         education={alumniData.education}
         onEdit={(section) => handleEdit(section)}
       />
+     </div>
       <Footer/>
     </div>
   );

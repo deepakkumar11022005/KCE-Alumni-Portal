@@ -1,5 +1,7 @@
 /* Main container for the work experience section */
 .work-experience {
+  /* width: 45%; */
+  width: 48%;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 20px;
@@ -165,6 +167,9 @@
 
 /* Responsive Layout for Mobile */
 @media (max-width: 768px) {
+  .work-experience {
+    width: 100%;
+  }
   .experience-header h4 {
     font-size: 16px;
   }
