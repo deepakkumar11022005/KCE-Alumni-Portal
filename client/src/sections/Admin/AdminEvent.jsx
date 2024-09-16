@@ -66,23 +66,24 @@ const AdminEvent = () => {
 
       {view === "eventUpdates" && (
         <>
-          <h2>Event Updates</h2>
+          
          
           {/* Add logic to display updates or past events */}
            <AdminEventDetails/>
-           <p>ckjsnckn</p>
+          
         </>
       )}
 
       {view === "add" && (
         <>
-          <button
+        <EventForm onSubmit={handleAddEvent} />
+          {/* <button
             onClick={() => setShowForm(!showForm)}
             className="toggle-form-button"
           >
             {showForm ? 'Hide Form' : 'Add New Event'}
           </button>
-          {showForm && <EventForm onSubmit={handleAddEvent} />}
+          {showForm && <EventForm onSubmit={handleAddEvent} />} */}
         </>
       )}
 

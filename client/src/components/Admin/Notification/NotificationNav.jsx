@@ -9,7 +9,7 @@ const NotificationNav = () => {
       <a href="#" className="nav-item  "><Users size={20} /> Alumni</a>
       <a href="#" className="nav-item active"><Bell size={20} /> Notifications</a>
       <a href="#" className="nav-item"><Calendar size={20} /> Events</a>
-      <a href="#" className="nav-item"><Settings size={20} /> Settings</a>
+      <a href="#" className="nav-item"><Settings size={20} /> Profile</a>
     </nav>
   );
 };

@@ -9,6 +9,7 @@ import AdminHome from "./sections/Admin/AdminHome";
 import ManageAlumni from "./sections/Admin/ManageAlumni";
 import AdminNotification from "./sections/Admin/AdminNotification";
 import AdminEvent from "./sections/Admin/AdminEvent";
+import AdminProfile from "./sections/Admin/AdminProfile";
  
 
 function App() {
@@ -19,10 +20,12 @@ function App() {
       {/* <Home/> */}
       {/* <Filter/> */}
       {/* <Profile/> */}
-      {/* <AdminHome/>
+      <AdminHome/>
       <ManageAlumni/> 
-      <AdminNotification/>  */}
-      <AdminEvent/>
+      <AdminNotification/> 
+      <AdminEvent/> 
+      <AdminProfile/>
+
     </>
   );
 }

@@ -9,7 +9,7 @@ const EventNav = () => {
       <a href="#" className="nav-item "><Users size={20} /> Alumni</a>
       <a href="#" className="nav-item "><Bell size={20} /> Notifications</a>
       <a href="#" className="nav-item active"><Calendar size={20} /> Events</a>
-      <a href="#" className="nav-item"><Settings size={20} /> Settings</a>
+      <a href="#" className="nav-item"><Settings size={20} /> Profile</a>
     </nav>
   );
 };
