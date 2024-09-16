@@ -18,11 +18,11 @@ function App() {
       {/* <Event/> */}
       {/* <Home/> */}
       {/* <Filter/> */}
-      <Profile/>
+      {/* <Profile/> */}
       {/* <AdminHome/>
       <ManageAlumni/> 
-      <AdminNotification/> 
-      <AdminEvent/> */}
+      <AdminNotification/>  */}
+      <AdminEvent/>
     </>
   );
 }
