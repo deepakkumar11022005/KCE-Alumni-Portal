@@ -1,0 +1,36 @@
+.event-details {
+    padding: 24px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: var(--primary-color);
+  }
+  
+  .event-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .event-card {
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--card-background);
+  }
+  
+  .event-card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: var(--secondary-color);
+  }
+  
+  .event-card p {
+    margin: 4px 0;
+    font-size: 16px;
+  }
+  

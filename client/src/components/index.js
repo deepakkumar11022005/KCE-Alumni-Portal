@@ -25,8 +25,10 @@ export { default as AlumniForm } from './Admin/ManageAlumni/AlumniForm.jsx'
 export { default as NotificationNav } from './Admin/Notification/NotificationNav.jsx'
 export { default as NotificationForm } from './Admin/Notification/NotificationForm.jsx'
 export { default as PreviousNotifications } from './Admin/Notification/PreviousNotifications.jsx'
-export {default as SelectAlumni} from './Admin/Notification/SelectAlumni.jsx'
-export {default as EventForm} from './Admin/Event/EventForm.jsx'
-export {default as Carousel} from './Admin/Event/Carousel.jsx'
-export {default as EventPreview} from './Admin/Event/EventPreview.jsx'
-export {default as EventNav} from "./Admin/Event/EventNav.jsx"
+export { default as SelectAlumni } from './Admin/Notification/SelectAlumni.jsx'
+export { default as EventForm } from './Admin/Event/EventForm.jsx'
+export { default as Carousel } from './Admin/Event/Carousel.jsx'
+export { default as EventPreview } from './Admin/Event/EventPreview.jsx'
+export { default as EventNav } from "./Admin/Event/EventNav.jsx"
+export { default as SliderPreview } from "./Admin/Event/SwiperPreview.jsx"
+export { default as AdminEventDetails } from './Admin/Event/AdminEventDetails.jsx'
