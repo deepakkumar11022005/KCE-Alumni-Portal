@@ -15,11 +15,11 @@ import AdminProfile from "./sections/Admin/AdminProfile";
 function App() {
   return (
     <>
-      {/* <TotalEvents/> */}
-      {/* <Event/> */}
-      {/* <Home/> */}
-      {/* <Filter/> */}
-      {/* <Profile/> */}
+      <TotalEvents/> 
+      <Event/> 
+      <Home/> 
+       <Filter/> 
+       <Profile/> 
       <AdminHome/>
       <ManageAlumni/> 
       <AdminNotification/> 
