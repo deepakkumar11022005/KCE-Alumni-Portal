@@ -59,7 +59,7 @@ const Swiper = () => {
         type="button"
         onClick={handlePrev}
       >
-        <ChevronLeft size={40} color="#fff" />
+        <ChevronLeft size={40} color="#b6b0b0" />
         <span className="visually-hidden">Previous</span>
       </button>
       <button
@@ -67,7 +67,7 @@ const Swiper = () => {
         type="button"
         onClick={handleNext}
       >
-        <ChevronRight size={40} color="#fff" />
+        <ChevronRight size={40} color="#b6b0b0" />
         <span className="visually-hidden">Next</span>
       </button>
 

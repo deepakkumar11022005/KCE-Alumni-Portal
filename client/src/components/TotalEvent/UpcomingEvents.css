@@ -1,28 +1,29 @@
+/* Container for the upcoming events section */
 .upcoming-events-container {
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 100vh;
-  }
-  
-  .upcoming-events-title {
-    background-color: #00796b;
-    color: white;
-    width: auto;
-    padding: 15px 20px;
-    border-radius: 10px;
-    text-align: start;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    
-  }
-  
-  .events-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-   
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+}
+
+/* Title styling */
+.upcoming-events-title {
+  background-color: #00796b;
+  color: white;
+  width: auto;
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: start;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Container for event cards */
+.events-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}

@@ -8,7 +8,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   margin: 20px;
-  position: relative; /* Ensures that hover effects remain within the card */
+  position: relative; /* Ensures hover effects remain within the card */
 }
 
 /* On hover, apply a smooth scaling and shadow effect */

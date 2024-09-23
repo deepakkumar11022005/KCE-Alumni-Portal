@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   CustomNavbar,
+  EditProfile,
   EducationalInfo,
   Footer,
   PersonalInfo,
@@ -11,24 +12,30 @@ import './Profile.css'
 const Profile = () => {
   const [alumniData, setAlumniData] = useState({
     image: '../../assets/images/me.jpg',
-    name: "John Doe",
+    name: "Deepakkumar S",
     domains: ["Web Development", "Data Science","Spring Boot", "MongoDb"],
-    skills: ["React", "Python", "Machine Learning"],
+    skills: ["Batch 2022-2026", "Computer Science and Engineering" ],
     email: "john.doe@example.com",
     phone: "+1 234 567 8900",
-    experiences: [
+      experiences : [
       {
-        company: "Tech Corp",
-        address: "Silicon Valley, CA",
-        jobDomain: "Frontend Developer",
-        duration: "2020-Present",
+        year: '2023',
+        role: 'Senior Software Engineer',
+        company: 'Tech Innovations Inc.',
+        description: 'Led a team of developers in creating cutting-edge web applications using React and Node.js.'
       },
       {
-        company: "Data Inc",
-        address: "New York, NY",
-        jobDomain: "Data Analyst",
-        duration: "2018-2020",
+        year: '2021',
+        role: 'Full Stack Developer',
+        company: 'Digital Solutions Ltd.',
+        description: 'Developed and maintained full-stack applications, improving system efficiency by 40%.'
       },
+      {
+        year: '2019',
+        role: 'Junior Web Developer',
+        company: 'WebCraft Studios',
+        description: 'Assisted in the development of responsive websites and learned modern web technologies.'
+      }
     ],
     education: {
       "10th": { school: "City High School", year: 2010, percentage: 92 },
@@ -56,7 +63,8 @@ const Profile = () => {
   return (
     <div className="profile">
       <CustomNavbar />
-      <PersonalInfo
+      <EditProfile/>
+      {/* <PersonalInfo
         alumniData={alumniData}
         onEdit={(section) => handleEdit(section)}
       />
@@ -71,7 +79,7 @@ const Profile = () => {
         onEdit={(section) => handleEdit(section)}
       />
      </div>
-      <Footer/>
+      <Footer/> */}
     </div>
   );
 };

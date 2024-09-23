@@ -53,14 +53,14 @@ const CustomNavbar = () => {
 
           <ul className={`nav-links ${isMobile ? 'mobile' : 'desktop'}`}>
             {navItems.map((item, index) => (
-              <li key={index} className="nav-item">
+              <li key={index} className="nav-itemm">
                 <a href={item.href} onClick={closeNavbar}>
                   <span className="nav-text">{item.text}</span>
                 </a>
               </li>
             ))}
             {isMobile && (
-              <li className="nav-item">
+              <li className="nav-itemm">
                 <a href="#profile" onClick={closeNavbar}>
                   <span className="nav-text">Profile</span>
                 </a>

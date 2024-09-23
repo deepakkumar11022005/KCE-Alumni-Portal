@@ -58,12 +58,7 @@ const PersonalInfo = ({ alumniData, onEdit }) => {
               <FaFacebook className="social-icon facebook" />
             </a>
           </div>
-          <button
-            className="edit-button info-edit"
-            onClick={() => onEdit("info")}
-          >
-            Edit
-          </button>
+           
           </div>
         </div>
       </div>

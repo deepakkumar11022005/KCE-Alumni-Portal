@@ -23,7 +23,7 @@
     }
     
     .event-bar {
-        background-color: #fff;
+        background-color: #fff !important;
         padding: 20px;
         border-radius: 10px;
         margin-bottom: 20px;
@@ -37,6 +37,7 @@
     .chief-guest-bar {
         text-align: center;
         background-color: #fff;
+        
         padding: 2rem;
         border-radius: 10px;
         margin-bottom: 20px;
@@ -83,7 +84,7 @@
     
     .experience-bar {
         background-color: #00796b;
-        color: white;
+        color: white !important;
         padding: 20px;
         border-radius: 10px;
         text-align: center;
@@ -95,6 +96,7 @@
         margin: 0;
         font-weight: bold;
         font-size: 24px;
+        color: whitesmoke;
     }
     
     @media (max-width: 480px) {
