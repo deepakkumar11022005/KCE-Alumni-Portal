@@ -10,23 +10,20 @@ import ManageAlumni from "./sections/Admin/ManageAlumni";
 import AdminNotification from "./sections/Admin/AdminNotification";
 import AdminEvent from "./sections/Admin/AdminEvent";
 import AdminProfile from "./sections/Admin/AdminProfile";
- 
 
 function App() {
   return (
     <>
- 
-      <TotalEvents/> 
-      <Event/> 
-      <Home/> 
-       <Filter/> 
-       <Profile/> 
-      <AdminHome/>
-      <ManageAlumni/> 
-      <AdminNotification/> 
-      <AdminEvent/> 
-      <AdminProfile/>
-
+      <TotalEvents />
+      <Event />
+      <Home />
+      <Filter />
+      <Profile />
+      <AdminHome />
+      <ManageAlumni />
+      <AdminNotification />
+      <AdminEvent />
+      <AdminProfile />
     </>
   );
 }
