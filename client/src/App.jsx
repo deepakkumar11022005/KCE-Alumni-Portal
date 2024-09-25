@@ -14,16 +14,16 @@ import AdminProfile from "./sections/Admin/AdminProfile";
 function App() {
   return (
     <>
-      {/* <TotalEvents />
+      <TotalEvents />
       <Event />
       <Home />
-      <Filter /> */}
+      <Filter />
       <Profile />
-      {/* <AdminHome />
+      <AdminHome />
       <ManageAlumni />
       <AdminNotification />
       <AdminEvent />
-      <AdminProfile /> */}
+      <AdminProfile />
     </>
   );
 }
