@@ -19,10 +19,12 @@ function App() {
     <Router>
       <Routes>
         {/* Routes for /alumni/... */}
-        <Route path="/alumni/home" element={<Home />} />
-        <Route path="/alumni/manage-alumni" element={<Filter />} />
-        <Route path="/alumni/event" element={<TotalEvents />} />
-        <Route path="/alumni/profile" element={<Profile />} />
+        <Route path="/alumni">
+          <Route index element={<Home />} />
+          <Route path="manage-alumni" element={<Filter />} />
+          <Route path="event" element={<TotalEvents />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
 
         {/* Routes for /admin/... */}
         <Route path="/admin">
