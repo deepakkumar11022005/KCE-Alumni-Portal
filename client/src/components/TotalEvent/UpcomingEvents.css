@@ -4,17 +4,18 @@
   background-color: #f4f4f4;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 100vh;
+  height: auto; /* Changed to auto for better responsiveness */
+  max-width: 1200px; /* Set a max width for larger screens */
+  margin: 0 auto; /* Center the container */
 }
 
 /* Title styling */
 .upcoming-events-title {
   background-color: #00796b;
   color: white;
-  width: auto;
   padding: 15px 20px;
   border-radius: 10px;
-  text-align: start;
+  text-align: center; /* Centered the title */
   font-size: 1.5rem;
   margin-bottom: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -26,4 +27,5 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  margin: 0 auto; /* Center cards */
 }

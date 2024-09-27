@@ -1,4 +1,4 @@
-    .event-detais {
+    .event-detail {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -75,16 +75,19 @@
         text-align: center;
     }
     
-    .chief-guest-bar img {
-        max-width: 150px;
+   #special-Guest-img {
+        width: 150px  ;
+        height: 150px;
+        object-fit:contain;
         height: auto;
         border-radius: 50%;
         margin-bottom: 15px;
     }
     
-    .experience-bar {
+    .experience-barr h2 {
         background-color: #00796b;
-        color: white !important;
+        color: white;
+        font-weight: 700;
         padding: 20px;
         border-radius: 10px;
         text-align: center;
@@ -92,16 +95,11 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
     
-    .experience-bar h2 {
-        margin: 0;
-        font-weight: bold;
-        font-size: 24px;
-        color: whitesmoke;
-    }
-    
+     
     @media (max-width: 480px) {
-        .experience-bar h2 {
+        .experience-barr h2 {
         font-size: 18px;
+      
         }
     }
     .event-bar {

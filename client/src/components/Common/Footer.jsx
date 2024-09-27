@@ -8,8 +8,8 @@ import { FaLinkedin, FaFacebook, FaEnvelope, FaSpa } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-container">
-        {/* Chairman Section */}
+      {/* <div className="footer-container">
+       
         <div className="footer-section">
           <h4>Chairman</h4>
           <div className="footer-person-info">
@@ -31,7 +31,6 @@ const Footer = () => {
         </div>
 
        
-        {/* Principal Section */}
         <div className="footer-section">
           <h4>Principal</h4>
           <div className="footer-person-info">
@@ -51,7 +50,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Footer Links and Contact Info */}
       <div className="footer-links-container">

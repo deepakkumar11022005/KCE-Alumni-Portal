@@ -1,117 +1,106 @@
-/* General Card Styles */
 .filter-cards {
-  width: 80vw;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
   gap: 20px;
-  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border: none;
 }
 
-.filter-card {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
+.card {
+  overflow: hidden;
   width: 250px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid #dcdcdc; /* Light grey border */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-top 0.3s ease;
-  position: relative;
-  border-top: 6px solid orange;
-  overflow: hidden; /* Ensures that the pseudo-element doesn't overflow */
-}
-
-.filter-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border-color: transparent; /* Hide default border */
-}
-
-.filter-card:hover::before {
-  height: 8px; /* Thicker top border on hover */
-  border-bottom: 5px solid orange;
-  background: linear-gradient(to right, #a5a8ab, #c6c9cb); /* Darker gradient on hover */
-}
-
-/* Centering the icon inside the icon-bar */
-.icon-bar {
-   
-  background-color: #e0e0e0; /* Subtle background color for the circle */
- 
+  height: 150px;
+  border-radius: 15px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  position: relative;
+  transition: transform 0.5s ease, background-color 0.5s ease;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(239, 207, 152, 0.219); 
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card::before {
+  content: "";
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  border-radius: 50%;
+  border: 35px solid rgba(255, 255, 255, 0.225);
+  transition: all 0.8s ease;
+  filter: blur(0.5rem);
+}
+
+.text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  margin: 0 auto 15px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  color: white;
+   
+  font-weight: 900;
+  font-size: 1.2em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+ 
+.subtitle {
+  font-size: 0.8em;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.filter-icon {
-  padding: 30px;
-  border-radius: 50%  ;
-  font-size: 2rem !important;
-  color: #333; /* Dark color for icons */
-  line-height: 1; /* Ensures text alignment */
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.filter-card h2 {
-  font-size: 1rem;
-  color: #333;
-  margin: 10px 0;
-  font-weight: 500; /* Medium weight for text */
-}
-
-.bar {
-  width: 50px; /* Slightly smaller for a more elegant look */
-  height: 6px; /* Thicker bar for emphasis */
-  background-color: #007bff; /* Blue color for a professional appearance */
-  margin: 10px auto 0;
-  border-radius: 3px;
-  transition: width 0.3s ease, opacity 0.3s ease;
-}
-
-.filter-card:hover .bar {
-  width: 60px; /* Slightly wider on hover */
-  opacity: 1;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .filter-card {
-    width: 45%; /* Two cards per row on medium screens */
-  }
+.card:hover::before {
+  width: 140px;
+  height: 140px;
+  top: -30%;
+  left: 50%;
+  filter: blur(0rem);
 }
 
 @media (max-width: 768px) {
-  .filter-card {
-    width: 90%; /* One card per row on small screens */
+  .card {
+    width: 90%;
+    height: auto;
   }
+}.view-more-btn {
+  padding: 10px 15px;
+  background-color: transparent;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: background-color 0.3s ease;
 }
 
-@media (max-width: 480px) {
-  .filter-card {
-    width: 100%;
-    padding: 15px;
-  }
+.view-more-btn:hover {
+  background-color: #cdcccc83;
+}
 
-  .filter-icon {
-    font-size: 24px;
-  }
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
 
-  .icon-bar {
-    
-  }
+.view-more-btn:hover .arrow-icon {
+  transform: translateX(5px); /* Move the arrow slightly to the right on hover */
+}
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
 
-  .filter-card h2 {
-    font-size: 0.9rem;
-  }
-
-  .bar {
-    width: 40px; /* Adjusted for small screens */
-  }
+.arrow-icon.animate {
+  transform: translateX(5px); /* Move the arrow slightly to the right on hover */
 }

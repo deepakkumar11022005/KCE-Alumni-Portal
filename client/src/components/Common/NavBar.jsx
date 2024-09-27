@@ -27,9 +27,9 @@ const CustomNavbar = () => {
   };
 
   const navItems = [
-    { text: 'Home', to: '/alumni/home' },
-    { text: 'Events', to: '/alumni/event' },
-    { text: 'Alumni', to: '/alumni/manage-alumni' },
+    { text: 'Home', to: '/alumni/' },
+    { text: 'Events', to: '/alumni/event/' },
+    { text: 'Alumni', to: '/alumni/manage-alumni/' },
   ];
 
   return (

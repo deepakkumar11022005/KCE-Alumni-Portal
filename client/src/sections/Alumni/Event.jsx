@@ -16,7 +16,7 @@ const Event = () => {
   };
 
   const eventBannerUrl =
-    "https://coimbatorejunction.in/wp-content/uploads/2024/09/HIPHOP-TAMIZHAS-RETURN-OF-THE-DRAGON-MACHI-HOME-EDITION-LIVE-IN-COIMBATORE.jpg";
+    "https://ca-times.brightspotcdn.com/dims4/default/1b70a40/2147483647/strip/true/crop/1024x500+0+0/resize/1200x586!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fdb%2F41%2F492145d642d9a3e01a57421cee11%2Fconciertos-1589446877-1024x500.jpg";
   return (
     <div>
       <CustomNavbar />
