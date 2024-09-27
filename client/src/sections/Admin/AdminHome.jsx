@@ -1,8 +1,10 @@
+// AdminHome.jsx
 import React, { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Users, Bell, Calendar, UserCog, Moon, Sun } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './AdminHome.css';
-import { QuickActionCard ,FilterButton  } from '../../components';
+import { QuickActionCard, FilterButton } from '../../components';
 
 const mockData = [
   { name: 'Jan', alumni: 400 },
@@ -24,7 +26,6 @@ const AdminHome = () => {
   return (
     <div className={`admin-home ${darkMode ? 'dark-mode' : ''}`}>
       <div className="header">
-        
         <h1 className="admin-title">KCE Alumni Admin Dashboard</h1>
         <button className="theme-toggle" onClick={toggleDarkMode}>
           {darkMode ? <Sun size={24} /> : <Moon size={24} />}
@@ -32,10 +33,18 @@ const AdminHome = () => {
       </div>
       
       <div className="quick-actions">
-        <QuickActionCard icon={<Users size={24} />} title="Manage Alumni" description="View and edit alumni data" />
-        <QuickActionCard icon={<Bell size={24} />} title="Notifications" description="Send updates to alumni" />
-        <QuickActionCard icon={<Calendar size={24} />} title="Events" description="Manage upcoming events" />
-        <QuickActionCard icon={<UserCog size={24} />} title="Profile Updates" description="Review profile changes" />
+        <Link to="/admin/manage-alumni">
+          <QuickActionCard icon={<Users size={24} />} title="Manage Alumni" description="View and edit alumni data" />
+        </Link>
+        <Link to="/admin/notification">
+          <QuickActionCard icon={<Bell size={24} />} title="Notification" description="Send updates to alumni" />
+        </Link>
+        <Link to="/admin/event">
+          <QuickActionCard icon={<Calendar size={24} />} title="Events" description="Manage upcoming events" />
+        </Link>
+        <Link to="/admin/profile">
+          <QuickActionCard icon={<UserCog size={24} />} title="Profile Updates" description="Review profile changes" />
+        </Link>
       </div>
       
       <div className="dashboard-content">

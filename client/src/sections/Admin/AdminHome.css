@@ -103,6 +103,15 @@
   color: var(--text-color);
   font-size: 24px;
 }
+/* AdminHome.css */
+.quick-actions a {
+  text-decoration: none; /* Removes the underline */
+}
+
+.quick-actions a:hover {
+  text-decoration: none; /* Ensures no underline on hover */
+}
+
 
 .theme-toggle:hover {
   color: var(--primary-color);

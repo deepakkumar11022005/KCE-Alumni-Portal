@@ -22,7 +22,7 @@ const AdminProfile = () => {
 
   return (
     <div className="admin-profile">
-      <div className="header">
+      <div className="">
         <h1 className="admin-title">KCE Alumni Admin Dashboard</h1>
       </div>
       <ProfileNav />

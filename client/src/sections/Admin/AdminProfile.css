@@ -1,10 +1,10 @@
 .admin-profile {
-    background-color: var(--card-background);
-    border-radius: 8px;
-    margin: 0 auto;
-    padding-top: 30px;
-  }
   
+    padding: 24px;
+    background-color: var(--background-color);
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+  }
   .header {
     text-align: center;
     margin-bottom: 30px;
