@@ -25,11 +25,13 @@ function App() {
         <Route path="/alumni/profile" element={<Profile />} />
 
         {/* Routes for /admin/... */}
-        <Route path="/admin/home" element={<AdminHome />} />
-        <Route path="/admin/manage-alumni" element={<ManageAlumni />} />
-        <Route path="/admin/notification" element={<AdminNotification />} />
-        <Route path="/admin/event" element={<AdminEvent />} />
-        <Route path="/admin/profile" element={<AdminProfile />} />
+        <Route path="/admin">
+          <Route index element={<AdminHome />} /><Route path="/admin/home" element={<AdminHome />} />
+          <Route path="manage-alumni" element={<ManageAlumni />} />
+          <Route path="notification" element={<AdminNotification />} />
+          <Route path="event" element={<AdminEvent />} />
+          <Route path="profile" element={<AdminProfile />} />
+        </Route>
       </Routes>
     </Router>
   );
