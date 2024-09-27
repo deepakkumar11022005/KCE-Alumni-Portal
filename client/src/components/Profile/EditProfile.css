@@ -392,7 +392,7 @@
   border-radius: 8px;
 }
 .btn-save-changes {
-  background-color: #0288d1; /* Blue color */
+  background-color: #00796b;  
   color: white;
   
   border: none;
@@ -404,12 +404,12 @@
   cursor: pointer;
   margin-top: 20px;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
 }
 
 .btn-save-changes:hover {
-  background-color: #0277bd; /* Slightly darker blue on hover */
-  transform: scale(1.05); /* Slight grow effect */
+  background-color: #0277bd;  
+  transform: scale(1.05);  
 }
 
 .btn-save-changes:active {
