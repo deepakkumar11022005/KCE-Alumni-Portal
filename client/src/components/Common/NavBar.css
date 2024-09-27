@@ -3,7 +3,7 @@
   background: linear-gradient(240deg, #eda202 35%, #f5de14 100%);
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  /* padding: 0.5rem; */
   position: relative;
   z-index: 999;
   width: 100%;
@@ -123,6 +123,9 @@
 
 /* Responsive styles for screens below 800px */
 @media (max-width: 800px) {
+  .custom-navbar{
+    padding: 0.7rem;
+  }
   .navbar-container {
     justify-content: space-between;
   }
