@@ -2,19 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { FaTimes, FaFilter } from 'react-icons/fa';
 import './FilterBar.css';
 
-const FilterBar = ({ onFilter }) => {
-    const [filters, setFilters] = useState({
+const FilterBar = ({ onFilter, showFilterBar, toggleFilterBar }) => {
+    const initialFilters = {
         department: '',
         batch: '',
         domain: '',
         location: '',
         company: '',
         role: ''
-    });
+    };
 
-    const [showFilter, setShowFilter] = useState(false);
+    // State for filter fields
+    const [filters, setFilters] = useState(initialFilters);
+
+    // State to track window width for responsiveness
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+    // Update filter fields
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFilters(prevState => ({
@@ -23,23 +27,22 @@ const FilterBar = ({ onFilter }) => {
         }));
     };
 
+    // Apply filters and close filter bar on small screens
     const handleFilter = () => {
-        onFilter(filters);
+        onFilter(filters); // Pass filter data to parent component
         if (windowWidth < 768) {
-            setShowFilter(false);
+            toggleFilterBar();
         }
     };
 
-    const toggleFilterBar = () => {
-        setShowFilter(!showFilter);
-    };
-
+    // Track window resize for responsive handling
     useEffect(() => {
         const handleResize = () => setWindowWidth(window.innerWidth);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    // Options for different filters
     const filterOptions = [
         { name: 'department', label: 'Department', options: ['CSE', 'ECE', 'EEE'] },
         { name: 'batch', label: 'Batch', options: ['2020', '2021', '2022'] },
@@ -50,7 +53,7 @@ const FilterBar = ({ onFilter }) => {
 
     return (
         <>
-            <div className={`filter-component ${showFilter ? 'show' : ''}`}>
+            <div className={`filter-component ${showFilterBar ? 'show' : ''}`}>
                 <h4>Filter Records</h4>
                 {filterOptions.map(({ name, label, options }) => (
                     <div className="filter-group" key={name}>
@@ -76,8 +79,8 @@ const FilterBar = ({ onFilter }) => {
                 <button className="filter-btn" onClick={handleFilter}>Apply Filters</button>
             </div>
 
-            <button className={`filter-toggle ${showFilter ? 'show' : ''}`} onClick={toggleFilterBar}>
-                {showFilter ? <FaTimes /> : <FaFilter />}
+            <button className={`filter-toggle ${showFilterBar ? 'show' : ''}`} onClick={toggleFilterBar}>
+                {showFilterBar ? <FaTimes /> : <FaFilter />}
             </button>
         </>
     );

@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CustomNavbar, FilterPage, FilterResults, Footer } from "../../components";
 
 const Filter = () => {
+
   return (
     <div className="">
       <CustomNavbar />
-      <FilterPage />
-
+      <FilterPage   />
       <Footer />
     </div>
   );

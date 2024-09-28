@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Filter from "./sections/Alumni/Filter";
 import Home from "./sections/Alumni/Home";
-import Event from "./sections/Alumni/Event"; // Event details page
 import TotalEvents from "./sections/Alumni/TotalEvents";
 import Profile from "./sections/Alumni/Profile";
 

@@ -3,12 +3,29 @@
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
+  /* background-color: aqua; */
+  
 }
 
 .filter-content {
   display: flex;
   flex: 1;
 }
+.pages {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center items horizontally */
+  align-items: end; /* Center items vertically if necessary */
+  margin-top: 20px; /* Add some space above the pagination */
+  position: relative; /* Maintain relative positioning */
+  bottom: 0; 
+}
+.loading-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #007bff; /* Change color as needed */
+  margin: 20px 0; /* Add margin for spacing */
+}
+
 
 .main-content {
   flex: 1;

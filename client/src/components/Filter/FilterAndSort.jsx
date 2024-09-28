@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './FilterAndSort.css';
 import { FaFilter } from 'react-icons/fa';
 
-const FilterAndSort = ({ onSort, onLimitChange, onClear }) => {
+const FilterAndSort = ({ onSort, onSearchChange, onClear }) => {
     const [sortOrder, setSortOrder] = useState('ascending');
-    const [limit, setLimit] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
 
     const handleSortChange = (e) => {
         const { value } = e.target;
@@ -12,15 +12,15 @@ const FilterAndSort = ({ onSort, onLimitChange, onClear }) => {
         onSort(value);
     };
 
-    const handleLimitChange = (e) => {
+    const handleSearchChange = (e) => {
         const { value } = e.target;
-        setLimit(value);
-        onLimitChange(value);
+        setSearchQuery(value);
+        onSearchChange(value);
     };
 
     const handleClear = () => {
         setSortOrder('ascending');
-        setLimit('');
+        setSearchQuery('');
         onClear();
     };
 
@@ -37,12 +37,11 @@ const FilterAndSort = ({ onSort, onLimitChange, onClear }) => {
                     <option value="descending">Descending</option>
                 </select>
             </div>
-            <div className="limit-group">
-                 
+            <div className="search-group">
                 <input
-                    type="number"
-                    value={limit}
-                    onChange={handleLimitChange}
+                    type="text"
+                    value={searchQuery}
+                    onChange={handleSearchChange}
                     placeholder="Search Records"
                 />
             </div>

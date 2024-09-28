@@ -1,26 +1,15 @@
 import React from 'react';
 import './FilterResults.css';
 
-const FilterResults = () => {
-    const results = [
-        { name: 'John Doe', batch: '2020', department: 'CSE' },
-        { name: 'Jane Smith', batch: '2021', department: 'ECE' },
-        { name: 'Alice Johnson', batch: '2019', department: 'IT' },
-        { name: 'Robert Brown', batch: '2022', department: 'EEE' },
-        { name: 'Michael Davis', batch: '2020', department: 'MECH' },
-        { name: 'Emily Clark', batch: '2021', department: 'CIVIL' },
-        { name: 'David Wilson', batch: '2018', department: 'CSE' },
-        { name: 'Sophia Martinez', batch: '2019', department: 'ECE' },
-        { name: 'James Rodriguez', batch: '2020', department: 'IT' },
-        { name: 'Olivia Garcia', batch: '2021', department: 'EEE' },
-    ];
-
+const FilterResults = ({ filteredResults }) => {
+    
+    
     return (
         <div className="filter-results-container">
             <h3 className="filter-results-title">Results</h3>
             <div className="filter-results-grid">
-                {results.length > 0 ? (
-                    results.map((result, index) => (
+                {filteredResults.length > 0 ? (
+                    filteredResults.map((result, index) => (
                         <div key={index} className="result-card">
                             <div className="result-card-content">
                                 <div className="result-icon-container">
@@ -31,8 +20,8 @@ const FilterResults = () => {
                                     </div>
                                 </div>
                                 <div className="result-info">
-                                    <p className="result-name">{result.name}</p>
-                                    <p className="result-detail">Batch: {result.batch}</p>
+                                    <p className="result-name">{`${result.first_name} ${result.last_name}`}</p>
+                                    <p className="result-detail">Batch: {result.batch_start_year} - {result.batch_end_year}</p>
                                     <p className="result-detail">Department: {result.department}</p>
                                 </div>
                             </div>

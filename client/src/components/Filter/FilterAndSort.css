@@ -39,14 +39,14 @@
     flex-grow: 1;
 }
 
-.sort-group label, .limit-group label {
+.sort-group label, .search-group label {
     margin-right: 10px;
     font-weight: bold;
     color: #555;
     white-space: nowrap;
 }
 
-.sort-group select, .limit-group input {
+.sort-group select, .search-group input {
     padding: 8px 12px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -56,7 +56,7 @@
     max-width: 200px;
 }
 
-.sort-group select:focus, .limit-group input:focus {
+.sort-group select:focus, .search-group input:focus {
     border-color: #007bff;
     outline: none;
 }
