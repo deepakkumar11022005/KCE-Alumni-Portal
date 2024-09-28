@@ -5,13 +5,15 @@ import EventCard from "./EventCard";
 const UpcomingEvents = ({ events }) => {
   return (
     <div className="upcoming-events-container">
+      {/* <h2>Upcoming Events</h2> */}
       <div className="events-cards-container">
-        {events.map((event, index) => (
-          <EventCard
-            key={index}
-            event={event} // Pass the entire event object
-          />
-        ))}
+        {events && events.length > 0 ? (
+          events.map((event) => (
+            <EventCard key={event._id} event={event} />
+          ))
+        ) : (
+          <p>No upcoming events available at the moment.</p>
+        )}
       </div>
     </div>
   );

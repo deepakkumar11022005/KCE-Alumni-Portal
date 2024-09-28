@@ -1,11 +1,11 @@
 /* Container for the upcoming events section */
 .upcoming-events-container {
   padding: 20px;
-  background-color: #f4f4f4;
+  /* background-color: #f4f4f4; */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   height: auto; /* Changed to auto for better responsiveness */
-  max-width: 1200px; /* Set a max width for larger screens */
+  max-width: 1400px; /* Set a max width for larger screens */
   margin: 0 auto; /* Center the container */
 }
 

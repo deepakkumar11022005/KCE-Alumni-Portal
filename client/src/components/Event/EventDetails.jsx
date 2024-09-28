@@ -1,137 +1,148 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./EventDetails.css";
 import { useParams } from "react-router-dom";
 import EventBackground from "./EventBackground";
 import CustomNavbar from "../Common/NavBar";
-import kceLogo from "../../assets/images/kce.gif"
-import specialGuestImg from "../../assets/images/principal.jpeg"
+import kceLogo from "../../assets/images/kce.gif";
+import specialGuestImg from "../../assets/images/principal.jpeg";
+
 const EventDetails = () => {
   const { id } = useParams();
-  console.log("nakjnqkjn");
-  
-  // Assuming specialGuest is defined here for demonstration purposes
-  const specialGuest = {
-    img: specialGuestImg,
-    name: "John Doe",
-    position: "Keynote Speaker",
-    description: "An inspiring leader in the tech industry.",
-  };
 
-  const event = {
-    image: "https://ca-times.brightspotcdn.com/dims4/default/1b70a40/2147483647/strip/true/crop/1024x500+0+0/resize/1200x586!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fdb%2F41%2F492145d642d9a3e01a57421cee11%2Fconciertos-1589446877-1024x500.jpg",
-    eventName: 'Dhurva 2024',
-    eventDate: '2024-09-15',
-    status: "Upcoming",
-    eventTime: "10:00 AM",
-    specialGuest: specialGuest,
-    eventVenue: "Grand Hall, City Conference Center",
-    eventDescription: 'This is a description of the first event. This is a description of the first event.',
-  };
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [status, setStatus] = useState('');
 
-  const sponsors = [
-    {
-      img: kceLogo, // Placeholder for the image URL
-      name: "KIC",
-    },
-    {
-      img: kceLogo, // Provide valid image URLs
-      name: "Karpagam Institutions",
-    },
-    {
-      img: kceLogo,
-      name: "Red Chilli",
-    },
-    {
-      img: kceLogo,
-      name: "Cloud Travel",
-    },
-  ];
+  const fetchData = async (url) => {
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      });
   
-  const duplicateSponsors = [...sponsors, ...sponsors];
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      console.log("Data fetched successfully:", result);
+      setData(result.data);  
+    } catch (error) {
+      alert("An error occurred while fetching data. Please try again later.");
+      console.error("Error fetching data:", error);
+      setError(error.message);
+    }
+  };
+  
+  useEffect(() => {
+    const url = `https://alumni-apis.vercel.app/event/${id}`; // Use dynamic id
+    fetchData(url);
+  }, [id]);
+
+  useEffect(() => {
+    if (data) {
+      const currentDate = new Date();
+      const eventDate = new Date(data.event_date);
+      setStatus(currentDate > eventDate ? 'Finished' : 'Upcoming');
+    }
+  }, [data]);
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  if (!data) {
+    return <p>Loading...</p>;
+  }
+
+  // Get sponsors data from the API response
+  const sponsors = data.event_sponsers && data.event_sponsers.length > 0 ? data.event_sponsers : [];
 
   return (
-
     <>
-    <CustomNavbar/>
-    <EventBackground imageUrl={event.image}>
+      <CustomNavbar />
+      <EventBackground imageUrl="https://ca-times.brightspotcdn.com/dims4/default/1b70a40/2147483647/strip/true/crop/1024x500+0+0/resize/1200x586!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fdb%2F41%2F492145d642d9a3e01a57421cee11%2Fconciertos-1589446877-1024x500.jpg">
         <h1>Welcome to the Event</h1>
         <p>Join us for an unforgettable experience!</p>
       </EventBackground>
-    <div className="event-detail">
-      
-     
-      <div className="left-section">
-        <div className="experience-barr">
-          <h2>{event.eventName}</h2>
-        </div>
+      <div className="event-detail">
+        <div className="left-section">
+          <div className="experience-barr">
+            <h2>{data.event_name || "Event Name Not Available"}</h2>
+          </div>
 
-        <div className="event-bar">
-          <h4>Event Details</h4>
-          <p>{event.eventDescription}</p>
-        </div>
+          <div className="event-bar">
+            <h4>Event Details</h4>
+            <p>{data.event_details || "Details are not available"}</p>
+          </div>
 
-        <div className="event-bar">
-          <h4>Event Venue</h4>
-          <p>{event.eventVenue}</p>
-          <p>Date: {event.eventDate}</p>
-          <p>Time: {event.eventTime}</p>
-          <p className="status">{event.status}</p>
-        </div>
+          <div className="event-bar">
+            <h4>Event Venue</h4>
+            <p>{data.event_venue || "Venue information is not available"}</p>
+            <p>Date: {data.event_date ? new Date(data.event_date).toLocaleDateString() : "Date not available"}</p>
+            <p>Time: {data.event_time || "Time not available"}</p>
+            <p className="status">{status}</p>
+          </div>
 
-        <div className="event-bar">
-          <h4>Event Sponsors</h4>
-          <div className="sponsors-bar">
-            <div className="sponsors-slider">
-              {duplicateSponsors.map((sponsor, index) => (
-                <div key={index} className="sponsor-item">
-                  <img src={sponsor.img} alt={sponsor.name} />
-                  <p>{sponsor.name}</p>
+          {sponsors.length > 0 && (
+            <div className="event-bar">
+              <h4>Event Sponsors</h4>
+              <div className="sponsors-bar">
+                <div className="sponsors-slider">
+                  {sponsors.map((sponsor) => (
+                    <div key={sponsor._id} className="sponsor-item">
+                      <img src={sponsor.image_id || kceLogo} alt={sponsor.sponser_name || "No Sponsor"} />
+                      <p>{sponsor.sponser_name || "Unnamed Sponsor"}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
-      </div>
 
-      <div className="right-section">
-        <div className="chief-guest-bar">
-          <h3>Special Guest</h3>
-          <div>
-            <img src={specialGuest.img} alt={specialGuest.name} id="special-Guest-img"/>
+        <div className="right-section">
+          <div className="chief-guest-bar">
+            <h3>Special Guests</h3>
+            {data.special_guests && data.special_guests.length > 0 ? (
+              data.special_guests.map((guest) => (
+                <div key={guest._id}>
+                  <div>
+                    <img src={specialGuestImg} alt={guest.guest_name} id="special-Guest-img" />
+                  </div>
+                  <p><strong>Name:</strong> {guest.guest_name}</p>
+                  <p><strong>Position:</strong> {guest.guest_position}</p>
+                  <p><strong>Event Flow Description:</strong> {guest.event_flow_description}</p>
+                  <hr />
+                </div>
+              ))
+            ) : (
+              <p>No Special Guests Available</p>
+            )}
           </div>
-          <p>
-            <strong>Name:</strong> {specialGuest.name}
-          </p>
-          <p>
-            <strong>Position:</strong> {specialGuest.position}
-          </p>
-          <p>
-            <strong>Event Flow Description:</strong> {specialGuest.description}
-          </p>
-        </div>
-        <div className="event-bar">
-          <h4>Event Summary</h4>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Exercitationem alias eius et nemo voluptatibus ipsam repellendus, in
-            laborum animi? Unde quidem nulla laudantium alias magni omnis ea
-            aut, totam delectus.
-          </p>
-          <h5>Agenda</h5>
-          <p>{"agenda"}</p>
-          <h5>Chief Guest</h5>
-          <p>
-            <strong>Name:</strong> {specialGuest.name}
-          </p>
-          <p>
-            <strong>Position:</strong> {specialGuest.position}
-          </p>
-          <p>
-            <strong>Event Flow:</strong> {specialGuest.description}
-          </p>
+
+          <div className="event-bar">
+            <h4>Event Summary</h4>
+            <p>{data.event_summary || "Summary not available"}</p>
+            <h5>Chief Guests</h5>
+            <ul>
+              {data.event_guests && data.event_guests.length > 0 ? (
+                data.event_guests.map((guest) => (
+                  <li key={guest._id} className="Chief-Guest-list">
+                    <strong>{guest.guest_name}</strong> - <strong>{guest.guest_position}</strong>
+                    <br />
+                    {guest.event_flow_description} <br />
+                  </li>
+                ))
+              ) : (
+                <li>No Chief Guests Available</li>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };
