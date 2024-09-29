@@ -32,6 +32,6 @@ export { default as EventPreview } from './Admin/Event/EventPreview.jsx'
 export { default as EventNav } from "./Admin/Event/EventNav.jsx"
 export { default as SliderPreview } from "./Admin/Event/SwiperPreview.jsx"
 export { default as AdminEventDetails } from './Admin/Event/AdminEventDetails.jsx'
-export {default as ProfileNav} from './Admin/profile/profileNav.jsx'
-export{default as EditProfile} from "./Profile/EditProfile.jsx"
-export {default as Pagination} from './Filter/Pagination.jsx'
+export { default as ProfileNav } from './Admin/profile/profileNav.jsx'
+export { default as EditProfile } from "./Profile/EditProfile.jsx"
+export { default as Pagination } from './Filter/Pagination.jsx'

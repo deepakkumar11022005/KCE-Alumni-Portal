@@ -1,16 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './FilterResults.css';
 
 const FilterResults = ({ filteredResults }) => {
-    
-    
+    const navigate = useNavigate(); // Use useNavigate hook to access navigation
+
+    const handleCardClick = (id) => {
+        // Navigate to the profile page with the student's id
+        navigate(`/alumni/profile/${id}`); // Update the route as per your routing setup
+    };
+
     return (
         <div className="filter-results-container">
             <h3 className="filter-results-title">Results</h3>
             <div className="filter-results-grid">
                 {filteredResults.length > 0 ? (
-                    filteredResults.map((result, index) => (
-                        <div key={index} className="result-card">
+                    filteredResults.map((result) => (
+                        <div key={result._id} className="result-card" onClick={() => handleCardClick(result._id)}>
                             <div className="result-card-content">
                                 <div className="result-icon-container">
                                     <div className="result-icon">

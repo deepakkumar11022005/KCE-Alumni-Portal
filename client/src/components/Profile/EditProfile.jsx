@@ -3,9 +3,55 @@ import { PlusCircle, MinusCircle } from "lucide-react";
 import "./EditProfile.css";
 import profileImage from "../../assets/images/me.jpg";
 import { Camera } from "lucide-react";
-const EditProfile = () => {
+const EditProfile = ({ alumniData, onSave, onCancel }) => {
   const [activeSection, setActiveSection] = useState("account");
-  const [workInfo, setWorkInfo] = useState([{ type: "", details: {} }]);
+   // Mapping state from alumniData
+   const [firstName, setFirstName] = useState(alumniData.first_name || "");
+   const [lastName, setLastName] = useState(alumniData.last_name || "");
+   const [email, setEmail] = useState(alumniData.email || "");
+   const [mobileNumber, setMobileNumber] = useState(alumniData.mobile_number || "");
+   const [dateOfBirth, setDateOfBirth] = useState(alumniData.date_of_birth || "");
+   const [linkedinId, setLinkedinId] = useState(alumniData.linkedin_id || "");
+   const [instagramId, setInstagramId] = useState(alumniData.instagram_id || "");
+   const [facebookId, setFacebookId] = useState(alumniData.facebook_id || "");
+   const [aadharNumber, setAadharNumber] = useState(alumniData.aadhar_number || "");
+   const [panNumber, setPanNumber] = useState(alumniData.pan_number || "");
+ 
+   // Parent Info Mapping
+   const [fatherName, setFatherName] = useState(alumniData.fathers_name || "");
+   const [fatherMobile, setFatherMobile] = useState(alumniData.fathers_mobile || "");
+   const [fatherEmail, setFatherEmail] = useState(alumniData.fathers_email || "");
+   const [motherName, setMotherName] = useState(alumniData.mothers_name || "");
+   const [motherMobile, setMotherMobile] = useState(alumniData.mothers_mobile || "");
+   const [motherEmail, setMotherEmail] = useState(alumniData.mothers_email || "");
+ 
+ // School Info Mapping
+const [educationInfo, setEducationInfo] = useState(
+  Array.isArray(alumniData.education) && alumniData.education.length > 0
+    ? alumniData.education
+    : [
+        { institute_name: "", course: "", passed_out_year: "", grade: "" },
+      ]
+);
+
+// Work Info Mapping
+const [workInfo, setWorkInfo] = useState(
+  Array.isArray(alumniData.work_experience) && alumniData.work_experience.length > 0
+    ? alumniData.work_experience
+    : [
+        {
+          company_name: "",
+          company_address: "",
+          work_domain: "",
+          company_url: "",
+          company_type: "",
+          designation: "",
+          from_year: "",
+          to_year: "",
+        },
+      ]
+);
+
 
   // Define the sections in an ordered list
   const sections = ["account", "personal", "parent", "school", "work"];

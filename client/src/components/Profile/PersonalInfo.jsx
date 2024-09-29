@@ -1,3 +1,5 @@
+// src/components/PersonalInfo/PersonalInfo.jsx
+
 import React from "react";
 import {
   FaEdit,
@@ -8,19 +10,20 @@ import {
   FaFacebook,
 } from "react-icons/fa";
 import "./PersonalInfo.css";
-import my_photo from "../../assets/images/me.jpg";
+import defaultAlumnImg from '../../assets/images/me.jpg'; // Ensure this path is correct
 
 const PersonalInfo = ({ alumniData, onEdit }) => {
   return (
     <div className="personal-info">
       <div className="personal-info-container">
         <div className="profile-image">
-          <img src={my_photo} alt={alumniData.name} />
+          <img src={alumniData.image} alt={alumniData.name} />
+          
           <button
             className="edit-button image-edit"
-            onClick={() => onEdit("image")}
+            onClick={() => onEdit()}
           >
-            {/* <FaEdit /> */}
+            
           </button>
         </div>
         <div className="info-section">
@@ -32,33 +35,40 @@ const PersonalInfo = ({ alumniData, onEdit }) => {
               <FaEnvelope /> {alumniData.email}
             </p>
             <p>
-              <FaPhone /> {alumniData.phone}
+              <FaPhone /> +91 {alumniData.phone}
             </p>
-          
-          <div className="social-icons">
-            <a
-              href={alumniData.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin className="social-icon linkedin" />
-            </a>
-            <a
-              href={alumniData.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram className="social-icon instagram" />
-            </a>
-            <a
-              href={alumniData.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebook className="social-icon facebook" />
-            </a>
-          </div>
-           
+            <div className="social-icons">
+              {alumniData.linkedin && (
+                <a
+                  href={alumniData.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin className="social-icon linkedin" />
+                </a>
+              )}
+              {alumniData.instagram && (
+                <a
+                  href={alumniData.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram className="social-icon instagram" />
+                </a>
+              )}
+              {alumniData.facebook && (
+                <a
+                  href={alumniData.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebook className="social-icon facebook" />
+                </a>
+              )}
+            </div>
+            <button className="btn-save-changes" onClick={onEdit}>
+              Edit Profile
+            </button>
           </div>
         </div>
       </div>

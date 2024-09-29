@@ -15,10 +15,11 @@
 
 .profile-image {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 210px;
+  height: 210px;
   flex-shrink: 0;
   margin: 30px;
+  /* padding: 50px; */
 }
 
 .profile-image img {
@@ -33,7 +34,7 @@
 .profile-image .edit-button {
   position: absolute;
   bottom: 10px;
-  right: 10px;
+  right: -10px;
   background-color: #00796b;
   color: white;
   border: none;
@@ -53,7 +54,7 @@
 }
 
 .info-section h1 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   color: #00796b;
   margin-bottom: 10px;
   display: flex;
@@ -114,6 +115,7 @@
   /* margin-top: 20px; */
   display: flex;
   gap: 15px;
+  align-items: center;
 }
 
 .social-icon {

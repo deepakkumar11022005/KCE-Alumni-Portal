@@ -58,8 +58,11 @@
 
 .experience-year {
   position: absolute;
+  width: 100px;
   left: 50px;
-  top: 50%;
+  top: 32%;
+  font-weight: bold;
+  color: white;
   transform: translateY(-50%);
   background-color: #2c3e50;
   padding: 4px 8px;
@@ -68,22 +71,42 @@
 }
 
 .experience-content {
+   
   background-color: #2c3e50;
-  padding: 20px;
+  padding: 1rem  ;
   border-radius: 8px;
+  padding-top: 2rem;
   margin-left: 20px;
 }
 
 .experience-role {
   margin: 0 0 10px;
-  font-size: 20px;
-  color: #3498db;
+  font-size: 1.2rem;
+  color: white;
 }
 
 .experience-company {
   margin: 0 0 10px;
   font-size: 16px;
   color: #f1c40f;
+}
+.company-info {
+  font-size: 1  rem;
+  text-decoration: none !important;
+  color:#f1c40f ;
+  font-weight: bold; /* Makes the text bold */
+   
+  transition: background-color 0.3s ease, color 0.3s ease; /* Adds a smooth transition effect */
+}
+.experience-address{
+  font-size: 0.9rem;
+  padding-top: 5px;
+  color: #ecf0f1;
+}
+.company-info:hover {
+  color: #8ceb07; /* Changes text color on hover */
+  /* background-color: #007bff; Adds a background color on hover */
+  text-decoration: underline; /* Underlines the text on hover */
 }
 
 .experience-description {
@@ -114,13 +137,14 @@
   }
 
   .experience-year {
-    left: 40px;
+    left: 35px;
     font-size: 10px;
+    top: 38%;
   }
 
   .experience-content {
     margin-left: 10px;
-    padding: 15px;
+    padding-top: 1.5rem;
   }
 
   .experience-role {

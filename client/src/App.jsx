@@ -12,7 +12,7 @@ import ManageAlumni from "./sections/Admin/ManageAlumni";
 import AdminNotification from "./sections/Admin/AdminNotification";
 import AdminEvent from "./sections/Admin/AdminEvent";
 import AdminProfile from "./sections/Admin/AdminProfile";
-import { EventDetails } from "./components";
+import {  EventDetails } from "./components";
 
 function App() {
   return (
@@ -23,7 +23,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="manage-alumni" element={<Filter />} />
           <Route path="event" element={<TotalEvents />} />
-          <Route path="event/:id" element={<EventDetails/>} /> {/* Dynamic route for event details */}
+          <Route path="event/:id" element={<EventDetails/>} />  
+          <Route path="profile/:id" element={<Profile/>} />  
           <Route path="profile" element={<Profile />} />
         </Route>
 
