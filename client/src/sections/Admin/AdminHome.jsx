@@ -51,7 +51,7 @@ const AdminHome = () => {
         <div className="chart-container">
           <h2 className="section-title">Alumni Registration Trend</h2>
           <div className="chart">
-            <ResponsiveContainer width="100%" height={300}>
+            {/* <ResponsiveContainer width="100%" height={300}>
               <LineChart data={mockData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
@@ -59,7 +59,7 @@ const AdminHome = () => {
                 <Tooltip />
                 <Line type="monotone" dataKey="alumni" stroke="#8884d8" strokeWidth={2} dot={{ r: 4 }} />
               </LineChart>
-            </ResponsiveContainer>
+            </ResponsiveContainer> */}
           </div>
         </div>
         
