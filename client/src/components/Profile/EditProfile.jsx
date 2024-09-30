@@ -185,7 +185,7 @@ const [workInfo, setWorkInfo] = useState(
                 type="text"
                 className="form-input"
                 onChange={(e) =>
-                  handleWorkInfoChange(index, "institutionName", e.target.value)
+                  handleWorkInfoChange(index, "institutionName ", e.target.value)
                 }
               />
             </div>
