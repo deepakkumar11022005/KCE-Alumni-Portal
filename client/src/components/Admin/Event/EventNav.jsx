@@ -7,7 +7,7 @@ import '../ManageAlumni/NavigationBar.css';
 const EventNav = () => {
   return (
     <nav className="navigation-bar">
-      <Link to="/admin/home" className="nav-item"><Home size={20} /> Home</Link>
+      <Link to="/admin" className="nav-item"><Home size={20} /> Home</Link>
       <Link to="/admin/manage-alumni" className="nav-item"><Users size={20} /> Alumni</Link>
       <Link to="/admin/notification" className="nav-item"><Bell size={20} /> Notifications</Link>
       <Link to="/admin/event" className="nav-item active"><Calendar size={20} /> Events</Link>

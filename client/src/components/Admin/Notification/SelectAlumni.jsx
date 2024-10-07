@@ -1,31 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './SelectAlumni.css';
 
-const SelectAlumni = ({ onSelectAlumni }) => {
-  const [selectedAlumni, setSelectedAlumni] = useState([]);
-  const [selectAll, setSelectAll] = useState(false);
-
-  const mockData = [
-    { id: 1, name: 'John Doe', graduationYear: 2020, department: 'Computer Science', location: 'New York', domain: 'Technology', company: "Accenture" },
-    { id: 2, name: 'Jane Smith', graduationYear: 2019, department: 'Electrical Engineering', location: 'San Francisco', domain: 'Energy', company: "TCS" },
-    // Add more mock data as needed
-  ];
-
-  // Toggle individual selection
+const SelectAlumni = ({ 
+  alumniData, 
+  onSelectAlumni, 
+  selectedAlumni, 
+  currentPage, 
+  itemsPerPage 
+}) => {
   const handleSelect = (id) => {
     const updatedSelected = selectedAlumni.includes(id)
       ? selectedAlumni.filter((alumniId) => alumniId !== id)
       : [...selectedAlumni, id];
     
-    setSelectedAlumni(updatedSelected);
     onSelectAlumni(updatedSelected);
   };
 
-  // Toggle select all
   const handleSelectAll = () => {
-    const updatedSelected = !selectAll ? mockData.map((alumni) => alumni.id) : [];
-    setSelectedAlumni(updatedSelected);
-    setSelectAll(!selectAll);
+    const currentPageIds = alumniData.map(alumni => alumni._id);
+    const allSelected = currentPageIds.every(id => selectedAlumni.includes(id));
+    
+    let updatedSelected;
+    if (allSelected) {
+      // Deselect only current page items
+      updatedSelected = selectedAlumni.filter(id => !currentPageIds.includes(id));
+    } else {
+      // Add current page items to selection
+      updatedSelected = [...new Set([...selectedAlumni, ...currentPageIds])];
+    }
+    
     onSelectAlumni(updatedSelected);
   };
 
@@ -37,36 +40,38 @@ const SelectAlumni = ({ onSelectAlumni }) => {
             <th>
               <input
                 type="checkbox"
-                checked={selectAll}
+                checked={alumniData.length > 0 && alumniData.every(alumni => 
+                  selectedAlumni.includes(alumni._id)
+                )}
                 onChange={handleSelectAll}
               />
             </th>
-            <th>S.no.</th>
+            {/* <th>S.no.</th> */}
             <th>Name</th>
-            <th>Graduation Year</th>
+            <th>Batch</th>
             <th>Department</th>
-            <th>Location</th>
             <th>Company</th>
-            <th>Domain</th>
+            <th>Designation</th>
+            <th>Email</th>
           </tr>
         </thead>
         <tbody>
-          {mockData.map((alumni) => (
-            <tr key={alumni.id}>
+          {alumniData.map((alumni, index) => (
+            <tr key={alumni._id}>
               <td>
                 <input
                   type="checkbox"
-                  checked={selectedAlumni.includes(alumni.id)}
-                  onChange={() => handleSelect(alumni.id)}
+                  checked={selectedAlumni.includes(alumni._id)}
+                  onChange={() => handleSelect(alumni._id)}
                 />
               </td>
-              <td>{alumni.id}</td>
-              <td>{alumni.name}</td>
-              <td>{alumni.graduationYear}</td>
+              {/* <td>{((currentPage - 1) * itemsPerPage) + index + 1}</td> */}
+              <td>{`${alumni.first_name} ${alumni.last_name}`}</td>
+              <td>{`${alumni.batch_start_year}-${alumni.batch_end_year}`}</td>
               <td>{alumni.department}</td>
-              <td>{alumni.location}</td>
-              <td>{alumni.company}</td>
-              <td>{alumni.domain}</td>
+              <td>{alumni.company_name || '-'}</td>
+              <td>{alumni.designation || '-'}</td>
+              <td>{alumni.email}</td>
             </tr>
           ))}
         </tbody>
@@ -74,5 +79,4 @@ const SelectAlumni = ({ onSelectAlumni }) => {
     </div>
   );
 };
-
 export default SelectAlumni;

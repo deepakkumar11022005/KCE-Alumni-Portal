@@ -17,7 +17,7 @@ const FilterPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [itemsPerPage] = useState(20); // Set the number of items per page
+  const [itemsPerPage] = useState(2); // Set the number of items per page
 
   const fetchData = async (url) => {
     setLoading(true); // Start loading

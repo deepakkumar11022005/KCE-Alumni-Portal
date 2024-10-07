@@ -1,10 +1,11 @@
 .manage-alumni {
   padding: 24px;
+  
   background-color: var(--background-color);
   min-height: 100vh;
   font-family: 'Roboto', sans-serif;
 }
-
+ 
 .page-title {
   font-size: 32px;
   font-weight: bold;
