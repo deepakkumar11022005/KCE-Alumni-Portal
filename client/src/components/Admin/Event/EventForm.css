@@ -25,6 +25,18 @@
   color: #2d3748;
   margin-bottom: 6px;
 }
+#event-img-preview {
+  height: 200px;
+ 
+  width: fit-content;
+  object-fit: contain; /* Ensures the image covers the container without distortion */
+  border: 2px solid #ddd; /* Adds a light border around the image */
+  border-radius: 8px; /* Rounds the corners of the image */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  /* margin-top: 15px; Adds space above the image */
+  margin: 1px auto;
+  background-color: #f9f9f9; /* Sets a light background color */
+}
 
 /* Form Grouping */
 .form-group {
@@ -153,15 +165,17 @@
 }
 
 .primary-button {
-  background-color: #079c34db;
-  color: #fff;
+  border: 1px solid rgb(110, 109, 109) ;
+  /* background-color: #079c34db; */
+  color: #413e3e;
   /* width: 50%; */
   /* margin: 1px auto;   */
 }
 
 .primary-button:hover {
-  background-color: #036922f7;
+  background-color: #535353f7;
   transform: translateY(-1px);
+  color: white;
 }
 
 .secondary-button {
@@ -228,4 +242,73 @@
   margin-left: auto; /* Pushes the checkbox to the right end */
   transform: scale(1.2); /* Optional: Makes the checkbox slightly larger */
   cursor: pointer; /* Adds a pointer cursor for better UX */
+}
+
+/* Message Styling */
+.message {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.message.error {
+  color: #dc3545;
+}
+
+.message.success {
+  color: #28a745;
+}
+
+/* Required Asterisk */
+.required {
+  color: #dc3545;
+  margin-left: 2px;
+  font-size: 1.2em;
+}.image-upload-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* File Name Display */
+.file-name {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: #555;
+}/* Loader Overlay */
+.loader-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Spinner Animation */
+.loader {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #007bff; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Loading Text */
+.loading-text {
+  margin-top: 15px;
+  font-size: 1.2em;
+  color: #007bff;
 }
