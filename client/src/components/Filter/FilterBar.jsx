@@ -6,60 +6,83 @@ const FilterBar = ({ onFilter, showFilterBar, toggleFilterBar }) => {
     const initialFilters = {
         department: '',
         batch: '',
-        domain: '',
-        location: '',
-        company: '',
-        role: ''
+        degree: '',
+        branch: '',
+        is_employee: '',
+        is_entrepreneur: '',
+        is_highereducation: '',
     };
 
-    // State for filter fields
     const [filters, setFilters] = useState(initialFilters);
+    const [filterOptions, setFilterOptions] = useState({
+        departmentOptions: [],
+        batchOptions: [],
+        degreeOptions: [],
+        branchOptions: [],
+    });
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    // State to track window width for responsiveness
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        const fetchFilterOptions = async () => {
+            try {
+                const response = await fetch("https://alumni-apis.vercel.app/options");
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status}`);
+                }
+                const result = await response.json();
+                if (result.success) {
+                    setFilterOptions({
+                        departmentOptions: result.data.Department || [],
+                        batchOptions: result.data.Batch || [],
+                        degreeOptions: result.data.Degree || [],
+                        branchOptions: result.data.Branch || [],
+                    });
+                } else {
+                    throw new Error("Failed to load options");
+                }
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setIsLoading(false);
+            }
+        };
 
-    // Update filter fields
+        fetchFilterOptions();
+    }, []);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFilters(prevState => ({
+        setFilters((prevState) => ({
             ...prevState,
             [name]: value
         }));
     };
 
-    // Apply filters and close filter bar on small screens
     const handleFilter = () => {
-        onFilter(filters); // Pass filter data to parent component
-        if (windowWidth < 768) {
+        onFilter(filters);
+        if (window.innerWidth < 768) {
             toggleFilterBar();
         }
     };
 
-    // Track window resize for responsive handling
-    useEffect(() => {
-        const handleResize = () => setWindowWidth(window.innerWidth);
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    if (isLoading) {
+        return <div>Loading filter options...</div>;
+    }
 
-    // Options for different filters
-    const filterOptions = [
-        { name: 'department', label: 'Department', options: ['CSE', 'ECE', 'EEE'] },
-        { name: 'batch', label: 'Batch', options: ['2020', '2021', '2022'] },
-        { name: 'domain', label: 'Domain', options: ['Software', 'Hardware', 'Research'] },
-        { name: 'location', label: 'Location', options: ['Chennai', 'Bangalore', 'Hyderabad'] },
-        { name: 'role', label: 'Role', options: ['Employer', 'Entrepreneur'] }
-    ];
+    if (error) {
+        return <div>Error loading filter options: {error}</div>;
+    }
 
     return (
         <>
             <div className={`filter-component ${showFilterBar ? 'show' : ''}`}>
                 <h4>Filter Records</h4>
-                {filterOptions.map(({ name, label, options }) => (
-                    <div className="filter-group" key={name}>
-                        <label>{label}:</label>
-                        <select name={name} value={filters[name]} onChange={handleChange}>
-                            <option value="">Select {label}</option>
+                {Object.entries(filterOptions).map(([key, options]) => (
+                    <div className="filter-group" key={key}>
+                        <label>{key.replace('Options', '')}:</label>
+                        <select name={key.replace('Options', '')} value={filters[key.replace('Options', '')]} onChange={handleChange}>
+                            <option value="">Select {key.replace('Options', '')}</option>
                             {options.map(option => (
                                 <option key={option} value={option}>{option}</option>
                             ))}
@@ -67,14 +90,28 @@ const FilterBar = ({ onFilter, showFilterBar, toggleFilterBar }) => {
                     </div>
                 ))}
                 <div className="filter-group">
-                    <label>Company:</label>
-                    <input
-                        type="text"
-                        name="company"
-                        value={filters.company}
-                        onChange={handleChange}
-                        placeholder="Enter Company Name"
-                    />
+                    <label>Employee:</label>
+                    <select name="is_employee" value={filters.is_employee} onChange={handleChange}>
+                        <option value="">All</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div className="filter-group">
+                    <label>Entrepreneur:</label>
+                    <select name="is_entrepreneur" value={filters.is_entrepreneur} onChange={handleChange}>
+                        <option value="">All</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div className="filter-group">
+                    <label>Higher Education:</label>
+                    <select name="is_highereducation" value={filters.is_highereducation} onChange={handleChange}>
+                        <option value="">All</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
                 </div>
                 <button className="filter-btn" onClick={handleFilter}>Apply Filters</button>
             </div>

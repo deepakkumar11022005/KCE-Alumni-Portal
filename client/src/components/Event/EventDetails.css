@@ -111,7 +111,7 @@
 
 .sponsors-slider {
   display: flex;
-  animation: marquee 30s linear infinite;
+  animation: marquee 100000s linear infinite;
 }
 
 .sponsor-item {

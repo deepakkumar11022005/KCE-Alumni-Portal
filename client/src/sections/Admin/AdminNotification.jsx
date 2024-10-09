@@ -10,12 +10,10 @@ import {
 } from "../../components";
 
 const AdminNotification = () => {
-  // State management for notifications
   const [notifications, setNotifications] = useState([]);
   const [selectedAlumni, setSelectedAlumni] = useState([]);
-
-  // State for alumni data and pagination
   const [data, setData] = useState([]);
+  const [filteredAlumni, setFilteredAlumni] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [appliedFilters, setAppliedFilters] = useState({});
@@ -25,30 +23,21 @@ const AdminNotification = () => {
   const [totalItems, setTotalItems] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
 
-  // Search and filter configuration
-  const searchableFields = [
-    'first_name', 'last_name', 'email', 'mobile_number', 'department',
-    'degree', 'batch_start_year', 'batch_end_year', 'company_name',
-    'designation', 'work_domain'
-  ];
+  // Define searchable fields
+  const searchableFields = ['student_name', 'email', 'mobile_number'];
 
-  // Fetch alumni data
-  const fetchData = async (page) => {
+  const fetchData = async () => {
     setLoading(true);
     try {
-      const url = `https://alumni-apis.vercel.app/students?page=${page}&limit=${itemsPerPage}&sort=batch&order=desc`;
-      const response = await fetch(url, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      });
-
+      const url = `https://alumni-apis.vercel.app/students?limit=1000&sort=batch&order=desc`;
+      const response = await fetch(url);
       if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
       const result = await response.json();
       setData(result.data);
+      setFilteredAlumni(result.data);
       setTotalItems(result.pagination.totalRecords);
-      setTotalPages(result.pagination.totalPages);
-      setCurrentPage(result.pagination.currentPage);
+      setTotalPages(Math.ceil(result.pagination.totalRecords / itemsPerPage));
     } catch (error) {
       console.error("Error fetching data:", error);
       setError("An error occurred while fetching data. Please try again later.");
@@ -58,43 +47,41 @@ const AdminNotification = () => {
   };
 
   useEffect(() => {
-    fetchData(currentPage);
-  }, [currentPage, itemsPerPage]);
+    fetchData();
+  }, []);
 
-  // Search helper function
-  const searchInObject = (obj, searchTerm) => {
-    if (!searchTerm) return true;
-    
-    const searchTermLower = searchTerm.toLowerCase();
-    return searchableFields.some(field => {
-      const value = obj[field];
-      if (value === null || value === undefined) return false;
-      return value.toString().toLowerCase().includes(searchTermLower);
+  const filterAlumni = () => {
+    const filtered = data.filter((alumni) => {
+      const matchesFilters = Object.keys(appliedFilters).every((key) => {
+        if (!appliedFilters[key]) return true;
+        return alumni[key]?.toString().toLowerCase()
+          .includes(appliedFilters[key].toLowerCase());
+      });
+      
+      const matchesSearch = searchableFields.some(field => {
+        const value = alumni[field];
+        return value && value.toString().toLowerCase().includes(searchQuery.toLowerCase());
+      });
+      
+      return matchesFilters && matchesSearch;
     });
+
+    setFilteredAlumni(filtered);
+    setTotalItems(filtered.length);
+    setTotalPages(Math.ceil(filtered.length / itemsPerPage));
+    setCurrentPage(1);
   };
 
-  // Filter alumni based on search and filters
-  const filteredAlumni = data.filter((alumni) => {
-    const matchesFilters = Object.keys(appliedFilters).every((key) => {
-      if (!appliedFilters[key]) return true;
-      return alumni[key]?.toString().toLowerCase()
-        .includes(appliedFilters[key].toLowerCase());
-    });
-
-    const matchesSearch = searchInObject(alumni, searchQuery);
-    return (Object.keys(appliedFilters).length === 0 && searchQuery === "") || 
-           (matchesFilters && matchesSearch);
-  });
+  useEffect(() => {
+    filterAlumni();
+  }, [appliedFilters, searchQuery, data]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    fetchData(page);
   };
 
   const handleFilter = (filters) => {
     setAppliedFilters(filters);
-    setCurrentPage(1);
-    fetchData(1);
   };
 
   const handleSendNotification = (newNotification) => {
@@ -106,6 +93,11 @@ const AdminNotification = () => {
     setNotifications([notificationWithDetails, ...notifications]);
     console.log("Sending notification:", notificationWithDetails);
   };
+
+  const paginatedAlumni = filteredAlumni.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <div className="admin-notification">
@@ -125,11 +117,9 @@ const AdminNotification = () => {
       {!loading && !error && (
         <>
           <SelectAlumni
-            alumniData={filteredAlumni}
+            alumniData={paginatedAlumni}
             onSelectAlumni={setSelectedAlumni}
             selectedAlumni={selectedAlumni}
-            currentPage={currentPage}
-            itemsPerPage={itemsPerPage}
           />
           
           <Pagination

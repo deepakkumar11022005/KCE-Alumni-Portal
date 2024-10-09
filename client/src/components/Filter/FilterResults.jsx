@@ -1,22 +1,24 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './FilterResults.css';
 
-const FilterResults = ({ filteredResults }) => {
-    const navigate = useNavigate(); // Use useNavigate hook to access navigation
-
-    const handleCardClick = (id) => {
-        // Navigate to the profile page with the student's id
-        navigate(`/alumni/profile/${id}`); // Update the route as per your routing setup
-    };
+const FilterResults = ({ filteredResults, totalResults }) => {
+    const actualResultsCount = filteredResults.length;
 
     return (
         <div className="filter-results-container">
             <h3 className="filter-results-title">Results</h3>
+            <p className="total-results">
+                Total Results: {actualResultsCount}
+                {actualResultsCount !== totalResults && (
+                    <span className="results-mismatch">
+                        {" "}(Displaying {actualResultsCount} of {totalResults} total records)
+                    </span>
+                )}
+            </p>
             <div className="filter-results-grid">
-                {filteredResults.length > 0 ? (
+                {actualResultsCount > 0 ? (
                     filteredResults.map((result) => (
-                        <div key={result._id} className="result-card" onClick={() => handleCardClick(result._id)}>
+                        <div key={result.roll_no} className="result-card">
                             <div className="result-card-content">
                                 <div className="result-icon-container">
                                     <div className="result-icon">
@@ -26,8 +28,8 @@ const FilterResults = ({ filteredResults }) => {
                                     </div>
                                 </div>
                                 <div className="result-info">
-                                    <p className="result-name">{`${result.first_name} ${result.last_name}`}</p>
-                                    <p className="result-detail">Batch: {result.batch_start_year} - {result.batch_end_year}</p>
+                                    <p className="result-name">{result.student_name}</p>
+                                    <p className="result-detail">Batch: {result.batch}</p>
                                     <p className="result-detail">Department: {result.department}</p>
                                 </div>
                             </div>

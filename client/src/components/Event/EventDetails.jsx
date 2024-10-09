@@ -93,7 +93,7 @@ const EventDetails = () => {
                 <div className="sponsors-slider">
                   {sponsors.map((sponsor) => (
                     <div key={sponsor._id} className="sponsor-item">
-                      <img src={sponsor.image_id || kceLogo} alt={sponsor.sponser_name || "No Sponsor"} />
+                      <img src={  kceLogo} alt={sponsor.sponser_name || "No Sponsor"} />
                       <p>{sponsor.sponser_name || "Unnamed Sponsor"}</p>
                     </div>
                   ))}

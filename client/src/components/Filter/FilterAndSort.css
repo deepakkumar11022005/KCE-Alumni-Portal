@@ -7,7 +7,6 @@
     padding: 15px;
     border-radius: 10px;
     display: flex;
-    /* flex-wrap: wrap; */
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
@@ -32,21 +31,24 @@
     color: #333;
 }
 
-.sort-group, .limit-group {
+.sort-group,
+.search-group {
     display: flex;
     align-items: center;
     margin: 10px 15px 10px 0;
     flex-grow: 1;
 }
 
-.sort-group label, .search-group label {
+.sort-group label,
+.search-group label {
     margin-right: 10px;
     font-weight: bold;
     color: #555;
     white-space: nowrap;
 }
 
-.sort-group select, .search-group input {
+.sort-group select,
+.search-group input {
     padding: 8px 12px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -56,7 +58,8 @@
     max-width: 200px;
 }
 
-.sort-group select:focus, .search-group input:focus {
+.sort-group select:focus,
+.search-group input:focus {
     border-color: #007bff;
     outline: none;
 }
@@ -77,56 +80,51 @@
     background-color: #cc0000;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
     .filter-and-sort {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px; /* Adjust padding for smaller screens */
     }
-
-    .top-bar {
+     .top-bar-title1{
         display: none;
+     }
+    .top-bar {
+        display: none; /* Hide top bar on smaller screens */
     }
 
-    .sort-group, .limit-group {
-        width: auto;
-        margin-right: 15px;
-        flex: 1 1 40%;
+    .sort-group,
+    .search-group {
+        width: 100%; /* Take full width */
+        margin-bottom: 10px; /* Add space between groups */
     }
 
-    .sort-group select, .limit-group input {
-        max-width: none;
-        width: 100%;
+    .sort-group select,
+    .search-group input {
+        width: 100%; /* Full width for inputs */
+        max-width: none; /* Remove max-width for smaller screens */
     }
 
     .clear-btn {
-        margin-top: 15px;
-        flex-basis: 100%;
+        width: 100%; /* Full width for clear button */
+        margin-top: 10px; /* Margin for spacing */
     }
 }
 
 @media (max-width: 480px) {
     .filter-and-sort {
-        flex-direction: column;
-        align-items: stretch;
+        align-items: stretch; /* Ensure stretch alignment */
     }
 
-    .top-bar {
-        justify-content: center;
-    }
-
-    .sort-group, .limit-group {
+    .sort-group,
+    .search-group {
         flex-direction: column;
         align-items: flex-start;
-        width: 100%;
-        margin-right: 0;
+        margin-right: 0; /* Reset margin */
     }
 
-    .sort-group label, .limit-group label {
-        margin-bottom: 5px;
-    }
-
-    .clear-btn {
-        width: 100%;
+    .sort-group label,
+    .search-group label {
+        margin-bottom: 5px; /* Space below labels */
     }
 }

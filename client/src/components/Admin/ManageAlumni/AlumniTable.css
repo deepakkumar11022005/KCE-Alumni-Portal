@@ -90,20 +90,24 @@
 .detail-container {
   display: flex;
   flex-direction: column;
-
+   width: 100%;
   gap: 30px;
-  align-items: flex-start; /* Align items at the top for a clean row layout */
+  align-items: center; /* Align items at the top for a clean row layout */
   padding: 20px;
+  justify-content: center;
 }
 
-.image-container {
+.image-containerr {
   flex-shrink: 0;
   height: 180px;
   width: 180px; /* Set a fixed width for the image container */
   text-align: center;
+  display: flex;
+  justify-content: center;
+ 
 }
 
-.image-container img {
+.image-containerr img {
   object-fit: cover;
   border-radius: 50%; /* Make the image circular */
   /* border: 4px solid var(--primary-color); Add a bold border around the image */
@@ -174,7 +178,7 @@
     gap: 20px;
   }
 
-  .image-container {
+  .image-containerr {
     width: 150px; /* Adjust the width for smaller screens */
   }
 
@@ -192,4 +196,13 @@
   font-weight: bold;
   text-align: left; /* Align header text to the left */
   padding: 10px; /* Add some padding */
+}
+.results-bar {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 1.1rem;
+  padding: 10px 2rem;
+  font-weight: bold;
+  /* background-color: aqua;/ */
+  color:var(--primary-color); /* Change to your preferred color */
 }

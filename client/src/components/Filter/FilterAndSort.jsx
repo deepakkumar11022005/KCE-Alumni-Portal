@@ -1,26 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './FilterAndSort.css';
 import { FaFilter } from 'react-icons/fa';
 
-const FilterAndSort = ({ onSort, onSearchChange, onClear }) => {
-    const [sortOrder, setSortOrder] = useState('ascending');
-    const [searchQuery, setSearchQuery] = useState('');
-
+const FilterAndSort = ({ onSort, onSearchChange, onClear, totalResults, sortOrder, searchQuery }) => {
     const handleSortChange = (e) => {
         const { value } = e.target;
-        setSortOrder(value);
         onSort(value);
     };
 
     const handleSearchChange = (e) => {
         const { value } = e.target;
-        setSearchQuery(value);
         onSearchChange(value);
     };
 
     const handleClear = () => {
-        setSortOrder('ascending');
-        setSearchQuery('');
         onClear();
     };
 
@@ -31,8 +24,8 @@ const FilterAndSort = ({ onSort, onSearchChange, onClear }) => {
                 <span className="top-bar-title">Filter & Sort Options</span>
             </div>
             <div className="sort-group">
-                <label>Sort by :</label>
-                <select value={sortOrder} onChange={handleSortChange}>
+                <label htmlFor="sortOrder">Sort by:</label>
+                <select id="sortOrder" value={sortOrder} onChange={handleSortChange}>
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
@@ -46,6 +39,7 @@ const FilterAndSort = ({ onSort, onSearchChange, onClear }) => {
                 />
             </div>
             <button className="clear-btn" onClick={handleClear}>Clear</button>
+           
         </div>
     );
 };

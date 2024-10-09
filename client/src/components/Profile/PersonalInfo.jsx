@@ -27,7 +27,7 @@ const PersonalInfo = ({ alumniData, onEdit }) => {
           </button>
         </div>
         <div className="info-section">
-          <h1>{alumniData.name}</h1>
+          <h2>{alumniData.name}</h2>
           <p className="domains">{alumniData.domains.join(" | ")}</p>
           <p className="skills">{alumniData.skills.join(" • ")}</p>
           <div className="contact-info">

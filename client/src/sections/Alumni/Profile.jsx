@@ -27,7 +27,7 @@ const Profile = () => {
     const fetchAlumniData = async () => {
       try {
         // const response = await fetch(`https://alumni-apis.vercel.app/student/${id}`);
-        const response = await fetch(`https://alumni-apis.vercel.app/student/66f96c743baebe08a488470a`);
+        const response = await fetch(`https://alumni-apis.vercel.app/student/67061ddc81d1163c3f9826a7`);
         if (!response.ok) throw new Error("Failed to fetch profile data");
 
         const data = await response.json();
@@ -55,10 +55,10 @@ const Profile = () => {
 
         setAlumniData({
           image: defaultAlumnImg, // You can update this with a dynamic URL if needed
-          name: `${studentData.first_name} ${studentData.last_name}`,
-          domains: [studentData.work_domain || "N/A"],
+          name: `${studentData.student_name + "  "+  studentData.roll_no}`,
+          domains: [studentData.work_experience[0].work_domain  || "N/A"],
           skills: [
-            `Batch ${studentData.batch_start_year}-${studentData.batch_end_year}`,
+            `Batch ${studentData.batch}`,
             studentData.degree || "N/A",
           ],
           email: studentData.email,

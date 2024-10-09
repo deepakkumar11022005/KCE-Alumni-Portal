@@ -17,7 +17,7 @@ const SelectAlumni = ({
   };
 
   const handleSelectAll = () => {
-    const currentPageIds = alumniData.map(alumni => alumni._id);
+    const currentPageIds = alumniData.map(alumni => alumni.roll_no); // Use roll_no as ID
     const allSelected = currentPageIds.every(id => selectedAlumni.includes(id));
     
     let updatedSelected;
@@ -41,12 +41,11 @@ const SelectAlumni = ({
               <input
                 type="checkbox"
                 checked={alumniData.length > 0 && alumniData.every(alumni => 
-                  selectedAlumni.includes(alumni._id)
+                  selectedAlumni.includes(alumni.roll_no) // Use roll_no as ID
                 )}
                 onChange={handleSelectAll}
               />
             </th>
-            {/* <th>S.no.</th> */}
             <th>Name</th>
             <th>Batch</th>
             <th>Department</th>
@@ -57,21 +56,20 @@ const SelectAlumni = ({
         </thead>
         <tbody>
           {alumniData.map((alumni, index) => (
-            <tr key={alumni._id}>
+            <tr key={alumni.roll_no}> {/* Use roll_no as key */}
               <td>
                 <input
                   type="checkbox"
-                  checked={selectedAlumni.includes(alumni._id)}
-                  onChange={() => handleSelect(alumni._id)}
+                  checked={selectedAlumni.includes(alumni.roll_no)} // Use roll_no as ID
+                  onChange={() => handleSelect(alumni.roll_no)} // Use roll_no as ID
                 />
               </td>
-              {/* <td>{((currentPage - 1) * itemsPerPage) + index + 1}</td> */}
-              <td>{`${alumni.first_name} ${alumni.last_name}`}</td>
-              <td>{`${alumni.batch_start_year}-${alumni.batch_end_year}`}</td>
-              <td>{alumni.department}</td>
-              <td>{alumni.company_name || '-'}</td>
-              <td>{alumni.designation || '-'}</td>
-              <td>{alumni.email}</td>
+              <td>{alumni.student_name}</td> {/* Updated to match the data structure */}
+              <td>{alumni.batch}</td> {/* Updated to match the data structure */}
+              <td>{alumni.department}</td> {/* Updated to match the data structure */}
+              <td>{alumni.work_experience.length > 0 ? alumni.work_experience[0].company_name : '-'}</td> {/* First company from work experience */}
+              <td>{alumni.work_experience.length > 0 ? alumni.work_experience[0].designation : '-'}</td> {/* First designation from work experience */}
+              <td>{alumni.email || "-"}</td> {/* Updated to match the data structure */}
             </tr>
           ))}
         </tbody>
@@ -79,4 +77,5 @@ const SelectAlumni = ({
     </div>
   );
 };
+
 export default SelectAlumni;
