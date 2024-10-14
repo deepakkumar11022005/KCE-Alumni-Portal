@@ -14,7 +14,7 @@
 .form-title {
   text-align: center;
   color: #2c3e50;
-  font-size: 2rem;
+  font-size: 1.7rem;
   margin-bottom: 2rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -208,4 +208,9 @@
   height: 3px;
   background: linear-gradient(90deg, #3498db, #2ecc71);
   border-radius: 2px;
+}
+.submit-buttonn{
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
 }

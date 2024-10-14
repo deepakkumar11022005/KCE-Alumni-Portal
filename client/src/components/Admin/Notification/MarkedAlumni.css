@@ -1,0 +1,61 @@
+/* SelectedAlumniDisplay.css */
+
+.selected-alumni-container {
+    margin-top: 20px;
+    background-color: #f7fafc; /* Light gray background */
+    padding: 1rem; /* Padding around the container */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .selected-alumni-title {
+    font-size: 1.125rem; /* Font size for the title */
+    font-weight: 600; /* Bold font for emphasis */
+    margin-bottom: 0.5rem; /* Space below the title */
+  }
+  
+  .selected-alumni-list {
+    display: flex; /* Flexbox for alignment */
+    flex-wrap: wrap; /* Allow wrapping for multiple alumni */
+    gap: 0.5rem; /* Space between alumni badges */
+  }
+  
+  .selected-alumni-item {
+    background-color: #ebf8ff; /* Light blue background for each badge */
+    color: #2b6cb0; /* Dark blue text for contrast */
+    padding: 0.25rem 0.75rem; /* Padding inside the badge */
+    border-radius: 9999px; /* Fully rounded badge */
+    display: flex; /* Flex layout for badge items */
+    align-items: center; /* Center text and button */
+    transition: background-color 0.2s ease; /* Smooth transition on hover */
+  }
+  
+  .selected-alumni-item:hover {
+    background-color: #bee3f8; /* Darker blue on hover */
+  }
+  
+  .selected-alumni-remove-btn {
+    margin-left: 0.5rem; /* Space between roll number and button */
+    color: #3182ce; /* Initial button color */
+    border: none; /* Remove default button border */
+    background: none; /* No background for button */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+  
+  .selected-alumni-remove-btn:hover {
+    color: #2b6cb0; /* Darker color on hover */
+  }
+  
+  .selected-alumni-total {
+    padding: 2rem 0 0 1rem ;
+    font-weight: 600;
+    margin-top: 0.5rem; /* Space above the total count */
+    font-size: 0.975rem; /* Smaller text for total count */
+    color: #718096; /* Gray text for subtlety */
+  }
+  
+  .text-gray-500 {
+    color: #a0aec0; /* Light gray for 'No alumni selected' */
+    font-style: italic; /* Italicized for distinction */
+  }
+  

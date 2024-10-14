@@ -24,7 +24,7 @@ const FilterCards = () => {
       {filters.map((filter, index) => (
         <div
           key={index}
-          className="card"
+          className="cardd"
           style={{ backgroundColor: filter.color }}
           onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}

@@ -343,23 +343,23 @@ const EventForm = ({ onSave = () => {} }) => {
    */
   const uploadImage = async (imageFile) => {
     // Example using a fictional image upload API
-    const uploadEndpoint = "https://your-image-upload-api.com/upload"; // Replace with actual endpoint
+    // const uploadEndpoint = "https://your-image-upload-api.com/upload"; // Replace with actual endpoint
 
-    const formData = new FormData();
-    formData.append("file", imageFile);
+    // const formData = new FormData();
+    // formData.append("file", imageFile);
 
-    const response = await fetch(uploadEndpoint, {
-      method: "POST",
-      body: formData,
-      // Include headers or authentication if required
-    });
+    // const response = await fetch(uploadEndpoint, {
+    //   method: "POST",
+    //   body: formData,
+    //   // Include headers or authentication if required
+    // });
 
-    if (!response.ok) {
-      throw new Error(`Image upload failed with status: ${response.status}`);
-    }
+    // if (!response.ok) {
+    //   throw new Error(`Image upload failed with status: ${response.status}`);
+    // }
 
     const data = await response.json();
-    return data.image_id; // Adjust based on your API's response structure
+    return "data.image_id"; // Adjust based on your API's response structure
   };
 
   /**

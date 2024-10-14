@@ -35,3 +35,4 @@ export { default as AdminEventDetails } from './Admin/Event/AdminEventDetails.js
 export { default as ProfileNav } from './Admin/profile/profileNav.jsx'
 export { default as EditProfile } from "./Profile/EditProfile.jsx"
 export { default as Pagination } from './Filter/Pagination.jsx'
+export {default as SelectedAlumniDisplay} from './Admin/Notification/MarkedAlumni.jsx'

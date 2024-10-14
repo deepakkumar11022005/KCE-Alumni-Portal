@@ -13,13 +13,14 @@ import {
 
 import "./Profile.css";
 import defaultAlumnImg from '../../assets/images/me.jpg'; // Ensure this path is correct
+import { data } from "jquery";
 
 const Profile = () => {
   const { id } = useParams();
   const [alumniData, setAlumniData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [Editdata,setEditData]=useState(null);
   // State to manage editing
   const [isEditing, setIsEditing] = useState(false);
 
@@ -32,7 +33,7 @@ const Profile = () => {
 
         const data = await response.json();
         const studentData = data.data; // Access the nested data
-
+        setEditData(data.data);
         // Map work_experience to the format expected by WorkExperience component
         const mappedExperiences = studentData.work_experience.map((exp) => ({
           year: `${exp.from_year} - ${exp.to_year}`,
@@ -102,12 +103,60 @@ const Profile = () => {
 
   // Handler to save changes from EditProfile
   const handleSaveChanges = (updatedData) => {
-    // Here, you would typically make an API call to update the data on the backend.
-    // For demonstration, we'll directly update the state.
-    setAlumniData(updatedData);
-    setIsEditing(false);
+    // Update alumniData with the new structure
+    const mappedExperiences = updatedData.work_experience.map((exp) => ({
+      year: `${exp.from_year} - ${exp.to_year}`, // Ensure this format matches your WorkExperience component's expectation
+      role: exp.designation,
+      company: exp.company_name,
+      description: exp.work_domain,
+      companyUrl: exp.company_url,
+      companyType: exp.company_type,
+      companyAddress: exp.company_address,
+    }));
+  
+    const mappedEducation = updatedData.education.map((edu) => ({
+      _id: edu._id,
+      institution: edu.institute_name || "N/A",
+      course: edu.course || "N/A",
+      year: edu.passed_out_year || "N/A",
+      grade: edu.grade || "N/A",
+    }));
+  
+    setAlumniData({
+      image: defaultAlumnImg, // Update with a dynamic URL if needed
+      name: `${updatedData.student_name} ${updatedData.roll_no}`,
+      domains: [updatedData.work_experience[0]?.work_domain || "N/A"],
+      skills: [
+        `Batch ${updatedData.batch}`,
+        updatedData.degree || "N/A",
+      ],
+      email: updatedData.email,
+      phone: updatedData.mobile_number.toString(),
+      linkedin: updatedData.linkedin_id,
+      instagram: updatedData.instagram_id,
+      facebook: updatedData.facebook_id,
+      experiences: mappedExperiences,
+      education: mappedEducation,
+      dateOfBirth: updatedData.date_of_birth || "N/A",
+      bloodGroup: updatedData.blood_group || "N/A",
+      aadharNumber: updatedData.aadhar_number || "N/A",
+      panNumber: updatedData.pan_number || "N/A",
+      fatherName: updatedData.fathers_name || "N/A",
+      fatherMobile: updatedData.fathers_mobile || "N/A",
+      fatherEmail: updatedData.fathers_email || "N/A",
+      motherName: updatedData.mothers_name || "N/A",
+      motherMobile: updatedData.mothers_mobile || "N/A",
+      motherEmail: updatedData.mothers_email || "N/A",
+      experience: updatedData.experience || "N/A",
+      higherEducation: updatedData.higher_education || false,
+      pgCollege: updatedData.pg_college || "N/A",
+      pgBranch: updatedData.pg_branch || "N/A",
+      pgDepartment: updatedData.pg_department || "N/A",
+      pgAddress: updatedData.pg_address || "N/A",
+    });
+    setIsEditing(false); // Close the editing mode
   };
-
+  
   const handleCancelEdit = () => {
     setIsEditing(false);
   };
@@ -126,7 +175,7 @@ const Profile = () => {
       <CustomNavbar />
       {isEditing ? (
         <EditProfile
-          alumniData={alumniData}
+          alumniData={Editdata}
           onSave={handleSaveChanges}
           onCancel={handleCancelEdit}
         />

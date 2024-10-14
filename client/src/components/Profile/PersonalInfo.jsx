@@ -16,7 +16,7 @@ const PersonalInfo = ({ alumniData, onEdit }) => {
   return (
     <div className="personal-info">
       <div className="personal-info-container">
-        <div className="profile-image">
+        <div className="profile-imagee">
           <img src={alumniData.image} alt={alumniData.name} />
           
           <button
@@ -27,7 +27,7 @@ const PersonalInfo = ({ alumniData, onEdit }) => {
           </button>
         </div>
         <div className="info-section">
-          <h2>{alumniData.name}</h2>
+          <h2 className="alumni-name">{alumniData.name}</h2>
           <p className="domains">{alumniData.domains.join(" | ")}</p>
           <p className="skills">{alumniData.skills.join(" • ")}</p>
           <div className="contact-info">

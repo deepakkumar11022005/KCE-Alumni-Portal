@@ -7,14 +7,15 @@
   border: none;
 }
 
-.card {
+.cardd {
+  padding: 0;
   overflow: hidden;
   width: 250px;
   height: 150px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  
   padding: 20px;
   position: relative;
   transition: transform 0.5s ease, background-color 0.5s ease;
@@ -22,11 +23,11 @@
   box-shadow: 0 5px 15px rgba(239, 207, 152, 0.219); 
 }
 
-.card:hover {
+.cardd:hover {
   transform: translateY(-10px);
 }
 
-.card::before {
+.cardd::before {
   content: "";
   height: 100px;
   width: 100px;
@@ -58,7 +59,7 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-.card:hover::before {
+.cardd:hover::before {
   width: 140px;
   height: 140px;
   top: -30%;
@@ -67,14 +68,15 @@
 }
 
 @media (max-width: 768px) {
-  .card {
+  .cardd {
     width: 90%;
     height: auto;
   }
 }.view-more-btn {
   padding: 10px 15px;
+  font-weight: 600;
   background-color: transparent;
-  color: #333;
+  color: #f8f5f5 !important;
   border: none;
   border-radius: 5px;
   font-size: 0.9em;
@@ -83,6 +85,7 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+  margin: 0;
   transition: background-color 0.3s ease;
 }
 

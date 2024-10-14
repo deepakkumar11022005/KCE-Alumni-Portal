@@ -6,7 +6,8 @@ import {
   NotificationNav,
   AlumniFilters,
   SelectAlumni,
-  Pagination
+  Pagination,
+  SelectedAlumniDisplay
 } from "../../components";
 
 const AdminNotification = () => {
@@ -24,7 +25,7 @@ const AdminNotification = () => {
   const [totalPages, setTotalPages] = useState(0);
 
   // Define searchable fields
-  const searchableFields = ['student_name', 'email', 'mobile_number'];
+  const searchableFields = ['student_name', 'email', 'mobile_number', 'batch', 'department'];
 
   const fetchData = async () => {
     setLoading(true);
@@ -35,7 +36,6 @@ const AdminNotification = () => {
 
       const result = await response.json();
       setData(result.data);
-      setFilteredAlumni(result.data);
       setTotalItems(result.pagination.totalRecords);
       setTotalPages(Math.ceil(result.pagination.totalRecords / itemsPerPage));
     } catch (error) {
@@ -49,8 +49,10 @@ const AdminNotification = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-  const filterAlumni = () => {
+  const handleRemoveAlumni = (rollNo) => {
+    setSelectedAlumni(prevSelected => prevSelected.filter(id => id !== rollNo));
+  };
+  const filterAndSearchAlumni = () => {
     const filtered = data.filter((alumni) => {
       const matchesFilters = Object.keys(appliedFilters).every((key) => {
         if (!appliedFilters[key]) return true;
@@ -73,7 +75,7 @@ const AdminNotification = () => {
   };
 
   useEffect(() => {
-    filterAlumni();
+    filterAndSearchAlumni();
   }, [appliedFilters, searchQuery, data]);
 
   const handlePageChange = (page) => {
@@ -92,6 +94,10 @@ const AdminNotification = () => {
     };
     setNotifications([notificationWithDetails, ...notifications]);
     console.log("Sending notification:", notificationWithDetails);
+  };
+
+  const handleSelectAlumni = (selectedIds) => {
+    setSelectedAlumni(selectedIds);
   };
 
   const paginatedAlumni = filteredAlumni.slice(
@@ -116,10 +122,17 @@ const AdminNotification = () => {
 
       {!loading && !error && (
         <>
+      
+          <SelectedAlumniDisplay 
+        selectedAlumni={selectedAlumni}
+        onRemove={handleRemoveAlumni}
+      />
           <SelectAlumni
             alumniData={paginatedAlumni}
-            onSelectAlumni={setSelectedAlumni}
+            onSelectAlumni={handleSelectAlumni}
             selectedAlumni={selectedAlumni}
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
           />
           
           <Pagination
@@ -140,4 +153,4 @@ const AdminNotification = () => {
   );
 };
 
-export default AdminNotification;
+export default AdminNotification; 

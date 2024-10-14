@@ -8,7 +8,7 @@ const AlumniTestimonialCard = ({ imgURL, name, batch, company, domain, isActive 
       <div className="image-container">
         <img src={imgURL} alt={name} className="alumni-image" />
       </div>
-      <h3 className="alumni-name">{name}</h3>
+      <h3 className="alumni-namee">{name}</h3>
       <p className="alumni-info">{batch} | {company} </p>
     </div>
   );
