@@ -23,13 +23,13 @@ const FilterAndSort = ({ onSort, onSearchChange, onClear, totalResults, sortOrde
                 <FaFilter className="filter-icon" />
                 <span className="top-bar-title">Filter & Sort Options</span>
             </div>
-            <div className="sort-group">
+            {/* <div className="sort-group">
                 <label htmlFor="sortOrder">Sort by:</label>
                 <select id="sortOrder" value={sortOrder} onChange={handleSortChange}>
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
-            </div>
+            </div> */}
             <div className="search-group">
                 <input
                     type="text"
