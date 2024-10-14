@@ -6,7 +6,7 @@ import Filter from "./sections/Alumni/Filter";
 import Home from "./sections/Alumni/Home";
 import TotalEvents from "./sections/Alumni/TotalEvents";
 import Profile from "./sections/Alumni/Profile";
-import NotFound from "./sections/NotFound"; // Ensure you create this component
+import NotFound from "./sections/NotFound"; 
 
 import AdminHome from "./sections/Admin/AdminHome";
 import ManageAlumni from "./sections/Admin/ManageAlumni";
@@ -27,7 +27,7 @@ function App() {
           <Route path="event/:id" element={<EventDetails />} />
           <Route path="profile/:id" element={<Profile />} />
           <Route path="profile" element={<Profile />} />
-          {/* Catch-all route for /alumni/* */}
+        
           <Route path="*" element={<NotFound />} />
         </Route>
 
@@ -38,11 +38,11 @@ function App() {
           <Route path="notification" element={<AdminNotification />} />
           <Route path="event" element={<AdminEvent />} />
           <Route path="profile" element={<AdminProfile />} />
-          {/* Catch-all route for /admin/* */}
+     
           <Route path="*" element={<NotFound />} />
         </Route>
 
-        {/* Optional: Catch-all for other paths */}
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
