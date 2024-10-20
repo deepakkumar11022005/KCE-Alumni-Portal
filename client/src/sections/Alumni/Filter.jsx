@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { CustomNavbar, FilterPage, FilterResults, Footer } from "../../components";
-
+import { CustomNavbar,FilterPage,Footer } from "../../components";
+ 
 const Filter = () => {
 
   return (
     <div className="">
-      <CustomNavbar />
+      <CustomNavbar/>
       <FilterPage   />
       <Footer />
     </div>

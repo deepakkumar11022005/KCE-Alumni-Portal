@@ -1,8 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './FilterResults.css';
 
 const FilterResults = ({ filteredResults, totalResults }) => {
+    const navigate = useNavigate(); // Initialize the useNavigate hook
     const actualResultsCount = filteredResults.length;
+
+    const handleCardClick = (id) => {
+        // navigate(`/alumni/profile/${id}`);  
+    };
 
     return (
         <div className="filter-results-container">
@@ -18,7 +24,11 @@ const FilterResults = ({ filteredResults, totalResults }) => {
             <div className="filter-results-grid">
                 {actualResultsCount > 0 ? (
                     filteredResults.map((result) => (
-                        <div key={result.roll_no} className="result-card">
+                        <div
+                            key={result.roll_no}
+                            className="result-card"
+                            onClick={() => handleCardClick(result._id)} // Use the result's ID
+                        >
                             <div className="result-card-content">
                                 <div className="result-icon-container">
                                     <div className="result-icon">
@@ -44,3 +54,4 @@ const FilterResults = ({ filteredResults, totalResults }) => {
 };
 
 export default FilterResults;
+    

@@ -2,4 +2,8 @@
  :root {
     --green: #00796b;
   }
-  
+  body{
+    background: 
+    radial-gradient(circle at 20% 20%, rgba(121, 134, 203, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(0, 191, 165, 0.1) 0%, transparent 40%);
+  }

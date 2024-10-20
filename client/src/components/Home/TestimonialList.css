@@ -1,0 +1,110 @@
+.testimonial-slider {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonial-container {
+    display: flex;
+    align-items: center;
+    justify-content: start; /* Align content to start (left) */
+    flex-direction: row;
+    gap: 20px;
+    text-align: left;
+    padding: 20px;
+  }
+  
+  .testimonial-image img {
+    width: 80px; /* Slightly smaller image */
+    height: 80px;
+    border-radius: 50%; /* Circular image */
+    object-fit: cover;
+  }
+  
+  .testimonial-content {
+    flex-grow: 1;
+  }
+  
+  .testimonial-quote {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-style: normal; /* Remove italics */
+  }
+  
+  .testimonial-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff6600;
+    margin-bottom: 5px;
+  }
+  
+  .testimonial-designation {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: normal; /* Remove italics */
+  }
+  
+  /* Slider dots */
+  .slick-dots li button:before {
+    font-size: 12px;
+    color: #007bff;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #ff6600;
+  }
+  
+  /* Make it responsive */
+  @media (max-width: 1200px) {
+    .testimonial-slider {
+      max-width: 100%;
+    }
+  
+    .testimonial-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .testimonial-image img {
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .testimonial-slider {
+      max-width: 90%;
+    }
+  
+    .testimonial-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .testimonial-image img {
+      margin-bottom: 20px;
+      margin: 1px auto ;
+      width: 150px;
+      height: 150px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .testimonial-slider {
+      max-width: 100%;
+    }
+  
+    .testimonial-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .testimonial-image img {
+      margin-bottom: 20px;
+    }
+  }
+  

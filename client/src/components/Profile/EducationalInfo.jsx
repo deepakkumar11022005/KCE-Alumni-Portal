@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './EducationalInfo.css';
 
-const EducationalInfo = ({ education, onEdit }) => {
+const EducationalInfo = ({ education   }) => {
   return (
     <div className="education-details">
       <h3>Education</h3>
@@ -20,6 +20,7 @@ const EducationalInfo = ({ education, onEdit }) => {
             </div>
             <p>Institution: <span className='yellow-text'>{item.institution}</span></p>
             <p>Year: {item.year}</p>
+            {/* <p>Branch : Computer Science and Engineeing</p> */}
             <p>Grade: {item.grade}</p>
           </div>
         </div>
@@ -38,7 +39,7 @@ EducationalInfo.propTypes = {
       grade: PropTypes.string.isRequired,
     })
   ).isRequired,
-  onEdit: PropTypes.func.isRequired,
+   
 };
 
 export default EducationalInfo;

@@ -1,7 +1,7 @@
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import './App.css'
 import Filter from "./sections/Alumni/Filter";
 import Home from "./sections/Alumni/Home";
 import TotalEvents from "./sections/Alumni/TotalEvents";
@@ -13,7 +13,7 @@ import ManageAlumni from "./sections/Admin/ManageAlumni";
 import AdminNotification from "./sections/Admin/AdminNotification";
 import AdminEvent from "./sections/Admin/AdminEvent";
 import AdminProfile from "./sections/Admin/AdminProfile";
-import { EventDetails } from "./components";
+import { AlumniProfile, EventDetails } from "./components";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           <Route path="manage-alumni" element={<Filter />} />
           <Route path="event" element={<TotalEvents />} />
           <Route path="event/:id" element={<EventDetails />} />
-          <Route path="profile/:id" element={<Profile />} />
+          <Route path="profile/:id" element={<AlumniProfile/>} />
           <Route path="profile" element={<Profile />} />
         
           <Route path="*" element={<NotFound />} />

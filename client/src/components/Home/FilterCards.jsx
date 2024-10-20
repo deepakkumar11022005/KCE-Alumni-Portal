@@ -5,11 +5,28 @@ const FilterCards = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const filters = [
-    { title: "Alumni", color: "rgba(46, 204, 113, 0.9)", icon: "🎓" },
-    { title: "Event", color: "rgba(243, 156, 18, 0.9)", icon: "📅" },
-    { title: "Excellence", color: "rgba(241, 196, 15, 0.9)", icon: "🏆" },
-    { title: "Hots", color: "rgba(52, 152, 219, 0.9)", icon: "🔥" },
+    {
+      title: "Alumni",
+      icon: "🎓",
+      description: "Engage with alumni through meaningful events and activities, fostering a strong connection with the institution and community.",
+    },
+    {
+      title: "Event",
+      icon: "📅",
+      description: "Stay updated on exciting upcoming events and news, helping you remain actively involved in the campus community.",
+    },
+    {
+      title: "Excellence",
+      icon: "🏆",
+      description: "Celebrating  achievements in academics and extracurricular activities, recognizing the hard work and dedication of students.",
+    },
+    {
+      title: "Hots",
+      icon: "🔥",
+      description: "Explore trending topics, news, and updates within the community, keeping you informed about the latest developments.",
+    },
   ];
+  
 
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
@@ -20,38 +37,30 @@ const FilterCards = () => {
   };
 
   return (
-    <div className="filter-cards">
-      {filters.map((filter, index) => (
-        <div
-          key={index}
-          className="cardd"
-          style={{ backgroundColor: filter.color }}
-          onMouseEnter={() => handleMouseEnter(index)}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className="text">
-            <span className="icon">{filter.icon}</span>
-            <span className="title">{filter.title}</span>
+    <div className="filter-cards-container">
+      <h1 className="filter-cards-title">Explore Our Services</h1>
+      <p className="filter-cards-subtitle">Discover what's new and important at a glance.</p>
+
+      <div className="filter-cards">
+        {filters.map((filter, index) => (
+          <div
+            key={index}
+            className={`cardd ${hoveredIndex === index ? "hovered" : ""}`}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="card-icon">
+              <span role="img" aria-label={filter.title}>
+                {filter.icon}
+              </span>
+            </div>
+            <div className="card-content">
+              <h3>{filter.title}</h3>
+              <p>{filter.description}</p>
+            </div>
           </div>
-          <button className="view-more-btn">
-            View More
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="16"
-              height="16"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={`arrow-icon ${hoveredIndex === index ? 'animate' : ''}`}
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

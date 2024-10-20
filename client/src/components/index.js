@@ -36,3 +36,5 @@ export { default as ProfileNav } from './Admin/profile/profileNav.jsx'
 export { default as EditProfile } from "./Profile/EditProfile.jsx"
 export { default as Pagination } from './Filter/Pagination.jsx'
 export {default as SelectedAlumniDisplay} from './Admin/Notification/MarkedAlumni.jsx'
+export{default as AlumniSuccessStories} from './Home/AlumniSuccessStories.jsx'
+export {default as AlumniProfile} from './Filter/AlumniProfile.jsx'

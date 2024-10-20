@@ -13,11 +13,13 @@ import "./PersonalInfo.css";
 import defaultAlumnImg from '../../assets/images/me.jpg'; // Ensure this path is correct
 
 const PersonalInfo = ({ alumniData, onEdit }) => {
+  console.log(alumniData);
+  
   return (
     <div className="personal-info">
       <div className="personal-info-container">
         <div className="profile-imagee">
-          <img src={alumniData.image} alt={alumniData.name} />
+          <img src={defaultAlumnImg} alt={alumniData.name} />
           
           <button
             className="edit-button image-edit"

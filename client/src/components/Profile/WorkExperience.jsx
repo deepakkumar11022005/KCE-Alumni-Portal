@@ -3,7 +3,7 @@ import React from 'react';
 import { Briefcase } from 'lucide-react';
 import './WorkExperience.css';
 
-const WorkExperience = ({ experiences, onEdit, onDelete }) => {
+const WorkExperience = ({ experiences }) => {
   return (
     <div className="experience-container">
       <h2 className="experience-title">Work Experience</h2>

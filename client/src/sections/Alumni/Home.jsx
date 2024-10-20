@@ -1,5 +1,5 @@
 import React from 'react'
-import {  AlumniSlider, CustomNavbar,Dashboard,Footer,Swiper } from '../../components'
+import {  AlumniSlider, AlumniSuccessStories, CustomNavbar,Dashboard,Footer,Swiper } from '../../components'
  
 const  Home = () => {
   return (
@@ -7,6 +7,7 @@ const  Home = () => {
      <CustomNavbar />
       <Swiper/>
       <Dashboard/>
+      <AlumniSuccessStories/>
        <AlumniSlider/>
       <Footer/>
     </div>

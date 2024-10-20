@@ -1,0 +1,28 @@
+.alumni-success-stories {
+    padding: 40px 20px;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(121, 134, 203, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(0, 191, 165, 0.1) 0%, transparent 40%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+  }
+  
+  .alumni-success-stories h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  /* Responsive design */
+@media (max-width: 900px) {
+  .alumni-success-stories h2{
+    font-size: 1.8rem;
+  }
+}
+  
