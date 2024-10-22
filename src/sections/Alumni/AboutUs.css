@@ -1,0 +1,275 @@
+/* Container for the entire About Us page */
+.about-us-container {
+  display: flex;
+  margin: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Styling for the sidebar on the left */
+.sidebar {
+  width: 20%;
+  border-top: 5px solid var(--primary-orange);
+  /* background-color: #f9f9f9; */
+  border-radius: 2px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  padding: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 50px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+.header .subtitle{
+  text-align: center;
+}
+/* Enhanced paragraph styling */
+p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1.2em;
+  text-align: justify;
+  letter-spacing: 0.3px;
+}
+
+/* First paragraph in each section */
+section > p:first-of-type,
+.about-section p:first-of-type,
+.vision-mission-section p:first-of-type,
+.alumni-association-section p:first-of-type,
+.placement-success-section p:first-of-type {
+  font-size: 17px;
+  color: #333;
+  line-height: 1.9;
+}
+
+/* First letter styling */
+.about-section p:first-of-type::first-letter,
+.vision-mission-section p:first-of-type::first-letter {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0044cc;
+  padding-right: 2px;
+}
+
+/* Sidebar header */
+.sidebar h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* List items in the sidebar */
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Styling individual sidebar list items */
+.sidebar ul li {
+  margin: 15px 0;
+  padding: 10px;
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(160, 105, 2, 0.353);
+  transition: background-color 0.3s, padding-left 0.3s;
+  /* border-radius: 6px; */
+}
+
+/* Hover effect on the sidebar items */
+.sidebar ul li:hover {
+  background-color: #e0e0e0;
+  padding-left: 15px;
+}
+
+/* Active link state styling for clicked item */
+.sidebar ul li.active {
+  background-color: #d3f3d3;
+  color: #2a7b2a;
+}
+
+/* Container for the main content section */
+.main-content {
+  width: 70%;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+/* Tablet and mobile styles */
+@media (max-width: 768px) {
+  .about-us-container {
+    flex-direction: column;
+    margin: 10px;
+  }
+
+  .sidebar {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    order: -1;
+    position: relative; /* Remove sticky positioning on mobile */
+    top: 0;
+    padding: 15px;
+  }
+
+  .main-content {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Adjust paragraph styling for mobile */
+  .about-fill p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 1em;
+    text-align: left; /* Better readability on mobile */
+  }
+
+  section > p:first-of-type,
+  .about-section p:first-of-type,
+  .vision-mission-section p:first-of-type,
+  .alumni-association-section p:first-of-type,
+  .placement-success-section p:first-of-type {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* Adjust sidebar items for better touch targets */
+  .sidebar ul li {
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+}
+
+/* Small screen optimizations */
+@media (max-width: 480px) {
+  .about-us-container {
+    margin: 5px;
+  }
+
+  .sidebar {
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .sidebar h3 {
+    font-size: 20px;
+  }
+
+  .sidebar ul li {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  /* Further adjust paragraph styling for very small screens */
+  p {
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+  }
+
+  .about-section p:first-of-type::first-letter,
+  .vision-mission-section p:first-of-type::first-letter {
+    font-size: 20px;
+  }
+}
+
+/* Keep existing section-specific styles */
+.about-section {
+  width: 90%;
+  margin: 1px auto;
+  border-radius: 10px;
+}
+
+.about-section img {
+  display: block;
+  max-width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  margin: 20px auto;
+}
+.about-img{
+  width: 100%;
+  height: 400px;
+}
+@media (max-width: 768px) {
+  .about-section img {
+    height: auto;
+    max-height: 300px;
+  }
+
+  .vision-mission-section,
+  .alumni-association-section,
+  .placement-success-section {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .company-list {
+    gap: 10px;
+  }
+
+  .company-logo {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Vision & Mission section styles */
+.vision-mission-section {
+  margin: 20px;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.vision-mission-section h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: start;
+}
+
+.vision-mission-section h3 {
+  font-size: 24px;
+  color: var(--primary-orange);
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+/* Alumni Association section styles */
+.alumni-association-section {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Placement Success section styles */
+.placement-success-section {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.company-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.company {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}

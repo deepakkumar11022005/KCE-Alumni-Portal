@@ -1,0 +1,96 @@
+.archive-sidebar {
+  background-color: #ffffff;
+  padding: 20px;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: Arial, sans-serif;
+}
+
+/* Header styling similar to newsroom */
+.archive-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.archive-header h3 {
+  color: #004d40;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.clear-button {
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: #00796b;
+  cursor: pointer;
+}
+
+.clear-button:hover {
+  color: red;
+}
+
+/* Year section: styled like newsroom categories */
+.year-section {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.year-header {
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  transition: color 0.3s;
+}
+
+.year-header:hover {
+  color: #00796b;
+}
+
+/* List of months under each year */
+.months-list {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.month-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  color: #555;
+  padding: 5px 0;
+  transition: color 0.3s;
+}
+
+.month-item span {
+  color: #999;
+}
+
+.month-item:hover {
+  color: #00796b;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .archive-sidebar {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .year-header {
+    font-size: 1.1em;
+  }
+
+  .month-item {
+    font-size: 0.9em;
+  }
+}

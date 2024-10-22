@@ -1,0 +1,233 @@
+.gall {
+    margin-top: 0;
+    margin-bottom: 100px;
+  }
+  
+  .gallery-container {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .gallery-header {
+      position: relative;
+      text-align: center;
+      color: #333; /* Darker text for vintage contrast */
+      padding: 40px 20px;
+      background: url('../../assets/images/newpaper.png') center/cover no-repeat; /* Newspaper texture background */
+      background-color: #f9f9f7; /* Light beige to enhance vintage feel */
+      /* border-bottom: 4px solid #d3c5a7; Subtle border for a more professional look */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow to add depth */
+  }
+  
+  .gallery-header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(247, 238, 209, 0.8); /* Sepia tone overlay for vintage feel */
+      z-index: 1;
+  }
+  
+  
+  
+   .gallery-subtitle {
+      font-family: 'Playfair Display', serif; /* Another serif font for elegance */
+      font-size: 1.4rem;
+      z-index: 2;
+      text-align: center;
+      position: relative;
+      color: rgba(34, 34, 34, 0.85);
+      font-weight: 400;
+      margin-top: 10px;
+      animation: fadeInSlideUp 2s ease-out;
+  }
+  
+  
+  .gallery-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem; /* Adjust size as needed */
+    color: white; /* Text color */
+    text-align: center;
+    /* padding: 20px; */
+    background-image: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG5idWlqZ2NudHVlaHc0OWQ2cnVteDZocTB5ZTVneHR5c3I0MGs2aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1rSOdtLQwoxz2f6hbf/giphy.webp"); /* Replace with your desired image */
+    background-size: cover; /* Make sure the background covers the entire heading */
+    background-position: center; /* Center the background image */
+    background-clip: text; /* Ensures background is only shown where the text is */
+    -webkit-background-clip: text; /* For WebKit browsers */
+    color: transparent; /* Hide the normal color so the image shows through */
+    font-weight: 700;
+    z-index: 5;
+  }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    border-top: 2px solid #e0e0ee;
+    padding-top: 20px;
+  }
+  
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 200px;
+  }
+  
+  .gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area */
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-item:hover .gallery-image {
+    transform: scale(1.05);
+  }
+  
+  /* Modal Styles */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px) saturate(180%);
+    -webkit-backdrop-filter: blur(3px) saturate(180%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    border: 1px solid white;
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+  }
+  
+  .modal-close:hover {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .modal-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Space between image and description */
+  }
+  
+  .modal-image {
+    width: 300px; /* Fixed width for the image */
+    height: 300px; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures the image covers the area */
+    border-radius: 10px;
+  }
+  
+  .modal-prev,
+  .modal-next {
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 10px;
+    width: 80px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  
+  .modal-description {
+    color: white;
+    text-align: left; /* Left-align text for larger screens */
+    margin-left: 20px; /* Space between image and text */
+  }
+  
+  .modal-description h2 {
+    margin: 10px 0;
+  }
+  
+  /* Responsive styles for mobile */
+  @media screen and (max-width: 768px) {
+    .gallery-container {
+      padding: 20px;
+      height: 100vh;
+    }
+  
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 images per row on mobile */
+    }
+  
+    .gallery-title {
+      font-size: 2rem;
+    }
+    .modal-content {
+      flex-direction: column; /* Stack image and description vertically on mobile */
+      align-items: center; /* Center align */
+    }
+  
+    .modal-image {
+      width: 100%; /* Full width for mobile */
+      height: 350px; /* Maintain aspect ratio */
+    }
+  
+    .modal-description {
+      text-align: center; /* Center-align text for mobile */
+      margin-left: 0; /* Remove left margin */
+    }
+  }
+  
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) inset;
+  }
+  
+  .gallery-image {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+  }
+  
+  .image-info {
+    position: absolute;
+    bottom: 0px;
+    color: white;
+    width: 100%;
+    height: 30%;
+    padding-left: 8px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px) saturate(180%);
+    -webkit-backdrop-filter: blur(3px) saturate(180%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .image-info h2 {
+    margin: 0;
+    font-size: 1rem; /* Adjust size as needed */
+  }
+  
+  .image-info p {
+    margin: 0;
+    font-size: 0.8rem; /* Adjust size as needed */
+  }
+  

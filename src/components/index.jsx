@@ -8,3 +8,7 @@ export {default as WelcomeBanner} from './Alumni/Home/WelcomeBanner/WelcomeBanne
 export {default as ExploreCards} from './Alumni/Home/Explore/FilterCards'
 export {default as Footer} from './Alumni/Home/Footer/Footer'
 export {default as AlumniSlider} from './Alumni/Home/NotableAlumni/TopAlumini'
+export {default as EventBackground} from './Alumni/Event/EventBackground/EventBackground'
+export {default as EventDetails } from './Alumni/Event/EventDetails/EventDetails'
+export {default as UpcomingEvents} from './Alumni/Event/UpcomingEvents/UpcomingEvents'
+export {default as EventCard} from './Alumni/Event/EventCard/EventCard'
