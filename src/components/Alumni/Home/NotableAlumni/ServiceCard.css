@@ -1,0 +1,53 @@
+/* src/components/AlumniTestimonialCard.css */
+
+/* General card styles */
+.alumni-card {
+  width: 250px;
+  padding: 10px ;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+  transform: scale(0.95);
+  border-top: 5px solid orange;
+
+}
+
+/* Active card styles */
+.alumni-card.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Image container styles */
+.image-container {
+  width:90%;
+  height: 70%;
+  margin: 0 auto 15px;
+  border-radius: 2%;
+  overflow: hidden;
+}
+
+/* Image styles */
+.alumni-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Name styles */
+.alumni-namee {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Info styles */
+.alumni-info {
+  /* background-color: aqua; */
+  width: 100%;
+  font-size: 1rem;
+  color: #666;
+}

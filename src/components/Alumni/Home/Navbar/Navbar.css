@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:500,700&display=swap");
+
+.navBack {
+  display: flex;
+  justify-content: center;
+  max-width: 100dvw;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.nav {
+  z-index: 5;
+  display: inline-flex;
+  position: fixed;
+  bottom: 5px;
+  width: max-content;
+  background-color: #fff;
+  padding: 0 20px;
+  border-radius: 40px;
+  box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.nav-item {
+  color: #83818c;
+  padding: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin: 0 6px;
+  z-index: 1;
+  /* font-family: "DM Sans", sans-serif; */
+  font-weight: 500;
+  position: relative;
+  display: inline-block; /* Keep items inline for scrolling */
+  flex-shrink: 0; /* Prevent the nav items from shrinking */
+}
+
+.nav-item:not(.is-active):hover {
+  color: black;
+}
+
+.nav-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: 0.4s;
+  height: 4px;
+  z-index: 1;
+  border-radius: 8px 8px 0 0;
+}
+
+@media (max-width: 580px) {
+  /* For mobile screens */
+  .navBack {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .nav {
+    padding: 0 10px;
+    width: 90%;
+    justify-content: flex-start; /* Align nav items to the start */
+    overflow-x: auto; /* Ensure horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar for better appearance */
+  }
+
+  .nav-item {
+    flex: 0 0 auto; /* Prevent items from resizing or wrapping */
+  }
+}
+
+@media (min-width: 769px) {
+  /* For laptop and larger */
+  .navBack {
+    padding-left: 25%;
+    padding-right: 25%;
+  }
+}

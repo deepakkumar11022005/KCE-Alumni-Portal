@@ -1,0 +1,98 @@
+.custom-navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #fff;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .custom-navbar:hover {
+    /* background-color: #f8f9fa; */
+    /* box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15); */
+  }
+  
+  .logo-cont {
+    display: flex;
+    align-items: center;
+  }
+  
+  .kce-logo {
+    height: clamp(40px, 8vw, 70px);
+    max-height: 70px;
+    transition: transform 0.3s ease;
+  }
+  
+  .kce-logo:hover {
+    transform: scale(1.05);
+  }
+  
+  .portal-name {
+    font-size: clamp(1.5rem, 0.5vw + 1rem, 2.5rem);
+    color: var(--kce-blue);
+    white-space: nowrap;
+    margin-left: 10px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+ 
+  .loginbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .Login-btn {
+    color: var(--kce-blue);
+    cursor: pointer;
+    display: flex;
+    margin-right: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    /* font-weight: 600; */
+    /* text-transform: uppercase; */
+    transition: color 0.3s ease;
+  }
+  
+  .loginbutton:hover .Login-btn {
+    color: #3498db;
+  }
+  
+  .rightarrow {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin-right: 10px;
+    color: var(--kce-blue);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .loginbutton:hover .rightarrow {
+    transform: translateX(5px);
+    color: #3498db;
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .custom-navbar {
+      padding: 10px;
+    }
+  
+    .portal-name {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+    }
+  
+    .Login-btn {
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    }
+  
+    .rightarrow {
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    }
+  }
+  
