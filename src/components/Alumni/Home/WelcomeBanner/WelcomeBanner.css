@@ -62,6 +62,7 @@
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 600;
+  width: 15vw;
   color: #fff;
   background: linear-gradient(45deg, #ffb74d, #4caf50); /* Light orange to green gradient */
   border: none;
@@ -186,8 +187,17 @@
 
   .welcome-text {
       max-width: 100%;
+      margin: 0;
+      /* text-align: center; */
+      padding: 0px 20px;
   }
+  .welcome-text p{
+   text-align: center;
+}
+ 
+.discover-button {
 
+  width: 60vw;}
   .stats-grid {
       max-width: 100%;
   }
