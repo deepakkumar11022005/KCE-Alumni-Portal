@@ -1,0 +1,165 @@
+.admin-profile {
+  
+    padding: 24px;
+    background-color: var(--background-color);
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 10px 30px;
+  }
+  
+  .admin-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  
+  .forms-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 40px;
+    padding: 0 20px;
+  }
+  
+  .form-section {
+    flex: 1;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-title {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+  }
+  
+  .profile-info {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .profile-icon {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+  }
+  
+  .password-form, .admin-email-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+   margin: 1px auto;
+    width: 90%;
+  }
+  
+  .form-group {
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+  
+  .form-group input {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: var(--primary-color-dark);
+  }
+  
+  .admin-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 4px;
+    padding: 12px;
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  
+  .alert-icon {
+    color: #856404;
+    margin-top: 4px;
+  }
+  
+  .admin-note p {
+    margin: 0;
+    color: #856404;
+    font-size: 14px;
+  }
+  
+  .admin-note strong {
+    font-weight: 600;
+  }
+  
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    .forms-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .form-section {
+      width: 100%;
+    }
+  }
+  
+  /* Media Query for extra small screens */
+  @media (max-width: 480px) {
+    .admin-title {
+      font-size: 20px;
+    }
+  
+    .section-title {
+      font-size: 20px;
+    }
+  
+    .profile-info {
+      font-size: 14px;
+    }
+  
+    .submit-button {
+      font-size: 14px;
+    }
+  
+    .admin-note p {
+      font-size: 13px;
+    }
+  }
+  

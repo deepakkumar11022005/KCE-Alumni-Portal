@@ -1,0 +1,21 @@
+/* Full-screen loading container */
+.loading-fullscreen {
+    position: fixed;      /* Stays in the same place even when scrolling */
+    top: 0;
+    left: 0;
+    width: 100vw;         /* Full width of the viewport */
+    height: 100vh;        /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Set background color to white or any desired color */
+    z-index: 9999;        /* Ensures it's always on top */
+  }
+  
+  /* Style for the loading video */
+  .loading-video {
+    width: 200px;        /* Adjust size for the video */
+    height: auto;        /* Keep the aspect ratio */
+    max-width: 100%;     /* Ensure it doesn’t go beyond the screen */
+  }
+  

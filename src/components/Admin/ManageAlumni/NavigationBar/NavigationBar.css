@@ -1,0 +1,68 @@
+/* :root {
+  --primary-color: #4a90e2;
+  --card-background: #ffffff;
+  --text-color: #333;
+  --text-color-light: #fff;
+} */
+
+.navigation-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--card-background);
+  
+  border-radius: 12px;
+  margin-bottom: 24px; 
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.nav-item:hover, .nav-item.active {
+  background-color: var(--primary-color);
+  color: var(--card-background);
+}
+
+.nav-item:hover svg, .nav-item.active svg {
+  color: var(--text-color-light);
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .navigation-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    /* padding: 12px; */
+  }
+
+  .nav-item {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px;
+    /* margin-bottom: 8px; */
+    font-size: 0.9rem;
+  }
+}
+
+/* For extra-small screens */
+@media (max-width: 480px) {
+  .nav-item {
+    font-size: 0.8rem;
+    /* padding: 10px; */
+  }
+
+  .navigation-bar {
+    /* padding: 8px; */
+  }
+}

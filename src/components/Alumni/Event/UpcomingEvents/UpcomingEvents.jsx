@@ -1,6 +1,7 @@
 // UpcomingEvents.jsx
 import React, { useState } from "react";
 import { ChevronDown, X, Calendar, MapPin, Clock } from "lucide-react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "./UpcomingEvents.css";
 
 const EventCard = ({ event }) => {
@@ -9,7 +10,7 @@ const EventCard = ({ event }) => {
   const day = eventDate.getDate();
 
   return (
-    <div className="event-card">
+    <Link to={`/alumni/event/${event._id}`} className="event-card"> {/* Wrap in Link */}
       <div className="event-image-container">
         <img
           src={
@@ -45,7 +46,7 @@ const EventCard = ({ event }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -73,7 +74,7 @@ const ArchiveSidebar = ({ events, onFilterChange, onClear, isMobile }) => {
           <div key={year} className="year-section">
             <button
               onClick={() => setOpenYear(openYear === year ? null : year)}
-              className={`year-button ${openYear === year ? "active" : ""}`}
+              className={`year-buttonn ${openYear === year ? "active" : ""}`}
             >
               <span>{year}</span>
               <ChevronDown size={16} />

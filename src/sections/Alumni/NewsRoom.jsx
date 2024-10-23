@@ -184,7 +184,6 @@ const NewsRoom = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, [newsData]);
 
-  // Updated filtering logic
   useEffect(() => {
     const filterNews = () => {
       if (!selectedYear && !selectedMonth) {
@@ -215,104 +214,109 @@ const NewsRoom = () => {
 
   return (
     <>
-    <Header/>
-    <div className="newsroom">
-      <div className="header">
-        <h1>Newsroom</h1>
-        <p className="subtitle">All the News and Updates from KCE ALUMNI</p>
-      </div>
-      <div className="container">
-        <div className="newsroom-layout">
-          {/* Main Content */}
-          <div className="main-content">
-            {/* Mobile Filter */}
-            {isMobile && (
-              <div className="mobile-filter">
-                <button
-                  className="filter-button"
-                  onClick={() => setIsFilterOpen(!isFilterOpen)}
-                >
-                  <Calendar className="icon" />
-                  <span>Filter by Date</span>
-                  <ChevronDown
-                    className={`icon ${isFilterOpen ? "rotate" : ""}`}
-                  />
-                </button>
-
-                {isFilterOpen && (
-                  <div className="filter-dropdown">
-                    <div className="archive-header">
-                      <h2>Archive</h2>
-                      {(selectedYear || selectedMonth) && (
-                        <button className="clear-button" onClick={clearFilters}>
-                          <X size={16} className="x-mark" />
-                          Clear
-                        </button>
-                      )}
-                    </div>
-                    <ArchiveFilter
-                      archiveData={archiveData}
-                      selectedYear={selectedYear}
-                      selectedMonth={selectedMonth}
-                      setSelectedYear={setSelectedYear}
-                      setSelectedMonth={setSelectedMonth}
-                      setIsFilterOpen={setIsFilterOpen} // Pass down this prop
+      <Header />
+      <div className="news-room">
+        <div className="news-header">
+          <h1>Newsroom</h1>
+          <p className="news-subtitle">All the News and Updates from KCE ALUMNI</p>
+        </div>
+        <div className="news-container">
+          <div className="news-layout">
+            {/* Main Content */}
+            <div className="news-main-content">
+              {/* Mobile Filter */}
+              {isMobile && (
+                <div className="news-mobile-filter">
+                  <button
+                    className="news-filter-button"
+                    onClick={() => setIsFilterOpen(!isFilterOpen)}
+                  >
+                    <Calendar className="news-icon" />
+                    <span>Filter by Date</span>
+                    <ChevronDown
+                      className={`news-icon ${isFilterOpen ? "news-rotate" : ""}`}
                     />
-                  </div>
-                )}
-              </div>
-            )}
+                  </button>
 
-            {/* News Items */}
-            <div className="news-list">
-              {filteredNewsData.map((news) => (
-                <article key={news.id} className="news-item">
-                  {news.hasImage && !isMobile && (
-                    <div className="news-image">
-                      <img src={news.image} alt={news.title} />
+                  {isFilterOpen && (
+                    <div className="news-filter-dropdown">
+                      <div className="news-archive-header">
+                        <h2>Archive</h2>
+                        {(selectedYear || selectedMonth) && (
+                          <button
+                            className="news-clear-button"
+                            onClick={clearFilters}
+                          >
+                            <X size={16} className="news-x-mark" />
+                            Clear
+                          </button>
+                        )}
+                      </div>
+                      <ArchiveFilter
+                        archiveData={archiveData}
+                        selectedYear={selectedYear}
+                        selectedMonth={selectedMonth}
+                        setSelectedYear={setSelectedYear}
+                        setSelectedMonth={setSelectedMonth}
+                        setIsFilterOpen={setIsFilterOpen}
+                      />
                     </div>
-                  )}
-                  <div className="news-content">
-                    <h2>{news.title}</h2>
-                    <div className="news-meta">
-                      <span className="date">{formatDate(news.date)}</span>
-                      <span className="category">{news.category}</span>
-                    </div>
-                    <p>{limitText(news.content)}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop Sidebar */}
-          {!isMobile && (
-            <aside className="sidebarr">
-              <div className="archive-widget">
-                <div className="archive-header">
-                  <h2>Archive</h2>
-                  {(selectedYear || selectedMonth) && (
-                    <button className="clear-button" onClick={clearFilters}>
-                      <X size={16} />
-                      Clear
-                    </button>
                   )}
                 </div>
-                <ArchiveFilter
-                  archiveData={archiveData}
-                  selectedYear={selectedYear}
-                  selectedMonth={selectedMonth}
-                  setSelectedYear={setSelectedYear}
-                  setSelectedMonth={setSelectedMonth}
-                />
+              )}
+
+              {/* News Items */}
+              <div className="news-list">
+                {filteredNewsData.map((news) => (
+                  <article key={news.id} className="news-item">
+                    {news.hasImage && !isMobile && (
+                      <div className="news-image-container">
+                        <img src={news.image} alt={news.title} />
+                      </div>
+                    )}
+                    <div className="news-content-wrapper">
+                      <h2>{news.title}</h2>
+                      <div className="news-meta-info">
+                        <span className="news-date">
+                          {formatDate(news.date)}
+                        </span>
+                        <span className="news-category">{news.category}</span>
+                      </div>
+                      <p>{limitText(news.content)}</p>
+                    </div>
+                  </article>
+                ))}
               </div>
-            </aside>
-          )}
+            </div>
+
+            {/* Desktop Sidebar */}
+            {!isMobile && (
+              <aside className="news-sidebar">
+                <div className="news-archive-widget">
+                  <div className="news-archive-header">
+                    <h2>Archive</h2>
+                    {(selectedYear || selectedMonth) && (
+                      <button className="news-clear-button" onClick={clearFilters}>
+                        <X size={16} />
+                        Clear
+                      </button>
+                    )}
+                  </div>
+                  <ArchiveFilter
+                    archiveData={archiveData}
+                    selectedYear={selectedYear}
+                    selectedMonth={selectedMonth}
+                    setSelectedYear={setSelectedYear}
+                    setSelectedMonth={setSelectedMonth}
+                  />
+                </div>
+              </aside>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-    <Footer/>
-    <NavBar/>
+      <Footer />
+      <NavBar />
     </>
   );
 };
@@ -323,14 +327,16 @@ const ArchiveFilter = ({
   selectedMonth,
   setSelectedYear,
   setSelectedMonth,
-  setIsFilterOpen, // Receive the prop to close the dropdown
+  setIsFilterOpen,
 }) => {
   return (
-    <div className="archive-filter">
+    <div className="news-archive-filter">
       {Object.entries(archiveData).map(([year, months]) => (
-        <div key={`year-${year}`} className="year-section">
+        <div key={`year-${year}`} className="news-year-section">
           <button
-            className={`year-button ${selectedYear === year ? "active" : ""}`}
+            className={`news-year-button ${
+              selectedYear === year ? "news-active" : ""
+            }`}
             onClick={() => {
               setSelectedYear(selectedYear === year ? null : year);
               setSelectedMonth(null);
@@ -338,21 +344,23 @@ const ArchiveFilter = ({
           >
             <span>{year}</span>
             <ChevronDown
-              className={`icon ${selectedYear === year ? "rotate" : ""}`}
+              className={`news-icon ${selectedYear === year ? "news-rotate" : ""}`}
             />
           </button>
 
           {selectedYear === year && (
-            <div className="month-list">
+            <div className="news-month-list">
               {Object.entries(months).map(([month, count]) => (
                 <button
                   key={`month-${year}-${month}`}
-                  className={`month-button ${
-                    selectedMonth === month ? "active" : ""
+                  className={`news-month-button ${
+                    selectedMonth === month ? "news-active" : ""
                   }`}
                   onClick={() => {
                     setSelectedMonth(selectedMonth === month ? null : month);
-                    setIsFilterOpen(false); // Close the filter on mobile
+                    if (setIsFilterOpen) {
+                      setIsFilterOpen(false);
+                    }
                   }}
                 >
                   {month} ({count})

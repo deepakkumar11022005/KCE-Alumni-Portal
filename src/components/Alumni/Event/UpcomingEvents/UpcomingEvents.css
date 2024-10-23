@@ -149,6 +149,7 @@
 
 /* Event Card Styles */
 .event-card {
+  text-decoration: none;
   background: white;
   border-radius: 0.75rem;
   overflow: hidden;
@@ -284,7 +285,8 @@
   border-bottom: 1px solid var(--border-color);
 }
 
-.year-button {
+.year-buttonn {
+  border:  none;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -292,19 +294,19 @@
   padding: 1rem 1.25rem;
   background: none;}
 
-.year-button:hover {
+.year-buttonn:hover {
   background: #f3f4f6;
 }
 
-.year-button.active {
+.year-buttonn.active {
   background: #f3f4f6;
 }
 
-.year-button svg {
+.year-buttonn svg {
   transition: transform 0.2s ease;
 }
 
-.year-button.active svg {
+.year-buttonn.active svg {
   transform: rotate(180deg);
 }
 

@@ -36,11 +36,11 @@ const NavBar = () => {
   }, [location]); // Re-run when the route changes
 
   return (
-    <div className="navBack">
-      <div className="nav">
+    <div className="alumni-navBack">
+      <div className="alumni-nav">
         <Link
           to="/alumni"
-          className="nav-item"
+          className="alumni-nav-item"
           active-color="var(--primary-orange)"
           ref={(el) => (itemsRef.current[0] = el)}
         >
@@ -48,7 +48,7 @@ const NavBar = () => {
         </Link>
         <Link
           to="/alumni/newsroom"
-          className="nav-item"
+          className="alumni-nav-item"
           active-color="var(--primary-orange)"
           ref={(el) => (itemsRef.current[5] = el)}
         >
@@ -56,7 +56,7 @@ const NavBar = () => {
         </Link>
         <Link
           to="/alumni/about-us"
-          className="nav-item"
+          className="alumni-nav-item"
           active-color="var(--primary-orange)"
           ref={(el) => (itemsRef.current[1] = el)}
         >
@@ -64,7 +64,7 @@ const NavBar = () => {
         </Link>
         <Link
           to="/alumni/events"
-          className="nav-item"
+          className="alumni-nav-item"
           active-color="var(--primary-orange)"
           ref={(el) => (itemsRef.current[2] = el)}
         >
@@ -72,7 +72,7 @@ const NavBar = () => {
         </Link>
         <Link
           to="/alumni/gallery"
-          className="nav-item"
+          className="alumni-nav-item"
           active-color="var(--primary-orange)"
           ref={(el) => (itemsRef.current[3] = el)}
         >
@@ -80,14 +80,14 @@ const NavBar = () => {
         </Link>
         <Link
           to="/alumni/contact-us"
-          className="nav-item"
+          className="alumni-nav-item"
           active-color="var(--primary-orange)"
           ref={(el) => (itemsRef.current[4] = el)}
         >
           Contact Us
         </Link>
-       
-        <span className="nav-indicator" ref={indicatorRef}></span>
+
+        <span className="alumni-nav-indicator" ref={indicatorRef}></span>
       </div>
     </div>
   );

@@ -20,19 +20,8 @@
   top: 20px;
   height: fit-content;
 }
-.header .subtitle{
-  text-align: center;
-}
-/* Enhanced paragraph styling */
-p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #444;
-  margin-bottom: 1.2em;
-  text-align: justify;
-  letter-spacing: 0.3px;
-}
-
+ 
+ 
 /* First paragraph in each section */
 section > p:first-of-type,
 .about-section p:first-of-type,
@@ -272,4 +261,48 @@ section > p:first-of-type,
   flex-direction: column;
   align-items: center;
   margin: 10px;
+}  
+
+.about-header {
+  position: relative;
+  text-align: center;
+  color: #333;
+  padding: 40px 20px;
+  background: url('../../assets/images/newpaper.png') center/cover no-repeat;
+  background-color: #f9f9f7;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(247, 238, 209, 0.8);
+  z-index: 1;
+}
+
+.about-header h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 3.8rem;
+  z-index: 2;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #1c1c1c;
+  animation: fadeInSlideUp 1.5s ease-out;
+}
+
+.about-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  z-index: 2;
+  position: relative;
+  color: rgba(34, 34, 34, 0.85);
+  font-weight: 400;
+  margin-top: 10px;
+  animation: fadeInSlideUp 2s ease-out;
 }

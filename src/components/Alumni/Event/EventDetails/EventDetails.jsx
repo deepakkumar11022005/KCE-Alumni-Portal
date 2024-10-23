@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./EventDetails.css";
 import { useParams } from "react-router-dom";
 import EventBackground from "../EventBackground/EventBackground";
-
+import Loading from '../../Loading/Loading';
 import kceLogo from "../../../../assets/images/kce-logo.gif";
 import specialGuestImg from "../../../../assets/images/kce-logo.gif";
 import Footer from "../../Home/Footer/Footer";
@@ -17,76 +17,76 @@ const EventDetails = () => {
 
   const fetchData = async (url) => {
     try {
-      // const response = await fetch(url, {
-      //   method: "GET",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   }
-      // });
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      });
 
-      // if (!response.ok) {
-      //   throw new Error(`HTTP error! Status: ${response.status}`);
-      // }
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
 
-      // const result = await response.json();
-      const result = {
-        id: "6704ffbe0f4f962f77d45249",
-        event_name: "AI Innovations Conference 2024",
-        event_details:
-          "A premier global event showcasing the latest innovations in AI and its applications in multiple sectors.",
-        event_venue: "Convention Center, San Francisco, CA",
-        event_date: new Date(1749945600000),
-        event_time: "09:30 AM",
-        special_guests: [
-          {
-            guest_name: "Dr. Emily Richards",
-            guest_position: "Head of AI Research at GlobalTech",
-            event_flow_description:
-              "Special talk on the future of AI in quantum computing.",
-            _id: "6704ffbe0f4f962f77d4524a",
-          },
-          {
-            guest_name: "Mr. Miguel Sanchez",
-            guest_position: "CEO of RoboInnovate",
-            event_flow_description:
-              "Exclusive session on robotics in smart cities.",
-            _id: "6704ffbe0f4f962f77d4524b",
-          },
-        ],
-        event_guests: [
-          {
-            guest_name: "Prof. Alan Cooper",
-            guest_position: "AI Ethics Professor at Stanford University",
-            event_flow_description:
-              "Keynote speech on the ethical considerations of AI in healthcare.",
-            _id: "6704ffbe0f4f962f77d4524c",
-          },
-          {
-            guest_name: "Ms. Olivia Brown",
-            guest_position: "CTO of AIHealth",
-            event_flow_description:
-              "Panel discussion on AI-driven personalized medicine.",
-            _id: "6704ffbe0f4f962f77d4524d",
-          },
-        ],
-        event_sponsors: [
-          {
-            image_id: "img1234",
-            sponsor_name: "TechCorp Solutions",
-            _id: "6704ffbe0f4f962f77d4524e",
-          },
-          {
-            image_id: "img5678",
-            sponsor_name: "InnovateAI Labs",
-            _id: "6704ffbe0f4f962f77d4524f",
-          },
-        ],
-        event_summary:
-          "This conference will bring together AI experts and industry leaders to discuss cutting-edge advancements in AI technologies and their transformative effects across industries.",
-        __v: 0,
-      };
+      const result = await response.json();
+      // const result = {
+      //   id: "6704ffbe0f4f962f77d45249",
+      //   event_name: "AI Innovations Conference 2024",
+      //   event_details:
+      //     "A premier global event showcasing the latest innovations in AI and its applications in multiple sectors.",
+      //   event_venue: "Convention Center, San Francisco, CA",
+      //   event_date: new Date(1749945600000),
+      //   event_time: "09:30 AM",
+      //   special_guests: [
+      //     {
+      //       guest_name: "Dr. Emily Richards",
+      //       guest_position: "Head of AI Research at GlobalTech",
+      //       event_flow_description:
+      //         "Special talk on the future of AI in quantum computing.",
+      //       _id: "6704ffbe0f4f962f77d4524a",
+      //     },
+      //     {
+      //       guest_name: "Mr. Miguel Sanchez",
+      //       guest_position: "CEO of RoboInnovate",
+      //       event_flow_description:
+      //         "Exclusive session on robotics in smart cities.",
+      //       _id: "6704ffbe0f4f962f77d4524b",
+      //     },
+      //   ],
+      //   event_guests: [
+      //     {
+      //       guest_name: "Prof. Alan Cooper",
+      //       guest_position: "AI Ethics Professor at Stanford University",
+      //       event_flow_description:
+      //         "Keynote speech on the ethical considerations of AI in healthcare.",
+      //       _id: "6704ffbe0f4f962f77d4524c",
+      //     },
+      //     {
+      //       guest_name: "Ms. Olivia Brown",
+      //       guest_position: "CTO of AIHealth",
+      //       event_flow_description:
+      //         "Panel discussion on AI-driven personalized medicine.",
+      //       _id: "6704ffbe0f4f962f77d4524d",
+      //     },
+      //   ],
+      //   event_sponsors: [
+      //     {
+      //       image_id: "img1234",
+      //       sponsor_name: "TechCorp Solutions",
+      //       _id: "6704ffbe0f4f962f77d4524e",
+      //     },
+      //     {
+      //       image_id: "img5678",
+      //       sponsor_name: "InnovateAI Labs",
+      //       _id: "6704ffbe0f4f962f77d4524f",
+      //     },
+      //   ],
+      //   event_summary:
+      //     "This conference will bring together AI experts and industry leaders to discuss cutting-edge advancements in AI technologies and their transformative effects across industries.",
+      //   __v: 0,
+      // };
   
-      setData(result);
+      setData(result.data);
       console.log("Result fetched successfully:", result); 
       console.log( "cjadsnkcjnds" +data);
       
@@ -116,7 +116,7 @@ const EventDetails = () => {
   }
 
   if (!data) {
-    return <p>Loading...</p>;
+    return <Loading/>;
   }
 
   // Get sponsors data from the API response

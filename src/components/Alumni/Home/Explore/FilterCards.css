@@ -145,7 +145,6 @@
   .filter-cards {
     grid-template-columns: 1fr; /* Stack cards on mobile */
   }
-
   .cardd {
     padding: 10px;
   }

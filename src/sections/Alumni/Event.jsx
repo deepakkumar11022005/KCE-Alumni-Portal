@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {   EventBackground, Footer, Header, NavBar, UpcomingEvents } from '../../components';
+import {   EventBackground, Footer, Header, Loading, NavBar, UpcomingEvents } from '../../components';
 
 const Event = () => {
   const [data, setData] = useState(null);
@@ -41,11 +41,10 @@ const Event = () => {
     <div className="">
       <Header/>
       <EventBackground imageUrl={eventBannerUrl}>
-        <h1>Welcome to the Event</h1>
-        <p>Join us for an unforgettable experience!</p>
+       
       </EventBackground>
       {loading ? (
-        <p className='event-process'>Loading events...</p>  
+         <Loading/>
       ) : error ? (
         <p >Error: {error}</p>  
       ) : (

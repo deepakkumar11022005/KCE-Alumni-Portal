@@ -10,8 +10,8 @@
 
 .event-background img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  height: 100%; /* Ensure full coverage */
+  object-fit: cover; /* Maintain aspect ratio */
 }
 
 .event-background::before {
@@ -22,34 +22,38 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
-  z-index: 1;
+  z-index: 1; /* Overlay on top of the image */
 }
 
 .event-background .content {
-  position: absolute;
-  z-index: 2;
-  color: white;
-  text-align: center;
-  opacity: 0; /* Start with the text invisible */
-  transform: translateY(20px); /* Start with the text a bit lower */
+  position: absolute; /* Absolute to layer on top */
+  z-index: 2; /* Ensure content is above the overlay */
+  color: white; /* Text color */
+  text-align: center; /* Center text horizontally */
+  opacity: 1; /* Ensure the text is visible */
+  transform: translateY(0); /* No initial offset */
   animation: fadeInSlideUp 1.5s forwards; /* Apply the animation */
 }
 
 /* Keyframes for fade-in and slide-up */
 @keyframes fadeInSlideUp {
+  from {
+    opacity: 0; /* Start with text invisible */
+    transform: translateY(20px); /* Start with the text a bit lower */
+  }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Slide to original position */
   }
 }
 
 @media (max-width: 968px) {
   .event-background img {
-    object-fit: fill;
-    height: 100%;
-    width: 100%;
+    object-fit: fill; /* Adjust object-fit for smaller screens */
+    height: 100%; /* Full height for smaller screens */
+    width: 100%; /* Full width */
   }
   .event-background {
-    height: 25vh;
+    height: 25vh; /* Reduced height for smaller screens */
   }
 }

@@ -1,0 +1,120 @@
+.csv-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff, #f0f4f8);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.csv-upload:hover {
+  transform: translateY(-5px);
+}
+
+.upload-area {
+  text-align: center;
+  width: 80%;
+  padding: 20px;
+  border: 2px dashed var(--primary-color);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease;
+}
+
+.upload-area:hover {
+  background: #f9faff;
+}
+
+.upload-area h5 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.upload-area p {
+  font-size: 1rem;
+  color: #888;
+}
+
+.upload-area svg {
+  color: var(--primary-color);
+  margin-bottom: 16px;
+  transition: color 0.3s ease;
+}
+
+.upload-area:hover svg {
+  color: var(--accent-color);
+}
+
+.file-input-label {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 12px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.file-input-label:hover {
+  background-color: var(--accent-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-name {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.loading-message {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+.error-message {
+  margin-top: 10px;
+  color: red;
+}
+
+@media (max-width: 768px) {
+  .upload-area {
+    width: 95%;
+  }
+
+  .csv-upload {
+    padding: 20px;
+  }
+
+  .file-input-label {
+    padding: 10px 20px;
+  }
+}.download-button {
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: var(--accent-color);
+}
+

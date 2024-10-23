@@ -75,7 +75,7 @@ textarea:focus {
 }
 
 /* Simplified Button styling */
-button {
+.contact-submit-btn {
   padding: 10px 15px;
   font-size: 14px;
   font-weight: 600;
@@ -89,7 +89,7 @@ button {
   width: 100%;
 }
 
-button:hover {
+.contact-submit-btn:hover {
   background-color: #218838;
 }
 

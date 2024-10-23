@@ -174,9 +174,9 @@ const AboutUs = () => {
   return (
     <div className="about-fill" >
       <Header />
-      <div className="header">
+      <div className="about-header">
         <h1>About Us</h1>
-        <p className="subtitle">All the News and Updates from KCE ALUMNI</p>
+        <p className="about-subtitle">All the News and Updates from KCE ALUMNI</p>
       </div>
       <div className="about-us-container">
         <div className="main-content">{renderContent()}</div>

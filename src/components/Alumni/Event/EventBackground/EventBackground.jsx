@@ -6,6 +6,8 @@ const EventBackground = ({ imageUrl, children }) => {
     <div className="event-background">
       <img src={imageUrl} alt="Event Banner" />
       <div className="content">
+        <h1>Welcome to the Event</h1>
+        <p>Join us for an unforgettable experience!</p>
         {children}
       </div>
     </div>
@@ -13,3 +15,4 @@ const EventBackground = ({ imageUrl, children }) => {
 };
 
 export default EventBackground;
+  

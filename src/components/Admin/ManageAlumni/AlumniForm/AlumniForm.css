@@ -1,0 +1,216 @@
+/* AlumniForm.css */
+
+/* General Form Styling */
+.alumni-form {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-title {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 1.7rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Tabs Styling */
+.react-tabs__tab-list {
+  border-bottom: none;
+  display: flex;
+  justify-content: space-around;
+  background: #f0f4f8;
+  border-radius: 10px;
+  padding: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.react-tabs__tab {
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  color: #34495e;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+}
+
+.react-tabs__tab::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 3px;
+  background-color: #3498db;
+  transition: width 0.3s ease;
+}
+
+.react-tabs__tab--selected {
+  background: #3498db;
+  color: #ffffff;
+}
+
+.react-tabs__tab--selected::after {
+  width: 100%;
+}
+
+/* Input Grid Styling */
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+/* Input Group Styling */
+.input-group {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  margin-bottom: 0.5rem;
+  color: #34495e;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.input-group input,
+.input-group select {
+  padding: 0.85rem 1rem;
+  border: 1.5px solid #bdc3c7;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  outline: none;
+}
+.select-inpput{
+  width: 100%;
+}
+/* Required Field Indicator */
+.input-group label span {
+  color: #e74c3c;
+  margin-left: 0.25rem;
+}
+
+/* Card Styling for Sections */
+.card {
+  background: #f7f9fc;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  display: grid;
+  gap: 1.75rem;
+}
+
+/* Add Button Styling */
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #2ecc71;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+}
+
+.add-button:hover {
+  background-color: #27ae60;
+}
+
+/* Submit Button Styling */
+.submit-buttonn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2rem;
+  background-color: #2980b9;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 2rem;
+  box-shadow: 0 6px 20px rgba(41, 128, 185, 0.3);
+}
+
+.submit-buttonn:hover {
+  background-color: #1c5985;
+}
+
+/* Icon Styling */
+.add-button svg,
+.submit-button svg {
+  margin-right: 0.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .react-tabs__tab-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .react-tabs__tab {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* AlumniForm.css */
+
+/* ... existing styles ... */
+
+/* Added Title Styling */
+.added-title {
+  font-size: 1.3rem;
+  color: #34495e;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+/* Underline Effect */
+.added-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  border-radius: 2px;
+}
+.submit-buttonn{
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+}
