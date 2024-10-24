@@ -280,9 +280,9 @@ const NewsRoom = () => {
                         <span className="news-date">
                           {formatDate(news.date)}
                         </span>
-                        <span className="news-category">{news.category}</span>
+                        <span className="news-category">{news.tag}</span>
                       </div>
-                      <p>{limitText(news.content)}</p>
+                      <p>{limitText(news.description)}</p>
                     </div>
                   </article>
                 ))}

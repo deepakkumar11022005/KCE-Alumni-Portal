@@ -411,6 +411,7 @@ const EventForm = ({ onSave = () => {} }) => {
       return;
     }
 
+    
     try {
       // Prepare the request body
       const requestBody = {

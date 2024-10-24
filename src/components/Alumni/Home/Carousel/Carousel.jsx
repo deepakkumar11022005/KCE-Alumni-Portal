@@ -10,7 +10,7 @@ const Carousel = () => {
       slider.append(items[0]);
     };
 
-    const intervalId = setInterval(slideNext, 3000);  
+    const intervalId = setInterval(slideNext, 5000);  
 
     // Click event handler for manual navigation
     const handleClick = (e) => {

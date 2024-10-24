@@ -3,14 +3,14 @@ import "./NotificationForm.css";
 
 const NotificationForm = ({ onSend, selectedAlumniCount }) => {
   const [message, setMessage] = useState("");
-  const [method, setMethod] = useState("email");
+  const [notification_type, setnotification_type] = useState("email");
   const [subject, setSubject] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onSend({ 
       message, 
-      method, 
+      notification_type, 
       subject,
       recipientCount: selectedAlumniCount 
     });
@@ -37,7 +37,7 @@ const NotificationForm = ({ onSend, selectedAlumniCount }) => {
         required
       />
       <div className="form-footer">
-        <select value={method} onChange={(e) => setMethod(e.target.value)}>
+        <select value={notification_type} onChange={(e) => setnotification_type(e.target.value)}>
           <option value="email">Email</option>
           <option value="sms">SMS</option>
         </select>

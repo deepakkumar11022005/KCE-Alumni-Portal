@@ -75,3 +75,50 @@
     margin-bottom: 16px;
   }
 }
+
+.error-message {
+  background-color: #fee2e2; /* Light red */
+  color: #dc2626; /* Darker red */
+  padding: 16px;
+  border: 1px solid #e57373; /* Border red */
+  border-radius: 6px;
+  margin-top: 16px;
+}
+
+.success-details {
+  background-color: #d4edda; /* Light green */
+  color: #155724; /* Dark green */
+  padding: 16px;
+  border-radius: 6px;
+  margin-top: 16px;
+  border: 1px solid #155724; /* Border green */
+}
+
+.success-message {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.success-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 8px;
+}
+
+.notification-stat {
+  font-size: 14px;
+}
+
+.stat-value {
+  margin-left: 8px;
+  font-weight: bold;
+  color: #155724; /* Match the green text for consistency */
+}
+
+@media (max-width: 768px) {
+  .success-stats {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
