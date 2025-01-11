@@ -1,19 +1,19 @@
   import React from "react";
-  // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-  // import {
-  //   faMapMarkerAlt,
-  //   faPhone,
-  //   faEnvelopeOpen,
-  // } from "@fortawesome/free-solid-svg-icons";
-  // import {
-  //   faFacebookF,
-  //   faTwitter,
-  //   faGooglePlusG,
-  //   faTelegramPlane,
-  //   faInstagram,
-  //   faLinkedinIn,
-  //   faYoutube,
-  // } from "@fortawesome/free-brands-svg-icons";
+  import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+  import {
+    faMapMarkerAlt,
+    faPhone,
+    faEnvelopeOpen,
+  } from "@fortawesome/free-solid-svg-icons";
+  import {
+    faFacebookF,
+    faTwitter,
+    faGooglePlusG,
+    faTelegramPlane,
+    faInstagram,
+    faLinkedinIn,
+    faYoutube,
+  } from "@fortawesome/free-brands-svg-icons";
   import kce_logo from "../../../../assets/images/kce-logo.gif";
   import "./Footer.css";
 
@@ -27,7 +27,7 @@
               <div className="al-footer-single-cta">
                 
                 <div className="al-footer-cta-text">
-                  {/* <h4> <FontAwesomeIcon icon={faMapMarkerAlt} /> Find us</h4> */}
+                  <h4> <FontAwesomeIcon icon={faMapMarkerAlt} /> Find us</h4>
                   <span>
                     Myleripalayam Village, Othakkal Mandapam Post, Coimbatore -
                     641032, Tamilnadu, India
@@ -38,7 +38,7 @@
               <div className="al-footer-single-cta">
                
                 <div className="al-footer-cta-text">
-                  {/* <h4>  <FontAwesomeIcon icon={faPhone} /> Call us</h4> */}
+                  <h4>  <FontAwesomeIcon icon={faPhone} /> Call us</h4>
                   <span>9087729108 , 9080830623</span>
                 </div>
               </div>
@@ -46,7 +46,7 @@
               <div className="al-footer-single-cta">
                
                 <div className="al-footer-cta-text">
-                  {/* <h4>  <FontAwesomeIcon icon={faEnvelopeOpen} /> Mail us</h4> */}
+                  <h4>  <FontAwesomeIcon icon={faEnvelopeOpen} /> Mail us</h4>
                   <span>support.alumni@kce.ac.in</span>
                 </div>
               </div>
@@ -80,7 +80,7 @@
                 </div>
                 <div className="al-footer-social-icon">
                   <span>Follow us</span>
-                  {/* <a href="#" className="al-footer-facebook-bg">
+                  <a href="#" className="al-footer-facebook-bg">
                     <FontAwesomeIcon icon={faFacebookF} />
                   </a>
                   <a href="#" className="al-footer-twitter-bg">
@@ -94,7 +94,7 @@
                   </a>
                   <a href="#" className="al-footer-google-bg">
                     <FontAwesomeIcon icon={faYoutube} />
-                  </a> */}
+                  </a>
                 </div>
               </div>
 
@@ -136,7 +136,7 @@
                 </div>
                 <div className="al-footer-subscribe-form">
                   <button>
-                    {/* <FontAwesomeIcon icon={faTelegramPlane} /> */}
+                    <FontAwesomeIcon icon={faTelegramPlane} />
                   </button>
                 </div>
               </div>
