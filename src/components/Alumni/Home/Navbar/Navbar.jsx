@@ -63,6 +63,14 @@ const NavBar = () => {
           About Us
         </Link>
         <Link
+          to="/alumni/alumni"
+          className="alumni-nav-item"
+          active-color="var(--primary-orange)"
+          ref={(el) => (itemsRef.current[5] = el)}
+        >
+          Alumni
+        </Link>
+        <Link
           to="/alumni/events"
           className="alumni-nav-item"
           active-color="var(--primary-orange)"

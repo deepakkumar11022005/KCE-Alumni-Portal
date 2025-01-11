@@ -14,6 +14,7 @@ import ManageAlumni from './sections/Admin/ManageAlumni'
 import AdminNotification from './sections/Admin/AdminNotification'
 import AdminEvent from './sections/Admin/AdminEvent'
 import AdminProfile from './sections/Admin/AdminProfile'
+import Alumni from "./sections/Alumni/Alumni";
 function App() {
   return (
     <Router>
@@ -27,6 +28,7 @@ function App() {
           <Route path="about-us" element={<AboutUs />} />
           <Route path="gallery" element={<Gallery />} />
           <Route path="contact-us" element={<ContactUs />} />
+          <Route path="alumni" element={<Alumni />} />
           {/* <Route path="manage-alumni" element={<Filter />} />
         
         // <Route path="event/:id" element={<EventDetails />} 

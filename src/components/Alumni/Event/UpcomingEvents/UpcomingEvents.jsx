@@ -1,13 +1,26 @@
-// UpcomingEvents.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronDown, X, Calendar, MapPin, Clock } from "lucide-react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "./UpcomingEvents.css";
 
+// Event Card Component
 const EventCard = ({ event }) => {
   const eventDate = new Date(event.event_date);
   const month = eventDate.toLocaleString("default", { month: "short" });
   const day = eventDate.getDate();
+
+  // Determine the event status based on the current date
+  const getStatus = () => {
+    const currentDate = new Date();
+    const eventDateOnly = eventDate.setHours(0, 0, 0, 0);
+    const currentDateOnly = currentDate.setHours(0, 0, 0, 0);
+
+    if (eventDateOnly > currentDateOnly) return "UPCOMING"; // Future event
+    if (eventDateOnly === currentDateOnly) return "ONGOING"; // Event today
+    return "PAST"; // Past event
+  };
+
+  const status = getStatus();
 
   return (
     <Link to={`/alumni/event/${event._id}`} className="event-card"> {/* Wrap in Link */}
@@ -27,7 +40,7 @@ const EventCard = ({ event }) => {
 
       <div className="event-content">
         <div className="event-tags">
-          <span className="event-status">UPCOMING</span>
+          <span className="event-status">{status}</span>
           <span className="event-time">{event.time}</span>
         </div>
 
@@ -50,6 +63,7 @@ const EventCard = ({ event }) => {
   );
 };
 
+// Archive Sidebar Component
 const ArchiveSidebar = ({ events, onFilterChange, onClear, isMobile }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [openYear, setOpenYear] = useState(null);
@@ -147,11 +161,42 @@ const ArchiveSidebar = ({ events, onFilterChange, onClear, isMobile }) => {
   );
 };
 
+// Upcoming Events Component
 const UpcomingEvents = ({ events }) => {
   const [filteredEvents, setFilteredEvents] = useState(events);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
-  React.useEffect(() => {
+  // Function to get event status
+  const getStatus = (event) => {
+    const eventDate = new Date(event.event_date);
+    const currentDate = new Date();
+    const eventDateOnly = eventDate.setHours(0, 0, 0, 0);
+    const currentDateOnly = currentDate.setHours(0, 0, 0, 0);
+
+    if (eventDateOnly > currentDateOnly) return "UPCOMING";
+    if (eventDateOnly === currentDateOnly) return "ONGOING";
+    return "PAST";
+  };
+
+  // Function to categorize and sort events
+  const categorizeAndSortEvents = (events) => {
+    const ongoing = [];
+    const upcoming = [];
+    const past = [];
+
+    // Categorize events by status
+    events.forEach((event) => {
+      const status = getStatus(event);
+      if (status === "ONGOING") ongoing.push(event);
+      else if (status === "UPCOMING") upcoming.push(event);
+      else past.push(event);
+    });
+
+    // Concatenate categories in the desired order
+    return [...ongoing, ...upcoming, ...past];
+  };
+
+  useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
     };
@@ -160,6 +205,7 @@ const UpcomingEvents = ({ events }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Update filtered events with categorized and sorted events
   const handleFilterChange = (selectedYear, selectedMonth) => {
     const filtered = events.filter((event) => {
       const eventDate = new Date(event.event_date);
@@ -167,7 +213,7 @@ const UpcomingEvents = ({ events }) => {
       const eventMonth = eventDate.toLocaleString("default", { month: "long" });
       return eventYear === selectedYear && eventMonth === selectedMonth;
     });
-    setFilteredEvents(filtered);
+    setFilteredEvents(categorizeAndSortEvents(filtered)); // Categorize and sort after filtering
   };
 
   return (
@@ -203,7 +249,7 @@ const UpcomingEvents = ({ events }) => {
             </div>
           ) : (
             <div className="no-events">
-              <p>No upcoming events available at the moment.</p>
+              <p>No events available at the moment.</p>
             </div>
           )}
         </div>

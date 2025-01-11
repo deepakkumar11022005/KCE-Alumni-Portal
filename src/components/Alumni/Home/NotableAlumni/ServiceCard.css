@@ -1,8 +1,8 @@
 /* src/components/AlumniTestimonialCard.css */
 
 /* General card styles */
-.alumni-card {
-  width: 250px;
+.alumni-cards {
+  width: 300px ;
   padding: 10px ;
   margin-bottom: 5px;
   border-radius: 10px;

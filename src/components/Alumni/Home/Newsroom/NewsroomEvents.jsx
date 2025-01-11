@@ -4,35 +4,35 @@ import Loading from '../../Loading/Loading';
 
 // News item component
 const NewsItem = ({ title, date }) => (
-    <div className="news-item">
-        <a className='news-title'>{title}</a>
+    <div className="alumni-news-item">
+        <a className='alumni-news-title'>{title}</a>
         <p>{date}</p>
     </div>
 );
 
 // Event item component with required format
 const EventItem = ({ month, date, title, location }) => (
-    <div className="event-item">
-        <div className="event-date">
-            <div className="event-month">{month}</div>
-            <div className="event-day">{date}</div>
+    <div className="alumni-event-item">
+        <div className="alumni-event-date">
+            <div className="alumni-event-month">{month}</div>
+            <div className="alumni-event-day">{date}</div>
         </div>
-        <div className="event-info">
-            <p className="past-label">PAST</p>
+        <div className="alumni-event-info">
+            <p className="alumni-past-label">PAST</p>
             <h3>{title}</h3>
-            <p >{location}</p>
+            <p>{location}</p>
         </div>
     </div>
 );
 
 // Newsroom section component with "View More" link
 const NewsroomSection = ({ news }) => (
-    <div className="section newsroom-section">
-        <div className="section-header">
+    <div className="alumni-section alumni-newsroom-section">
+        <div className="alumni-section-header">
             <h2>NEWSROOM</h2>
-            <a href="/alumni/newsroom" className="view-more">View More</a>
+            <a href="/alumni/newsroom" className="alumni-view-more">View More</a>
         </div>
-        <div className="section-content">
+        <div className="alumni-section-content">
             {news.map((item) => (
                 <NewsItem 
                     key={item._id} 
@@ -46,12 +46,12 @@ const NewsroomSection = ({ news }) => (
 
 // Events section component with "View More" link
 const EventsSection = ({ events }) => (
-    <div className="section events-section">
-        <div className="section-header">
+    <div className="alumni-section alumni-events-section">
+        <div className="alumni-section-header">
             <h2>EVENTS</h2>
-            <a href="/alumni/events" className="view-more">View More</a>
+            <a href="/alumni/events" className="alumni-view-more">View More</a>
         </div>
-        <div className="section-content">
+        <div className="alumni-section-content">
             {events.map(event => {
                 const eventDate = new Date(event.event_date);
                 const month = eventDate.toLocaleString('default', { month: 'short' }).toUpperCase();
@@ -105,11 +105,11 @@ const NewsroomEvents = () => {
     }, []);
 
     if (loading) {
-        return <Loading/>;
+        return <Loading />;
     }
 
     return (
-        <div className="newsroom-events-container">
+        <div className="alumni-newsroom-events-container">
             <NewsroomSection news={news} />
             <EventsSection events={events} />
         </div>

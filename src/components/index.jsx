@@ -46,3 +46,6 @@ export{default as Pagination} from './Admin/Pagination/Pagination'
 
 //loading
 export { default as Loading } from "./Alumni/Loading/Loading";
+
+//Alumni
+export {default as AlumniCard } from './Alumni/Member/AlumniCard'

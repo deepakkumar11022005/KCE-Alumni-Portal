@@ -4,7 +4,7 @@ import './ServiceCard.css'; // Import the specific CSS styles
 
 const AlumniTestimonialCard = ({ imgURL, name, batch, company, domain, isActive }) => {
   return (
-    <div className={`alumni-card ${isActive ? 'active' : ''}`}>
+    <div className={`alumni-cards ${isActive ? 'active' : ''}`}>
       <div className="image-container">
         <img src={imgURL} alt={name} className="alumni-image" />
       </div>
