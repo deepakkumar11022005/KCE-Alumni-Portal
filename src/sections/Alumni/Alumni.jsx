@@ -20,7 +20,7 @@ const Alumni = () => {
   const fetchAlumniData = async (page = 1, filterParams = {}) => {
     const queryParams = new URLSearchParams({
       page,
-      limit: 10,
+      limit: 12,
       sort: "batch",
       order: "desc",
       ...filterParams,
@@ -187,7 +187,7 @@ const Alumni = () => {
                     <p className="a-degree-batch">
                       {alumni.degree} ({alumni.batch})
                     </p>
-                    <p className="a-location">{alumni.location || "N/A"}</p>
+                    <p className="a-location">{alumni.department || "N/A"}</p>
                   </div>
                 </div>
               )}
