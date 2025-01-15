@@ -2,32 +2,32 @@
     {
       "title": "Alumni Homecoming 2024",
       "description": "Join us for a memorable reunion! Connect with fellow alumni, celebrate milestones, and revisit your college days with engaging activities and gala events.",
-      "image": "../../../../../public/images/carousel1.png"
+      "image": "/images/carousel1.png"
     },
     {
       "title": "Alumni Success Stories",
       "description": "Discover inspiring stories from our distinguished alumni. Learn how they’ve shaped their careers and communities, and find motivation for your own journey.",
-      "image": "../../../../../public/images/carousel2.png"
+      "image": "/images/carousel2.png"
     },
     {
       "title": "Mentorship Opportunities",
       "description": "Give back to the community by becoming a mentor or find guidance from experienced professionals. Our alumni mentorship program fosters growth and leadership.",
-      "image": "../../../../../public/images/carousel3.png"
+      "image": "/images/carousel3.png"
     },
     {
       "title": "Networking Events",
       "description": "Expand your professional network through our exclusive alumni events. Meet industry leaders and make valuable connections that last a lifetime.",
-      "image": "../../../../../public/images/carousel1.png"
+      "image": "/images/carousel1.png"
     },
     {
       "title": "Alumni Resources & Benefits",
       "description": "Access career services, discounts, and special offers available to alumni. Your connection to the college extends beyond graduation.",
-      "image": "../../../../../public/images/carousel2.png"
+      "image": "/images/carousel2.png"
     },
     {
       "title": "Global Alumni Chapters",
       "description": "Join one of our many alumni chapters worldwide! Stay connected with your peers and attend local events no matter where you are.",
-      "image": "../../../../../public/images/carousel3.png"
+      "image": "/images/carousel3.png"
     }
   ]
   
