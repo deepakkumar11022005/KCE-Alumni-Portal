@@ -51,7 +51,7 @@
     color: white; /* Text color */
     text-align: center;
     /* padding: 20px; */
-    background-image: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG5idWlqZ2NudHVlaHc0OWQ2cnVteDZocTB5ZTVneHR5c3I0MGs2aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1rSOdtLQwoxz2f6hbf/giphy.webp"); /* Replace with your desired image */
+    /* background-image: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG5idWlqZ2NudHVlaHc0OWQ2cnVteDZocTB5ZTVneHR5c3I0MGs2aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1rSOdtLQwoxz2f6hbf/giphy.webp"); Replace with your desired image */
     background-size: cover; /* Make sure the background covers the entire heading */
     background-position: center; /* Center the background image */
     background-clip: text; /* Ensures background is only shown where the text is */

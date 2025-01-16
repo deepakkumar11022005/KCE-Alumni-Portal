@@ -14,6 +14,7 @@
   --subtitle-size: clamp(14px, 3vw, 16px);
   --body-size: clamp(12px, 2.5vw, 14px);
   --small-size: clamp(10px, 2vw, 12px);
+  --error:rgb(248, 73, 19);
 }
 
 

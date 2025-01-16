@@ -1,4 +1,49 @@
 /* Container for the entire About Us page */
+/* General paragraph styling for justified text */
+.about-us-container p,
+.about-section p,
+.vision-mission-section p,
+.alumni-association-section p,
+.placement-success-section p {
+  text-align: justify;
+}
+
+/* First paragraph in each section */
+section > p:first-of-type,
+.about-section p:first-of-type,
+.vision-mission-section p:first-of-type,
+.alumni-association-section p:first-of-type,
+.placement-success-section p:first-of-type {
+  font-size: 17px;
+  color: #333;
+  line-height: 1.9;
+  text-align: justify; /* Added for justification */
+}
+
+/* Adjust paragraph styling for mobile */
+@media (max-width: 768px) {
+  .about-fill p,
+  section > p:first-of-type,
+  .about-section p:first-of-type,
+  .vision-mission-section p:first-of-type,
+  .alumni-association-section p:first-of-type,
+  .placement-success-section p:first-of-type {
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: justify; /* Added for mobile justification */
+  }
+}
+
+/* Further adjust paragraph styling for very small screens */
+@media (max-width: 480px) {
+  p {
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    text-align: justify; /* Added for small screens justification */
+  }
+}
+
 .about-us-container {
   display: flex;
   margin: 20px;
@@ -88,7 +133,7 @@ section > p:first-of-type,
 }
 
 /* Tablet and mobile styles */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .about-us-container {
     flex-direction: column;
     margin: 10px;
@@ -300,6 +345,10 @@ section > p:first-of-type,
   font-family: 'Playfair Display', serif;
   font-size: 1.4rem;
   z-index: 2;
+  text-align: justify;
+/* background-color: #1c1c1c; */
+display: flex;
+justify-content: center;
   position: relative;
   color: rgba(34, 34, 34, 0.85);
   font-weight: 400;
