@@ -5,7 +5,7 @@
   margin: 1px auto;
   /* border-radius: 20px; */
   overflow: hidden;
-  border: 2px solid green;
+  border: 2px solid rgb(0, 0, 128);
   background-attachment: fixed; /* Parallax effect */
   /* perspective: 1000px;  */
 }
