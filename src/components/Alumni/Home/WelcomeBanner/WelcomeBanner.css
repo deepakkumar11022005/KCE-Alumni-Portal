@@ -7,11 +7,12 @@
   overflow: hidden;
   border: 2px solid green;
   background-attachment: fixed; /* Parallax effect */
-  perspective: 1000px; 
+  /* perspective: 1000px;  */
 }
 
 .banner-overlay {
   position: absolute;
+  overflow: hidden;
   top: 0;
   left: 0;
   width: 100%;
