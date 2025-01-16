@@ -10,9 +10,11 @@ import {
   Footer,
   NavBar,
 } from "../../components";
+import './Home.css'
 const Home = () => {
   return (
-    <>
+    <div className="home-class">
+
       <Header />
       <Carousel />
       <WelcomeBanner />
@@ -22,7 +24,7 @@ const Home = () => {
       <AlumniSlider />
       <Footer />
       <NavBar/>
-    </>
+    </div>
   );
 };
 
