@@ -1,6 +1,6 @@
 .welcome-banner {
   position: relative;
-  width: 90%;
+  width: 85%;
   padding: 3rem;
   margin: 1px auto;
   /* border-radius: 20px; */
@@ -8,6 +8,10 @@
   /* border: 2px solid rgb(0, 0, 128); */
   background-attachment: fixed; /* Parallax effect */
   perspective: 1000px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .banner-overlay {
@@ -15,9 +19,12 @@
   overflow: hidden;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 95%;
   height: 100%;
   /* border: 2px solid violet; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* background: 
       radial-gradient(circle at 20% 20%, rgba(121, 135, 203, 0.1%) 0%, transparent 40%),
       radial-gradient(circle at 80% 80%, rgba(0, 191, 165, 0.1) 0%, transparent 40%);  */

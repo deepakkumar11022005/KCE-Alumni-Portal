@@ -46,7 +46,7 @@ const Carousel = () => {
             <div className="content">
               <h2 className="title">{item.title}</h2>
               <p className="description">{item.description}</p>
-              <button className="read-more">Read More</button>
+              <button className="alumni-read-more">Read More</button>
             </div>
           </li>
         ))}

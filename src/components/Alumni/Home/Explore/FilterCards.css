@@ -1,6 +1,7 @@
 /* Main container styling */
 .filter-cards-container {
-  padding: 0px 20px 50px 0px;
+  width: 95%;
+  padding: 0px 20px 10px 10px;
   /* background-color: #f0f4f8; */
   text-align: center;
   background: 
@@ -8,6 +9,7 @@
     radial-gradient(circle at 80% 80%, rgba(0, 191, 165, 0.1) 0%, transparent 40%);
   position: relative;
   overflow: hidden;
+  
 }
 
 .filter-cards-title {

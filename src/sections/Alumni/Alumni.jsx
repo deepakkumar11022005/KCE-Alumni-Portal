@@ -18,10 +18,18 @@ const Alumni = () => {
   // Fetch available batches
   const fetchBatches = async () => {
     try {
-      setLoading(true); // Start loading
-      setError(""); // Clear previous errors
-      const response = await fetch("https://alumni-apis.vercel.app/batches");
+      setLoading(true); 
+      setError(""); 
+  
+      const response = await fetch("https://alumni-apis.vercel.app/batches", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
       if (!response.ok) throw new Error("Failed to fetch batches");
+  
       const data = await response.json();
       setBatches(data.data);
     } catch (error) {
@@ -31,15 +39,16 @@ const Alumni = () => {
       setLoading(false); // Stop loading
     }
   };
+  
 
   const fetchBatchAlumni = async (batch) => {
     try {
       setLoading(true); // Start loading
       setError(""); // Clear previous errors
       const response = await fetch(
-        `https://alumni-apis.vercel.app/batch-students?page=1&limit=1&sort=roll_no&order=asc`,
+        `https://alumni-apis.vercel.app/batch-students?page=1&limit=10000&sort=roll_no&order=asc`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -52,6 +61,7 @@ const Alumni = () => {
       if (!response.ok) throw new Error("Failed to fetch batch alumni data");
       const data = await response.json();
       setAlumniData(data.data);
+      console.log(data.data);
       setFilteredData(data.data);
       setTotalPages(data.pagination.totalPages || 1);
     } catch (error) {
@@ -64,7 +74,7 @@ const Alumni = () => {
 
   useEffect(() => {
     fetchBatches();
-  }, []);
+  },[]);
 
   // Handle batch change
   const handleBatchChange = (e) => {
