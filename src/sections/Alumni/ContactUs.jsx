@@ -10,6 +10,8 @@ const ContactUs = () => {
     subject: "",
     message: "",
   });
+  const [responseMessage, setResponseMessage] = useState(null);
+  const [isError, setIsError] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -18,10 +20,36 @@ const ContactUs = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    alert("Form submitted!");
+    try {
+      const response = await fetch("https://alumni-apis.vercel.app/feedback", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          contact_no: formData.contact,
+          subject: formData.subject,
+          description: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setResponseMessage("Feedback added successfully!");
+        setIsError(false);
+      } else {
+        setResponseMessage(data.message || "An error occurred while submitting feedback.");
+        setIsError(true);
+      }
+    } catch (error) {
+      setResponseMessage("An error occurred while submitting feedback. Please try again later.");
+      setIsError(true);
+    }
   };
 
   return (
@@ -30,9 +58,19 @@ const ContactUs = () => {
       <div className="contactParent">
         <div className="simple-contact-form-container">
           <h1 className="contact-heading">Contact</h1>
-          <p className="contact-description">
-            Please use the form below to contact us
-          </p>
+          <p className="contact-description">Please use the form below to contact us</p>
+
+          {/* Display response message */}
+          {responseMessage && (
+            <div
+              className={`response-message ${
+                isError ? "error-message" : "success-message"
+              }`}
+            >
+              {responseMessage}
+            </div>
+          )}
+
           <form onSubmit={handleSubmit}>
             <div className="form-group-horizontal">
               <label htmlFor="name">Name *</label>
@@ -92,8 +130,6 @@ const ContactUs = () => {
                 required
               />
             </div>
-
-            
 
             <button type="submit" className="contact-submit-btn">Submit</button>
           </form>

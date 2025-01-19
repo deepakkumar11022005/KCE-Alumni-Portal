@@ -50,6 +50,7 @@
 .a-filter-select {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
 }
@@ -128,6 +129,8 @@
   padding: 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  align-items: center;
+  /* background-color: #007bff; */
 }
 
 /* Alumni Card */
@@ -135,6 +138,7 @@
   background-color: white;
   border-radius: 0.5rem;
   overflow: hidden;
+text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -256,12 +260,14 @@
   }
 
   .a-filter-select {
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .a-select {
-    width: 100%;
+    width: 70%;
     max-width: 300px;
   }
 }
@@ -322,10 +328,14 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  margin: 2rem 0;
+  margin: 2rem 0; /* Adjust for visibility */
   padding: 1rem;
   flex-wrap: wrap;
+  background-color: #f8f9fa; /* Light background for better visibility */
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
+
 
 .a-page-btn {
   padding: 0.5rem 1rem;
@@ -365,4 +375,15 @@
     padding: 0.375rem 0.75rem;
     font-size: 0.875rem;
   }
+}
+.a-record-count {
+  /* background-color: #1a1a1a; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #007bff; /* Blue color for text */
+  font-size: 1.2rem; /* Slightly larger text for visibility */
+  font-weight: bold; /* Bold text for emphasis */
+  text-align: center; /* Centers the text */
+  /* margin-bottom: 10px;  */
 }

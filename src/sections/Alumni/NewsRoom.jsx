@@ -260,7 +260,7 @@ const NewsRoom = () => {
       <Header />
       <div className="container">
         <div className="about-header">
-          <h1>Newsroom </h1>
+          <h1 className="newsroom-title">Newsroom </h1>
           <p className="about-subtitle">
             All the News and Updates from KCE ALUMNI
           </p>

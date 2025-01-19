@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Footer, Header, Loading } from "../../components";
+import { Footer, Header, Loading, NavBar } from "../../components";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
-import "./Alumni.css"
-import test from "../../assets/JSON/test.json";
+import "./Alumni.css";
 
 const Alumni = () => {
   const [alumniData, setAlumniData] = useState([]);
@@ -19,20 +18,20 @@ const Alumni = () => {
   const fetchBatches = async () => {
     try {
       setLoading(true);
-      const data = {"success":true,"data":["batch_2007","batch_2023","batch_2024","batch_2025","batch_2026"]};
+      const response = await fetch("https://alumni-apis.onrender.com/batches");
+      const data = await response.json();
+
       if (data.success) {
         setBatches(data.data);
-        // Find and select the previous year's batch
         const currentYear = new Date().getFullYear();
         const prevYearBatch = `batch_${currentYear - 1}`;
-        const defaultBatch = data.data.includes(prevYearBatch) 
-          ? prevYearBatch 
-          : data.data[data.data.length - 2]; // Fallback to second-last batch if prev year not found
+        const defaultBatch = data.data.includes(prevYearBatch)
+          ? prevYearBatch
+          : data.data[data.data.length - 2];
         setSelectedBatch(defaultBatch);
-        // Automatically fetch the default batch's alumni
         fetchBatchAlumni(defaultBatch);
       } else {
-        throw new Error(data.message || 'Failed to fetch batches');
+        throw new Error(data.message || "Failed to fetch batches");
       }
     } catch (error) {
       setError("Unable to fetch batch data. Please try again later.");
@@ -45,16 +44,29 @@ const Alumni = () => {
   const fetchBatchAlumni = async (batch) => {
     try {
       setLoading(true);
-      setAlumniData([]); // Clear previous data
-      setFilteredData([]); // Clear filtered data
-      const data = test;
+      setAlumniData([]);
+      setFilteredData([]);
+
+      const url = `https://alumni-apis.onrender.com/batch-students?page=1&limit=${100000}&sort=roll_no&order=asc`;
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          batch: batch.slice(-4),
+        }),
+      });
+
+      const data = await response.json();
       if (data.success) {
+        setError(null);
         setAlumniData(data.data);
         setFilteredData(data.data);
         setTotalPages(Math.ceil(data.data.length / recordsPerPage));
-        setCurrentPage(1); // Reset to first page
+        setCurrentPage(1);
       } else {
-        throw new Error(data.message || 'Failed to fetch alumni');
+        throw new Error(data.message);
       }
     } catch (error) {
       setError("Unable to fetch alumni data. Please try again.");
@@ -99,13 +111,13 @@ const Alumni = () => {
           alumni.roll_no,
           alumni.batch,
           alumni.department,
-          alumni.degree
-        ].map(field => (field || "").toLowerCase());
-        
-        return searchableFields.some(field => field.includes(tag));
+          alumni.degree,
+        ].map((field) => (field || "").toLowerCase());
+
+        return searchableFields.some((field) => field.includes(tag));
       })
     );
-    
+
     setFilteredData(filtered);
     setCurrentPage(1);
   };
@@ -139,19 +151,19 @@ const Alumni = () => {
       <div className="a-alumni-content">
         <div className="a-filters">
           <div className="a-filter-select">
-            <select 
-              value={selectedBatch} 
+            <select
+              value={selectedBatch}
               onChange={(e) => setSelectedBatch(e.target.value)}
               className="a-select"
             >
               <option value="">Select Batch</option>
               {batches.map((batch) => (
                 <option key={batch} value={batch}>
-                  {batch.replace('batch_', '')}
+                  {batch.replace("batch_", "")}
                 </option>
               ))}
             </select>
-            <button 
+            <button
               onClick={() => fetchBatchAlumni(selectedBatch)}
               className="a-get-btn"
               disabled={!selectedBatch}
@@ -159,7 +171,8 @@ const Alumni = () => {
               Get
             </button>
             <span className="a-record-count">
-              {filteredData.length} record{filteredData.length !== 1 ? 's' : ''} found
+              {filteredData.length} record{filteredData.length !== 1 ? "s" : ""}{" "}
+              found
             </span>
           </div>
 
@@ -174,9 +187,9 @@ const Alumni = () => {
               {searchTags.map((tag, index) => (
                 <span key={index} className="a-tag">
                   {tag}
-                  <button 
+                  <button
                     onClick={() => {
-                      const updatedTags = searchTags.filter(t => t !== tag);
+                      const updatedTags = searchTags.filter((t) => t !== tag);
                       setSearchTags(updatedTags);
                       filterAlumni(updatedTags);
                     }}
@@ -187,10 +200,7 @@ const Alumni = () => {
                 </span>
               ))}
               {searchTags.length > 0 && (
-                <button 
-                  onClick={clearTags}
-                  className="a-clear-btn"
-                >
+                <button onClick={clearTags} className="a-clear-btn">
                   Clear All
                 </button>
               )}
@@ -202,26 +212,33 @@ const Alumni = () => {
         {error && <div className="a-error">{error}</div>}
 
         <div className="a-alumni-grid">
-          {filteredData.slice((currentPage - 1) * recordsPerPage, currentPage * recordsPerPage).map((alumni, index) => (
-            <div key={index} className="a-card">
-              <img
-                src="/api/placeholder/200/200"
-                alt={alumni.student_name}
-                className="a-card-image"
-              />
-              <div className="a-card-content">
-                <h3>{alumni.student_name}</h3>
-                <p className="a-roll">{alumni.roll_no}</p>
-                <p className="a-batch">Batch of {alumni.batch.replace('batch_', '')}</p>
-                <p className="a-dept">{alumni.department}</p>
-                <div className="a-social">
-                  <FaLinkedin className="a-icon" />
-                  <FaFacebook className="a-icon" />
-                  <FaInstagram className="a-icon" />
+          {filteredData
+            .slice(
+              (currentPage - 1) * recordsPerPage,
+              currentPage * recordsPerPage
+            )
+            .map((alumni, index) => (
+              <div key={index} className="a-card">
+                <img
+                  src="/api/placeholder/200/200"
+                  alt={alumni.student_name}
+                  className="a-card-image"
+                />
+                <div className="a-card-content">
+                  <h3>{alumni.student_name}</h3>
+                  <p className="a-roll">{alumni.roll_no}</p>
+                  <p className="a-batch">
+                    Batch of {alumni.batch.replace("batch_", "")}
+                  </p>
+                  <p className="a-dept">{alumni.department}</p>
+                  <div className="a-social">
+                    <FaLinkedin className="a-icon" />
+                    <FaFacebook className="a-icon" />
+                    <FaInstagram className="a-icon" />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
 
         {totalPages > 1 && (
@@ -234,25 +251,29 @@ const Alumni = () => {
               First
             </button>
             <button
-              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
               className="a-page-btn"
             >
               Prev
             </button>
-            
-            {getPaginationGroup().map(number => (
+
+            {getPaginationGroup().map((number) => (
               <button
                 key={number}
                 onClick={() => setCurrentPage(number)}
-                className={`a-page-btn ${currentPage === number ? 'a-active' : ''}`}
+                className={`a-page-btn ${
+                  currentPage === number ? "a-active" : ""
+                }`}
               >
                 {number}
               </button>
             ))}
-            
+
             <button
-              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage === totalPages}
               className="a-page-btn"
             >
@@ -269,6 +290,7 @@ const Alumni = () => {
         )}
       </div>
       <Footer />
+      <NavBar />
     </div>
   );
 };
