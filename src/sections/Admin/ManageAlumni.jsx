@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Users, Upload, Plus } from "lucide-react";
 import {
-  AlumniFilters,
   AlumniForm,
   CSVUpload,
   AlumniTable,
@@ -15,96 +14,146 @@ const ManageAlumni = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [appliedFilters, setAppliedFilters] = useState({});
-  const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(50);
   const [totalItems, setTotalItems] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [view, setView] = useState("table");
-  const [uploadProgress, setUploadProgress] = useState(0);
+  const [selectedBatch, setSelectedBatch] = useState("");
+  const [batches, setBatches] = useState([]);
+  const [searchTags, setSearchTags] = useState([]);
 
   const handleViewChange = (newView) => {
     setView(newView);
   };
 
-  const fetchAllData = async () => {
+  const fetchBatches = async () => {
+    try {
+      const response = await fetch("https://alumni-apis.onrender.com/batches");
+      const data = await response.json();
+
+      if (data.success) {
+        setBatches(data.data);
+        const currentYear = new Date().getFullYear();
+        const prevYearBatch = `batch_${currentYear - 1}`;
+        const defaultBatch = data.data.includes(prevYearBatch)
+          ? prevYearBatch
+          : data.data[data.data.length - 2];
+        setSelectedBatch(defaultBatch);
+        fetchBatchAlumni(defaultBatch);
+      } else {
+        throw new Error(data.message || "Failed to fetch batches");
+      }
+    } catch (error) {
+      setError("Unable to fetch batch data. Please try again later.");
+      console.error("Error:", error);
+    }
+  };
+
+  const fetchBatchAlumni = async (batch) => {
     setLoading(true);
     try {
-      const url = `https://alumni-apis.vercel.app/students?page=1&limit=1000&sort=batch&order=desc`;
+      const url = `https://alumni-apis.onrender.com/batch-students?page=1&limit=${100000}&sort=roll_no&order=asc`;
       const response = await fetch(url, {
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          batch: batch.slice(-4),
+        }),
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+      const data = await response.json();
+      if (data.success) {
+        setAllData(data.data);
+        setFilteredData(data.data);
+        setTotalItems(data.data.length);
+        setTotalPages(Math.ceil(data.data.length / itemsPerPage));
+        setCurrentPage(1);
+        setError(null);
+      } else {
+        throw new Error(data.message);
       }
-
-      const result = await response.json();
-      setAllData(result.data);
-      setTotalItems(result.data.length);
-      applyFiltersAndSearch(result.data, appliedFilters, searchQuery);
     } catch (error) {
       console.error("Error fetching data:", error);
-      setError("An error occurred while fetching data. Please try again later.");
+      setError(
+        "An error occurred while fetching data. Please try again later."
+      );
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchAllData();
+    fetchBatches();
   }, []);
 
   useEffect(() => {
-    applyFiltersAndSearch(allData, appliedFilters, searchQuery);
-  }, [allData, appliedFilters, searchQuery]);
+    filterAlumni(searchTags);
+  }, [searchTags, allData]);
 
-  const applyFiltersAndSearch = (data, filters, query) => {
-    let filtered = data.filter((alumni) => {
-      // Apply filters
-      const matchesFilters = Object.keys(filters).every((key) => {
-        if (!filters[key]) return true;
-        const filterValue = filters[key].toLowerCase();
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && e.target.value.trim() !== "") {
+      const newTag = e.target.value.trim().toLowerCase();
+      if (!searchTags.includes(newTag)) {
+        const updatedTags = [...searchTags, newTag];
+        setSearchTags(updatedTags);
+      }
+      e.target.value = "";
+    }
+  };
 
-        // Check if key matches in the top-level fields
-        const alumniValue = alumni[key]?.toString().toLowerCase();
-        let matchesTopLevel = alumniValue?.includes(filterValue);
+  const removeSearchTag = (tagToRemove) => {
+    const updatedTags = searchTags.filter((tag) => tag !== tagToRemove);
+    setSearchTags(updatedTags);
+  };
 
-        // Check nested education fields
-        let matchesEducation = alumni.education?.some(edu => {
-          return (
-            edu.institute_name.toLowerCase().includes(filterValue) ||
-            edu.course.toLowerCase().includes(filterValue) ||
-            edu.passed_out_year.toString().includes(filterValue) ||
-            edu.grade.toLowerCase().includes(filterValue)
-          );
-        });
+  const clearTags = () => {
+    setSearchTags([]);
+    setFilteredData(allData);
+    setCurrentPage(1);
+  };
 
-        // Check nested work experience fields
-        let matchesWorkExperience = alumni.work_experience?.some(work => {
-          return (
-            work.company_name.toLowerCase().includes(filterValue) ||
-            work.company_address.toLowerCase().includes(filterValue) ||
-            work.work_domain.toLowerCase().includes(filterValue) ||
-            work.designation.toLowerCase().includes(filterValue) ||
-            work.from_year.toString().includes(filterValue) ||
-            work.to_year.toString().includes(filterValue)
-          );
-        });
+  const filterAlumni = (tags) => {
+    if (tags.length === 0) {
+      setFilteredData(allData);
+      setTotalItems(allData.length);
+      setTotalPages(Math.ceil(allData.length / itemsPerPage));
+      return;
+    }
 
-        // Return true if matches top-level, education, or work experience
-        return matchesTopLevel || matchesEducation || matchesWorkExperience;
-      });
+    const filtered = allData.filter((alumni) =>
+      tags.every((tag) => {
+        const searchableFields = [
+          alumni.student_name,
+          alumni.roll_no,
+          alumni.batch,
+          alumni.department,
+          alumni.degree,
+          // Add education fields
+          ...(alumni.education
+            ?.map((edu) => [
+              edu.institute_name,
+              edu.course,
+              edu.passed_out_year,
+              edu.grade,
+            ])
+            .flat() || []),
+          // Add work experience fields
+          ...(alumni.work_experience
+            ?.map((work) => [
+              work.company_name,
+              work.work_domain,
+              work.designation,
+              work.company_address,
+            ])
+            .flat() || []),
+        ].map((field) => (field || "").toString().toLowerCase());
 
-      // Apply search logic
-      const matchesSearch = searchInObject(alumni, query);
-
-      return matchesFilters && matchesSearch;
-    });
+        return searchableFields.some((field) => field.includes(tag));
+      })
+    );
 
     setFilteredData(filtered);
     setTotalItems(filtered.length);
@@ -112,53 +161,8 @@ const ManageAlumni = () => {
     setCurrentPage(1);
   };
 
-  const handleFilter = (filters) => {
-    setAppliedFilters(filters);
-  };
-
   const handlePageChange = (page) => {
     setCurrentPage(page);
-  };
-
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-  };
-
-  // Define searchable fields, now including education and work experience fields
-  const searchableFields = [
-    'roll_no', 'student_name', 'batch', 'degree', 'branch', 'department', 'date_of_birth',
-    // Additional fields within education
-    'education.institute_name', 'education.course', 'education.passed_out_year', 'education.grade',
-    // Additional fields within work experience
-    'work_experience.company_name', 'work_experience.work_domain', 'work_experience.designation',
-    'work_experience.from_year', 'work_experience.to_year'
-  ];
-
-  // Search within object and nested education/work experience
-  const searchInObject = (obj, searchTerm) => {
-    if (!searchTerm) return true;
-    const searchTermLower = searchTerm.toLowerCase();
-
-    // Search through searchable fields
-    return searchableFields.some(field => {
-      const [mainField, subField] = field.split('.');
-
-      if (subField && Array.isArray(obj[mainField])) {
-        // If it's a nested array (education or work experience)
-        return obj[mainField].some(item => {
-          const value = item[subField];
-          if (value === null || value === undefined) return false;
-          const stringValue = value.toString().toLowerCase();
-          return stringValue.includes(searchTermLower);
-        });
-      } else {
-        // Search in top-level fields
-        const value = obj[mainField];
-        if (value === null || value === undefined) return false;
-        const stringValue = value.toString().toLowerCase();
-        return stringValue.includes(searchTermLower);
-      }
-    });
   };
 
   const paginatedData = filteredData.slice(
@@ -166,33 +170,33 @@ const ManageAlumni = () => {
     currentPage * itemsPerPage
   );
 
-  return (
-    <div className="manage-alumni">
-      <div className="">
-        <h1 className="admin-title">KCE Alumni Admin Dashboard</h1>
+  return  (
+    <div className="admin-manage-alumni">
+      <div className="admin-header">
+        <h1 className="admin-main-title">KCE Alumni Admin Dashboard</h1>
       </div>
       <NavigationBar />
 
-      <h1 className="page-title">Manage Alumni</h1>
+      <h1 className="admin-page-title">Manage Alumni</h1>
 
-      <div className="manage-content">
-      <div className="action-buttons">
+      <div className="admin-manage-content">
+        <div className="admin-action-container">
           <button
-            className={`action-button ${view === "table" ? "active" : ""}`}
+            className={`admin-action-button ${view === "table" ? "admin-active" : ""}`}
             onClick={() => handleViewChange("table")}
           >
             <Users size={20} />
             View Alumni
           </button>
           <button
-            className={`action-button ${view === "upload" ? "active" : ""}`}
+            className={`admin-action-button ${view === "upload" ? "admin-active" : ""}`}
             onClick={() => handleViewChange("upload")}
           >
             <Upload size={20} />
             Upload CSV
           </button>
           <button
-            className={`action-button ${view === "add" ? "active" : ""}`}
+            className={`admin-action-button ${view === "add" ? "admin-active" : ""}`}
             onClick={() => handleViewChange("add")}
           >
             <Plus size={20} />
@@ -202,13 +206,65 @@ const ManageAlumni = () => {
 
         {view === "table" && (
           <>
-            <AlumniFilters
-              onApplyFilters={handleFilter}
-              searchQuery={searchQuery}
-              setSearchQuery={handleSearch}
-            />
-            {loading && <div className="loading-message">Loading...</div>}
-            {error && <div className="error-message">{error}</div>}
+            <div className="admin-filters-container">
+              <div className="admin-batch-filter">
+                <div className="admin-select-group">
+                  <span className="admin-filter-label">Batch</span>
+                  <select
+                    value={selectedBatch}
+                    onChange={(e) => setSelectedBatch(e.target.value)}
+                    className="admin-select-input"
+                  >
+                    <option value="">Select Batch</option>
+                    {batches.map((batch) => (
+                      <option key={batch} value={batch}>
+                        {batch.replace("batch_", "")}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <button
+                  onClick={() => fetchBatchAlumni(selectedBatch)}
+                  className="admin-fetch-button"
+                  disabled={!selectedBatch}
+                >
+                  Get
+                </button>
+              </div>
+
+              <div className="admin-search-section">
+                <div className="admin-search-wrapper">
+                  <span className="admin-search-icon">🔍</span>
+                  <input
+                    type="text"
+                    placeholder="Search alumni..."
+                    onKeyDown={handleSearch}
+                    className="admin-search-input"
+                  />
+                </div>
+                <div className="admin-search-tags">
+                  {searchTags.map((tag, index) => (
+                    <span key={index} className="admin-tag-item">
+                      {tag}
+                      <button
+                        onClick={() => removeSearchTag(tag)}
+                        className="admin-tag-remove-btn"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  ))}
+                  {searchTags.length > 0 && (
+                    <button onClick={clearTags} className="admin-clear-all-btn">
+                      Clear All
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {loading && <div className="admin-loading">Loading...</div>}
+            {error && <div className="admin-error">{error}</div>}
             {!loading && !error && (
               <>
                 <AlumniTable
@@ -226,13 +282,10 @@ const ManageAlumni = () => {
             )}
           </>
         )}
-        {view === "upload" && (
-          <CSVUpload />
-        )}
+        {view === "upload" && <CSVUpload />}
         {view === "add" && <AlumniForm />}
       </div>
-    </div>
-  );
+    </div>);
 };
 
 export default ManageAlumni;

@@ -1,84 +1,262 @@
-.manage-alumni {
-  padding: 24px;
-  
+.admin-manage-alumni {
+  padding: 2rem;
   background-color: var(--background-color);
   min-height: 100vh;
   font-family: 'Roboto', sans-serif;
-}
- 
-.page-title {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 24px;
-  color: var(--primary-color);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-.action-buttons {
   display: flex;
-  gap: 16px;
-  flex-direction: row ;
-  /* background-color: aqua; */
-  margin-bottom: 24px;
-  flex-wrap: wrap;  
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.admin-title{
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 24px;
+.admin-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.admin-main-title,
+.admin-page-title {
+  font-size: 2rem;
+  font-weight: 700;
   color: var(--primary-color);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  text-align: start;
+  margin-bottom: 1rem;
 }
-.action-button {
+
+.admin-manage-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.admin-action-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.admin-action-button {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
   background-color: var(--card-background);
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
   color: var(--text-color);
   font-weight: 500;
-  flex: 1 1 auto; /* Makes the buttons flexible to occupy available space */
-  justify-content: center; /* Centers the icon and text */
+  flex: 1 1 150px;
+  min-width: fit-content;
 }
 
-.action-button:hover, .action-button.active {
+.admin-action-button:hover,
+.admin-action-button.admin-active {
   background-color: var(--primary-color);
   color: white;
 }
 
-.action-button:hover svg, .action-button.active svg {
+.admin-filters-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 1rem;
+  background-color: var(--card-background);
+  border-radius: 0.5rem;
+}
+
+.admin-batch-filter {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+
+.admin-select-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 0.85rem;
+}
+
+.admin-filter-label {
+  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.admin-select-input {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: white;
+  min-width: 150px;
+}
+
+.admin-fetch-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 0.25rem;
   color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: fit-content;
+  align-self: flex-end;
 }
 
-/* Media Query for smaller screens */
+.admin-fetch-button:disabled {
+  background-color: var(--border-color);
+  cursor: not-allowed;
+}
+
+.admin-search-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.admin-search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+}
+
+.admin-search-icon {
+  color: var(--text-color);
+  opacity: 0.5;
+}
+
+.admin-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: var(--text-color);
+  min-width: 200px;
+}
+
+.admin-search-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.admin-tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+}
+
+.admin-tag-remove-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0 0.25rem;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.admin-clear-all-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+}
+
+.admin-loading,
+.admin-error {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+.admin-loading {
+  color: var(--text-color);
+  background-color: var(--card-background);
+}
+
+.admin-error {
+  color: #dc3545;
+  border: 2px solid #dc3545;
+  /* background-color: var(--error-color, #dc3545); */
+}
+
 @media (max-width: 768px) {
-  .action-buttons {
-    flex-direction: column;
-    gap: 12px;
+  .admin-manage-alumni {
+    padding: 1rem;
   }
 
-  .action-button {
-    padding: 10px 14px;
-    font-size: 0.9rem;
+  .admin-action-container {
+    flex-direction: column;
+  }
+
+  .admin-action-button {
+    width: 100%;
+  
+  }
+
+  .admin-filters-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .admin-batch-filter {
+    width: 100%;
+  }
+
+  .admin-select-input {
+    width: 100%;
+  }
+
+  .admin-search-section {
+    width: 100%;
   }
 }
 
-/* Media Query for extra small screens */
 @media (max-width: 480px) {
-  .action-button {
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    gap: 6px;
+  .admin-main-title,
+  .admin-page-title {
+    font-size: 1.5rem;
   }
 
-  .page-title {
-    font-size: 24px;
-    margin-bottom: 16px;
+  .admin-action-button {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .admin-select-input,
+  .admin-search-input {
+    font-size: 0.875rem;
+  }
+
+  .admin-tag-item {
+    font-size: 0.75rem;
   }
 }

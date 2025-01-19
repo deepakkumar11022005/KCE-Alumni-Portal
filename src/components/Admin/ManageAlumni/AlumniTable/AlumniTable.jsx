@@ -125,12 +125,13 @@ const AlumniTable = ({ alumniData, totalItems }) => {
         <thead>
           <tr>
             <th>S.no.</th>
+            <th>Roll Number</th>
             <th>Name</th>
             <th>Year</th>
             <th>Department</th>
             <th>Location</th>
             <th>Company</th>
-            <th>Domain</th>
+           
             <th>View More</th>
           </tr>
         </thead>
@@ -139,12 +140,13 @@ const AlumniTable = ({ alumniData, totalItems }) => {
             <React.Fragment key={alumni._id}>
               <tr>
                 <td>{index + 1}</td>
+                <td>{getValidData(alumni.roll_no)}</td>
                 <td>{getValidData(alumni.student_name)}</td>
                 <td>{getValidData(alumni.batch)}</td>
                 <td>{getValidData(alumni.department)}</td>
                 <td>{getValidData(alumni.company_address)}</td>
                 <td>{getValidData(alumni.company_name)}</td>
-                <td>{getValidData(alumni.work_domain)}</td>
+               
                 <td>
                   <button
                     onClick={() => toggleRowExpansion(alumni._id)}

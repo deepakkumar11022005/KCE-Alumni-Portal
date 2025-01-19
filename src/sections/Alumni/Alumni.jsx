@@ -208,7 +208,11 @@ const Alumni = () => {
           </div>
         </div>
 
-        {loading && <div className="a-loading"><Loading /></div>}
+        {loading && (
+          <div className="a-loading">
+            <Loading />
+          </div>
+        )}
         {error && <div className="a-error">{error}</div>}
 
         <div className="a-alumni-grid">
@@ -220,7 +224,7 @@ const Alumni = () => {
             .map((alumni, index) => (
               <div key={index} className="a-card">
                 <img
-                  src="/api/placeholder/200/200"
+                  src="https://www.shutterstock.com/image-vector/school-graduation-hat-cartoon-diploma-600nw-2355557719.jpg"
                   alt={alumni.student_name}
                   className="a-card-image"
                 />
@@ -232,9 +236,14 @@ const Alumni = () => {
                   </p>
                   <p className="a-dept">{alumni.department}</p>
                   <div className="a-social">
-                    <FaLinkedin className="a-icon" />
-                    <FaFacebook className="a-icon" />
-                    <FaInstagram className="a-icon" />
+                    <a
+                      href={alumni.linkedin|| "https://www.linkedin.com"  }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Connect with kceians"
+                    >
+                      <FaLinkedin className="a-icon" /> 
+                    </a>
                   </div>
                 </div>
               </div>
