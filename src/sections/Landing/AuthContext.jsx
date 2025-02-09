@@ -1,8 +1,8 @@
 const API_BASE_URL = '/api';
 
 // Environment check for development
-const isDevelopment = process.env.NODE_ENV === 'development';
-
+// const isDevelopment = process.env.NODE_ENV === 'development';
+const isDevelopment = true;
 // Alumni Authentication Functions
 export const alumniLogin = async (credentials) => {
   if (isDevelopment) {
