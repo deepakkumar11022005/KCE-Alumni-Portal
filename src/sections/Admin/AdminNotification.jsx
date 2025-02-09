@@ -7,7 +7,7 @@ import {
   AlumniFilters,
 } from "../../components";
 
-const AdminNotification = () => {
+const AdminNotification = ({adminAuthData}) => {
   const [notifications, setNotifications] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -74,10 +74,12 @@ const AdminNotification = () => {
 
   return (
     <div className="admin-notification">
-      <h1 className="admin-title">KCE Alumni Admin Dashboard</h1>
+      <div className="">
+      <h1 className="admin-title">KCE Alumni Admin Dashboard</h1> 
+      </div>
+      
       <NotificationNav />
       <h2 className="page-title">Manage Notifications</h2>
-
       <AlumniFilters onApplyFilters={handleFilter} />
 
       {error && <div className="error-message">{error}</div>}

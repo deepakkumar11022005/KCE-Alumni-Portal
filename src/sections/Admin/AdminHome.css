@@ -7,6 +7,15 @@
   --text-light: #666666;
   --accent-color: #e91e63;
 }
+.admin-username {
+  color: #2C3E50; /* Muted professional text color */
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+  cursor: pointer;
+  padding: 1px 20px;
+}
 
 .admin-home {
   padding: 24px;
@@ -96,6 +105,13 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+}
+.filters-container{
+  display: flex;
+  flex-direction: column;
+}
+.filters{
+  width: 70%;
 }
 
 .theme-toggle {

@@ -219,7 +219,7 @@ const AlumniForm = () => {
     const formattedAlumniData = formatAlumniDataForRequest(alumniData);
 
     const { personal } = alumniData;
-    const requiredPersonalFields = ['name', 'rollNo', 'batch', 'degree', 'department', 'email', 'mobileNumber'];
+    const requiredPersonalFields = ['name', 'rollNo', 'batch', 'degree', 'department', 'email', 'mobileNumber','dateOfBirth'];
     for (let field of requiredPersonalFields) {
       if (!personal[field]) {
         setError(`Please fill the required field: ${field.replace(/([A-Z])/g, ' $1').trim()}`);
@@ -266,7 +266,7 @@ const BloodGroupOptions = [
       {Object.entries(alumniData.personal).map(([key, value]) => (
         <div className="input-group" key={key}>
           <label htmlFor={key}>
-            {['name', 'rollNo', 'batch', 'department', 'degree', 'branch', 'email', 'mobileNumber'].includes(key) ? (
+            {['name', 'rollNo', 'email', 'batch', 'degree', 'branch', 'department', 'mobileNumber','dateOfBirth'].includes(key) ? (
               <>
                 {key.replace(/([A-Z])/g, ' $1').trim().toUpperCase()} <span style={{ color: 'red' }}>*</span>
               </>
@@ -330,7 +330,7 @@ const BloodGroupOptions = [
               type={key.toLowerCase().includes('email') ? 'email' : (key.toLowerCase().includes('number') ? 'number' : 'text')}
               value={value}
               onChange={(e) => handleChange('personal', key, e.target.value)}
-              required={['name', 'rollNo', 'batch', 'degree', 'department', 'branch', 'email', 'mobileNumber'].includes(key)}
+              required={['name', 'rollNo', 'batch', 'degree', 'department', 'branch', 'email', 'mobileNumber',"dateOfBirth"].includes(key)}
             />
           )}
         </div>

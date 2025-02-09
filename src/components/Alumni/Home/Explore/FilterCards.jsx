@@ -1,32 +1,8 @@
 import React, { useState } from "react";
 import "./FilterCards.css";
-
+import {filters} from "../../../../assets/JSON/AlumniHomeFilterCard.json"
 const ExploreCards = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-
-  const filters = [
-    {
-      title: "Alumni",
-      icon: "🎓",
-      description: "Engage with alumni through meaningful events and activities, fostering a strong connection with the institution and community.",
-    },
-    {
-      title: "Event",
-      icon: "📅",
-      description: "Stay updated on exciting upcoming events and news, helping you remain actively involved in the campus community.",
-    },
-    {
-      title: "Excellence",
-      icon: "🏆",
-      description: "Celebrating  achievements in academics and extracurricular activities, recognizing the hard work and dedication of students.",
-    },
-    {
-      title: "Hots",
-      icon: "🔥",
-      description: "Explore trending topics, news, and updates within the community, keeping you informed about the latest developments.",
-    },
-  ];
-  
 
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);

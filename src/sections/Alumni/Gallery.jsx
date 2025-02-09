@@ -95,7 +95,7 @@ const images = [
   },
 ];
 
-const Gallery = () => {
+const Gallery = ({alumniAuthData}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -120,12 +120,12 @@ const Gallery = () => {
 
   return (
     <>
-      <Header />
+      <Header alumniAuthData={alumniAuthData}/>
       <div className="gall">
       
         <div className="gallery-header">
         <h1 className="gallery-title">Alumni Gallery</h1>
-          <p className="gallery-subtitle">All the News and Updates from KCE ALUMNI</p>
+          <p className="gallery-subtitle">Showcasing Alumni Success Stories</p>
         </div>
 
         <div className="gallery-container">

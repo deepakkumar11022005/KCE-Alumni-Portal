@@ -49,3 +49,10 @@ export { default as Loading } from "./Alumni/Loading/Loading";
 
 //Alumni
 export {default as AlumniCard } from './Alumni/Member/AlumniCard'
+
+//Alumni Prpfile
+export {default as PersonalInfo } from './Alumni/Profile/PersonalInfo'
+export {default as EducationInfo } from './Alumni/Profile/EducationInfo'
+export {default as ProfileHeader } from './Alumni/Profile/ProfileHeader'
+export {default as TabNavigation } from './Alumni/Profile/TabNavigation'
+export {default as WorkInfo } from './Alumni/Profile/WorkInfo'

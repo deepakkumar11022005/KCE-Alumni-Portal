@@ -1,0 +1,68 @@
+{
+    "sections": [
+      {
+        "title": "About Alumni",
+        "header": "About Karpagam College of Engineering",
+        "image": "about.png",
+        "content": [
+          "The Karpagam College of Engineering, established in the Year 2000, is an Autonomous institution, Approved by AICTE, New Delhi, and Affiliated to Anna University, Chennai. The college offers various Under Graduate and Post Graduate Engineering programmes...",
+          "The Karpagam College of Engineering, established in the Year 2000, is an Autonomous institution, Approved by AICTE, New Delhi, and Affiliated to Anna University, Chennai. The college offers various Under Graduate and Post Graduate Engineering programmes. The College is accredited by NAAC with ‘A+’ Grade, TCS and Wipro with 4500 students and 426 teaching and non-teaching staff members, Karpagam College of Engineering strives to impart quality education and an excellent career start to all its students."
+        ]
+      },
+      {
+        "title": "Vision & Mission",
+        "header": "Vision & Mission",
+        "content": [
+          {
+            "subHeader": "VISION",
+            "text": "To become one of the best institutions at the National and International level by incorporating innovative teaching-learning methods to enable the students to secure a high-value career, motivate to pursue higher education, and research to serve society."
+          },
+          {
+            "subHeader": "MISSION",
+            "text": [
+              "To bring out knowledgeable engineers and professionals in their field of specialization by having qualified and trained faculty members and staff besides necessary infrastructure and to create a highly conducive teaching and learning environment.",
+              "To work in close association with stakeholders by way of institute interaction, to take up need-based enhanced industry research and industry-specific programs.",
+              "To organize co-curricular and extra-curricular activities for character and personality development to produce highly competent and motivated engineers and professionals to serve and lead society."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Distinguished Alumni",
+        "header": "Distinguished Alumni",
+        "content": [
+          "Our distinguished alumni include leaders in various industries, innovators, entrepreneurs, and philanthropists who have made a lasting impact on society and their respective fields."
+        ]
+      },
+      {
+        "title": "Alumni Association",
+        "header": "Alumni Association of Karpagam College of Engineering",
+        "image": "about.png",
+        "content": [
+          "The Alumni Association of Karpagam College of Engineering (KCE) works to organize social, educational, and networking events. The association aims to promote the connection between current students, faculty, and alumni. It also helps former students who have lost touch with the institution by providing a platform for interaction. The association supports KCE's vision by facilitating fundraising activities for research and teaching excellence.",
+          {
+            "subHeader": "Association Members",
+            "text": "The association is proud to have a vast network of alumni who have made significant contributions in their respective fields. From engineers to entrepreneurs, KCE's alumni are spread across the globe, bringing pride to the institution."
+          }
+        ]
+      },
+      {
+        "title": "Placement Success",
+        "header": "Placement Success at Karpagam College of Engineering",
+        "content": [
+          "Karpagam College of Engineering (KCE) has an impressive track record of placing students in some of the top companies globally. The college ensures that every student is prepared for the job market through career guidance, placement training, and partnerships with leading companies. Our placement cell has consistently helped students secure positions in renowned organizations across various sectors.",
+          {
+            "subHeader": "Top Companies Recruiting from KCE",
+            "companies": [
+              "path_to_company_logo_1",
+              "path_to_company_logo_2",
+              "path_to_company_logo_3",
+              "path_to_company_logo_4"
+            ]
+          },
+          "Each year, KCE achieves over 95% placement rates, with students receiving offers from leading companies in industries such as IT, Engineering, Consulting, Manufacturing, and more. KCE's commitment to excellence in education is reflected in the success of its graduates."
+        ]
+      }
+    ]
+  }
+  

@@ -1,8 +1,7 @@
+/* Alumni Filters Styles */
 .alumni-filters {
-  /* background-color: white; */
   padding: 24px;
   border-radius: 8px;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   max-width: 100%;
   margin: 0 auto;
 }
@@ -11,17 +10,19 @@
   display: flex;
   gap: 16px;
   align-items: center;
-  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between;   */
 }
-
+ 
 .filter-item {
   flex: 1;
-  min-width: 220px; /* Ensures filter items don't shrink too much */
+  min-width: 40%;
+  /* background-color: #3498db; */
 }
 
 .filter-select {
   width: 100%;
-  padding: 12px; /* Increased padding for better touch usability */
+  padding: 12px;
   border: 1px solid #e2e8f0;
   border-radius: 6px;
   font-size: 14px;
@@ -38,7 +39,6 @@
 
 .filter-button {
   padding: 12px 16px;
-  width: fit-content;
   background-color: #6b7280;
   color: white;
   border: none;
@@ -48,15 +48,32 @@
   transition: background-color 0.2s ease;
 }
 
-.filter-button:hover {
-  background-color: #4b5563;
+.filter-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
 
-.filter-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 8px rgba(107, 114, 128, 0.2);
+/* Spinner Styles */
+.admin-loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading and Error Message Styles */
 .loading-message,
 .error-message {
   padding: 16px;
@@ -74,19 +91,18 @@
   color: #dc2626;
 }
 
-/* Media query for tablet */
+/* Responsive Styles */
 @media (max-width: 1024px) {
   .filters-container {
     gap: 12px;
-    flex-direction: row; /* Keeps the layout horizontal on tablet-sized screens */
+    flex-direction: row;
   }
 
   .filter-item {
-    min-width: 180px; /* Adjust the minimum width to avoid overlap */
+    min-width: 180px;
   }
 }
 
-/* Media query for mobile responsiveness */
 @media (max-width: 768px) {
   .filters-container {
     flex-direction: column;
@@ -94,7 +110,7 @@
   }
 
   .filter-item {
-    width: 100%; /* Full-width filters on mobile */
+    width: 100%;
     min-width: unset;
   }
 
@@ -104,15 +120,14 @@
   }
 }
 
-/* Media query for very small mobile screens */
 @media (max-width: 480px) {
   .filter-select {
-    font-size: 13px; /* Slightly smaller font size for small screens */
+    font-size: 13px;
     padding: 10px;
   }
 
   .filter-button {
-    padding: 10px 14px; /* Reduced padding for small screens */
+    padding: 10px 14px;
     font-size: 13px;
   }
 

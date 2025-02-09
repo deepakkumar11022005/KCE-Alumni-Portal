@@ -1,0 +1,371 @@
+/* Base Layout */
+.alumni-profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  /* Header Section */
+  .alumni-profile-header {
+    background-color: #ff6b00;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .alumni-profile-header-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .alumni-profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid white;
+    overflow: hidden;
+  }
+  
+  .alumni-profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .alumni-profile-basic-info h1 {
+    margin: 0;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Badges */
+  .alumni-profile-badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .alumni-profile-badge {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+  }
+  
+  .alumni-profile-badge.alumni-profile-status {
+    background-color: #ffa500;
+  }
+  
+  /* Main Content Area */
+  .alumni-profile-body {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  /* Tabs */
+  .alumni-profile-tabs {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 5px;
+  }
+  
+  .alumni-profile-tab-button {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .alumni-profile-tab-button:hover {
+    color: #ff6b00;
+  }
+  
+  .alumni-profile-tab-button.active {
+    color: #ff6b00;
+    border-bottom: 2px solid #ff6b00;
+    margin-bottom: -2px;
+  }
+  
+  /* Content Sections */
+  .alumni-profile-info-section {
+    margin-bottom: 30px;
+  }
+  
+  .alumni-profile-info-section h2 {
+    color: #ff6b00;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  
+  .alumni-profile-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .alumni-profile-info-item {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 6px;
+  }
+  
+  .alumni-profile-info-item label {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .alumni-profile-info-item span {
+    color: #333;
+    font-size: 1rem;
+  }
+  
+  /* Education and Work Cards */
+  .alumni-profile-education-card,
+  .alumni-profile-work-card {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .alumni-profile-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .alumni-profile-card-header h3 {
+    color: #ff6b00;
+    margin: 0;
+  }
+  
+  .alumni-profile-year-badge,
+  .alumni-profile-duration-badge {
+    background-color: #fff3e6;
+    color: #ff6b00;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+  }
+  
+  /* Links */
+  .alumni-profile-company-link {
+    color: #ff6b00;
+    text-decoration: none;
+  }
+  
+  .alumni-profile-company-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Error State */
+  .alumni-profile-error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+  }
+  
+  .alumni-profile-error-content {
+    text-align: center;
+    padding: 30px;
+    max-width: 400px;
+  }
+  
+  .alumni-profile-back-button {
+    background-color: #ff6b00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .alumni-profile-back-button:hover {
+    background-color: #e65d00;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .alumni-profile-header-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .alumni-profile-badges {
+      justify-content: center;
+    }
+  
+    .alumni-profile-tab-button {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Edit Mode Styles */
+  .alumni-profile-edit-button {
+    background-color: #ff6b00;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .alumni-profile-edit-button:hover {
+    background-color: #e65d00;
+  }
+  
+  .alumni-profile-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  
+  .alumni-profile-input:focus {
+    border-color: #ff6b00;
+    outline: none;
+  }
+  
+  /* Save/Cancel Buttons */
+  .alumni-profile-button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .alumni-profile-save-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .alumni-profile-cancel-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }/* Existing styles remain the same */
+
+/* New styles for enhanced features */
+.alumni-profile-input-group {
+    margin-bottom: 15px;
+  }
+  
+  .alumni-profile-input-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .alumni-profile-add-button {
+    background-color: #ff6b00;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .alumni-profile-add-button:hover {
+    background-color: #e65d00;
+  }
+  
+  .alumni-profile-remove-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .alumni-profile-remove-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  .full-width {
+    grid-column: 1 / -1;
+  }
+  
+  /* Loading spinner */
+  .alumni-profile-spinner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Disabled state */
+  .alumni-profile-save-button:disabled,
+  .alumni-profile-cancel-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Input validation styles */
+  .alumni-profile-input.error {
+    border-color: #f44336;
+  }
+  
+  .error-message {
+    color: #f44336;
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .alumni-profile-info-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .alumni-profile-button-group {
+      flex-direction: column;
+    }
+    
+    .alumni-profile-button-group button {
+      width: 100%;
+    }
+  }

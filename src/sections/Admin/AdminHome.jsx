@@ -15,7 +15,7 @@ const mockData = [
   { name: 'Jun', alumni: 239 },
 ];
 
-const AdminHome = () => {
+const AdminHome = ({adminAuthData}) => {
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
@@ -27,7 +27,7 @@ const AdminHome = () => {
     <div className={`admin-home ${darkMode ? 'dark-mode' : ''}`}>
       <div className="admin-header">
         <h1 className="admin-title">KCE Alumni Admin Dashboard</h1>
-        
+        <p className="admin-username">{adminAuthData.username}</p>
       </div>
       
       <div className="quick-actions">

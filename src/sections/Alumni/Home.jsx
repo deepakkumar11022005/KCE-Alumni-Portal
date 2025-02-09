@@ -11,11 +11,13 @@ import {
   NavBar,
 } from "../../components";
 import './Home.css'
-const Home = () => {
+const Home = ({alumniAuthData ,handleAlumniLogout}) => {
+  console.log(alumniAuthData+"home");
+  
   return (
     <div className="home-class">
-
-      <Header />
+   
+      <Header alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>
       <Carousel />
       <WelcomeBanner />
       <ExploreCards />

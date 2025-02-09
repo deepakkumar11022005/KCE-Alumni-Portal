@@ -137,7 +137,7 @@ const ImageDisplay = ({ imageData, title, className }) => {
   );
 };
 
-const NewsRoom = () => {
+const NewsRoom = ({alumniAuthData,handleAlumniLogout}) => {
   const [selectedYear, setSelectedYear] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -257,7 +257,7 @@ const NewsRoom = () => {
 
   return (
     <div className="newsrooms">
-      <Header />
+      <Header alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>
       <div className="container">
         <div className="about-header">
           <h1 className="newsroom-title">Newsroom </h1>

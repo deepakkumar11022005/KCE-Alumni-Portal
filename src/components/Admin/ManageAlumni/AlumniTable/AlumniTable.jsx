@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import './AlumniTable.css';
-import default_pic from '../../../../assets/images/me.jpg';
+import images from "../../../../assets/JSON/imageLink.json";
 
 const AlumniTable = ({ alumniData, totalItems }) => {
   const [expandedRows, setExpandedRows] = useState({});
@@ -25,7 +25,7 @@ const AlumniTable = ({ alumniData, totalItems }) => {
           <div className="detail-container">
             <div className="image-containerr">
               <img
-                src={default_pic}
+                src={images['alumni-image']}
                 alt={getValidData(alumni.student_name)}
                 className="rounded-full w-40 h-40 object-cover"
               />

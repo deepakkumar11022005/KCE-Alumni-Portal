@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ContactUs.css";
 import { Footer, Header, NavBar } from "../../components";
 
-const ContactUs = () => {
+const ContactUs = ({alumniAuthData,handleAlumniLogout}) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -54,7 +54,7 @@ const ContactUs = () => {
 
   return (
     <>
-      <Header />
+      <Header alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>
       <div className="contactParent">
         <div className="simple-contact-form-container">
           <h1 className="contact-heading">Contact</h1>

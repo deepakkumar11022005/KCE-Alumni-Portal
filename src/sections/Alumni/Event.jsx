@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {   EventBackground, Footer, Header, Loading, NavBar, UpcomingEvents } from '../../components';
 
-const Event = () => {
+const Event = ({alumniAuthData,handleAlumniLogout}) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true); // Add loading state
@@ -39,7 +39,7 @@ const Event = () => {
 
   return (
     <div className="">
-      <Header/>
+      <Header alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>
       <EventBackground imageUrl={eventBannerUrl}>
        
       </EventBackground>

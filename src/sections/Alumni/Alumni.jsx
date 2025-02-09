@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Footer, Header, Loading, NavBar } from "../../components";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
+import images from "../../assets/JSON/imageLink.json"
 import "./Alumni.css";
 
-const Alumni = () => {
+const Alumni = ({alumniAuthData,handleAlumniLogout}) => {
   const [alumniData, setAlumniData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -135,7 +136,7 @@ const Alumni = () => {
 
   return (
     <div className="a-alumni-page">
-      <Header />
+      <Header alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>
       <div className="a-banner">
         <img
           src="https://www.aluminati.net/wp-content/uploads/2022/12/How-do-you-form-an-Alumni-Association-.jpg"
@@ -224,7 +225,7 @@ const Alumni = () => {
             .map((alumni, index) => (
               <div key={index} className="a-card">
                 <img
-                  src="https://www.shutterstock.com/image-vector/school-graduation-hat-cartoon-diploma-600nw-2355557719.jpg"
+                  src={images["alumni-image"]}
                   alt={alumni.student_name}
                   className="a-card-image"
                 />
