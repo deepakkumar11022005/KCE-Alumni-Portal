@@ -25,20 +25,19 @@ export { default as SliderPreview } from "./Admin/Event/SliderPreview/SwiperPrev
 export { default as FilterButton } from "./Admin/Home/FilterButton/FilterButton";
 export { default as QuickActionCard } from "./Admin/Home/QuickActionCard/QuickActionCard";
 
-
+// events
+export { default as EventManager } from "./Admin/Event/EventUpdates/EventManager";
 //Manage Alumni
-export { default as AlumniFilters } from "./Admin/ManageAlumni/AlumniFilters/AlumniFilters";
+// export { default as AlumniFilters } from "./Admin/Notification/AlumniFilters/AlumniFilters";
 export { default as AlumniForm } from "./Admin/ManageAlumni/AlumniForm/AlumniForm";
 export { default as AlumniTable } from "./Admin/ManageAlumni/AlumniTable/AlumniTable";
 export { default as CSVUpload } from "./Admin/ManageAlumni/CSVUpload/CSVUpload";
 export { default as NavigationBar } from "./Admin/ManageAlumni/NavigationBar/NavigationBar";
 
 //notifuaction
-export { default as SelectedAlumniDisplay } from "./Admin/Notification/SelectedAlumniDisplay/MarkedAlumni";
-export { default as NotificationForm } from "./Admin/Notification/NotificationForm/NotificationForm";
+
 export { default as NotificationNav } from "./Admin/Notification/NotificationNav/NotificationNav";
-export { default as PreviousNotifications } from "./Admin/Notification/PreviousNotifications/PreviousNotifications";
-export { default as SelectAlumni } from "./Admin/Notification/SelectAlumni/SelectAlumni";
+ 
 
 //profile
 export {default as ProfileNav} from './Admin/profile/ProfileNav/profileNav'

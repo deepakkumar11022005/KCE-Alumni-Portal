@@ -1,0 +1,395 @@
+/* Base container */
+.admin-event-updates-container {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  
+  /* Alert styles */
+  .admin-event-updates-alert {
+    padding: 12px 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  /* Add these new styles to your existing CSS file */
+
+.admin-event-updates-search {
+    margin-bottom: 20px;
+  }
+  
+  .admin-event-updates-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  
+  .admin-event-updates-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    background-color: #e5e7eb;
+    border-radius: 16px;
+    font-size: 14px;
+    color: #374151;
+  }
+  
+  .admin-event-updates-tag button {
+    background: none;
+    border: none;
+    margin-left: 4px;
+    cursor: pointer;
+    color: #6b7280;
+    font-size: 16px;
+    padding: 0 4px;
+  }
+  
+  .admin-event-updates-tag button:hover {
+    color: #ef4444;
+  }
+  
+  .admin-event-updates-clear-tags {
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 4px 8px;
+  }
+  
+  .admin-event-updates-clear-tags:hover {
+    text-decoration: underline;
+  }
+  
+  .admin-event-updates-image-preview {
+    max-width: 100%;
+    height: auto;
+    margin-top: 8px;
+    border-radius: 4px;
+    border: 1px solid #e5e7eb;
+  }
+  .admin-event-updates-alert-error {
+    background-color: #fee2e2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+  }
+  
+  .admin-event-updates-alert-success {
+    background-color: #dcfce7;
+    border: 1px solid #bbf7d0;
+    color: #16a34a;
+  }
+  
+  .admin-event-updates-alert-icon {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  /* Grid layout */
+  .admin-event-updates-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Section titles */
+  .admin-event-updates-section-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #111827;
+    padding: 0 20px;
+  }
+  
+  /* Event list section */
+  .admin-event-updates-list {
+    padding: 20px;
+    border-right: 1px solid #e5e7eb;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+  }
+  
+  .admin-event-updates-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .admin-event-updates-item {
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .admin-event-updates-item:hover {
+    background-color: #f3f4f6;
+    border-color: #d1d5db;
+    transform: translateY(-1px);
+  }
+  
+  .admin-event-updates-item-selected {
+    background-color: #eff6ff;
+    border-color: #93c5fd;
+  }
+  
+  .admin-event-updates-item-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  
+  .admin-event-updates-item-date {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  /* Details section */
+  .admin-event-updates-details {
+    padding: 20px;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+  }
+  
+  .admin-event-updates-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .admin-event-updates-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .admin-event-updates-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+  }
+  
+  .admin-event-updates-input,
+  .admin-event-updates-textarea {
+    padding: 8px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+  }
+  
+  .admin-event-updates-input:focus,
+  .admin-event-updates-textarea:focus {
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  }
+  
+  .admin-event-updates-textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  /* Guest sections */
+  .admin-event-updates-section {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .admin-event-updates-subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 16px;
+  }
+  
+  .admin-event-updates-guest-form {
+    background-color: #f9fafb;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #e5e7eb;
+  }
+  
+  /* Buttons */
+  .admin-event-updates-button {
+    padding: 10px 16px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .admin-event-updates-button:hover:not(:disabled) {
+    background-color: #2563eb;
+  }
+  
+  .admin-event-updates-button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  .admin-event-updates-button-add {
+    background-color: #10b981;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 8px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .admin-event-updates-button-add:hover {
+    background-color: #059669;
+  }
+  
+  .admin-event-updates-button-remove {
+    background-color: #ef4444;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    margin-top: 12px;
+  }
+  
+  .admin-event-updates-button-remove:hover {
+    background-color: #dc2626;
+  }
+  
+  /* Loading state */
+  .admin-event-updates-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    color: #6b7280;
+    font-size: 16px;
+  }
+  
+  /* No selection state */
+  .admin-event-updates-no-selection {
+    text-align: center;
+    padding: 40px;
+    color: #6b7280;
+    font-size: 16px;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    border: 1px dashed #e5e7eb;
+  }
+  
+  /* Image preview */
+  .admin-event-updates-image-preview {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-top: 8px;
+  }
+  
+  /* Scrollbar styling */
+  .admin-event-updates-list::-webkit-scrollbar,
+  .admin-event-updates-details::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .admin-event-updates-list::-webkit-scrollbar-track,
+  .admin-event-updates-details::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .admin-event-updates-list::-webkit-scrollbar-thumb,
+  .admin-event-updates-details::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border-radius: 3px;
+  }
+  
+  .admin-event-updates-list::-webkit-scrollbar-thumb:hover,
+  .admin-event-updates-details::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .admin-event-updates-guest-form {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1024px) {
+    .admin-event-updates-container {
+      padding: 16px;
+    }
+  
+    .admin-event-updates-grid {
+      gap: 16px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .admin-event-updates-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .admin-event-updates-list {
+      border-right: none;
+      border-bottom: 1px solid #e5e7eb;
+      max-height: 400px;
+    }
+  
+    .admin-event-updates-details {
+      max-height: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin-event-updates-container {
+      padding: 12px;
+    }
+  
+    .admin-event-updates-section-title {
+      font-size: 18px;
+    }
+  
+    .admin-event-updates-item {
+      padding: 10px;
+    }
+  
+    .admin-event-updates-guest-form {
+      padding: 12px;
+    }
+  }

@@ -1,22 +1,50 @@
-import React, { useState } from 'react';
-import './AdminEvent.css';
-import { EventNav, Carousel, EventForm, SliderPreview, AdminEventDetails } from '../../components';
-import { Users, Upload, Plus } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import "./AdminEvent.css";
+import { EventNav, EventForm, UpcomingEvents, Loading, EventManager } from "../../components";
+import { Upload, Plus } from "lucide-react";
 
 const AdminEvent = () => {
-  const [view, setView] = useState("carousel"); // Manage views
+  const [view, setView] = useState("eventUpdates"); // Manage views
   const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const [showForm, setShowForm] = useState(false);
+
+  // Fetch event data from the API
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch(
+          "https://alumni-apis.onrender.com/events?page=1&limit=20&sort=startDate&order=asc",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        setEvents(result.data || []); // Ensure data is always an array
+      } catch (error) {
+        setError("Failed to load upcoming events. Please try again later.");
+        console.error("Error fetching events:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, []);
 
   const handleAddEvent = (newEvent) => {
     setEvents([...events, newEvent]);
     setShowForm(false);
-  };
-
-  const handleSaveEvent = (index, updatedEvent) => {
-    const updatedEvents = [...events];
-    updatedEvents[index] = updatedEvent;
-    setEvents(updatedEvents);
   };
 
   const handleViewChange = (newView) => {
@@ -27,17 +55,9 @@ const AdminEvent = () => {
   return (
     <div className="admin-event">
       <h1 className="admin-title">KCE Alumni Admin Dashboard</h1>
-      
       <EventNav />
       <h2>Manage Events</h2>
       <div className="action-buttons">
-        <button
-          className={`action-button ${view === "carousel" ? "active" : ""}`}
-          onClick={() => handleViewChange("carousel")}
-        >
-          <Users size={20} />
-          Carousel Events
-        </button>
         <button
           className={`action-button ${view === "eventUpdates" ? "active" : ""}`}
           onClick={() => handleViewChange("eventUpdates")}
@@ -54,45 +74,21 @@ const AdminEvent = () => {
         </button>
       </div>
 
-      {view === "carousel" && (
-        <>
-        
-          <h5>Current Carousel Preview</h5>
-          <Carousel/>
-          <h5>Current Carousel Details</h5>
-          <SliderPreview onSave={handleSaveEvent} />
-        </>
-      )}
-
       {view === "eventUpdates" && (
         <>
           
-         
-          {/* Add logic to display updates or past events */}
-           <AdminEventDetails/>
-          
+          {loading ? (
+            <Loading />
+          ) : error ? (
+            <p className="admin-error">{error}</p>
+          ) : (
+            <EventManager/>
+           
+          )}
         </>
       )}
 
-      {view === "add" && (
-        <>
-        <EventForm onSubmit={handleAddEvent} />
-          {/* <button
-            onClick={() => setShowForm(!showForm)}
-            className="toggle-form-button"
-          >
-            {showForm ? 'Hide Form' : 'Add New Event'}
-          </button>
-          {showForm && <EventForm onSubmit={handleAddEvent} />} */}
-        </>
-      )}
-
-      {events.length > 0 && view === "carousel" && (
-        <>
-          <h3>Event Preview (Carousel)</h3>
-          <Carousel events={events} />
-        </>
-      )}
+      {view === "add" && <EventForm onSubmit={handleAddEvent} />}
     </div>
   );
 };

@@ -48,6 +48,7 @@ const Event = ({alumniAuthData,handleAlumniLogout}) => {
       ) : error ? (
         <p >Error: {error}</p>  
       ) : (
+        
         <UpcomingEvents events={data} />
       )}
       <Footer/>
