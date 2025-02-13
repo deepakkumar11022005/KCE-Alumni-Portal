@@ -1,0 +1,282 @@
+/* Add to AdminHome.css */
+.notifications-section {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    overflow: scroll;
+    
+  }
+  
+  .notification-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .notification-header h2 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .notification-count {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    margin-left: 8px;
+  }
+  
+  .notification-item {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .notification-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+  
+  .dark-mode .notification-item:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+  
+  .notification-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .notification-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+  }
+  
+  .notification-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .notification-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.813rem;
+    color: var(--text-light);
+  }
+  
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  .status-dot.unread {
+    background-color: var(--primary-color);
+  }
+  
+  .status-dot.read {
+    background-color: var(--text-light);
+  }
+  
+  .notification-title {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .notification-time {
+    color: var(--text-light);
+    font-size: 0.813rem;
+    white-space: nowrap;
+  }
+  
+  .notification-expand {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    animation: expandNotification 0.3s ease;
+  }
+  
+  .notification-content {
+    color: var(--text-light);
+    font-size: 0.938rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  
+  .notification-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+  
+  .mark-read-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .mark-read-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  /* Add these new styles to AdminHome.css */
+
+.notification-item {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent; /* Added for smooth transition */
+  }
+  
+  /* Active/viewing state styles */
+  .notification-item.active {
+    background-color: rgba(74, 144, 226, 0.04);
+    border-left: 3px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .dark-mode .notification-item.active {
+    background-color: rgba(74, 144, 226, 0.08);
+  }
+  
+  .notification-item.active .notification-main {
+    padding-bottom: 12px;
+  }
+  
+  .notification-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+  
+  .dark-mode .notification-item:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+  
+  /* Enhance expanded state styling */
+  .notification-expand {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    animation: expandNotification 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  
+  .dark-mode .notification-expand {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  @keyframes expandNotification {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .dropdown-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .dropdown-icon.expanded {
+    transform: rotate(180deg);
+  }/* Add to AdminHome.css */
+.notifications-section {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 600px; /* Fixed height for scrolling */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .notification-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--card-background);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .notifications-container {
+    overflow-y: auto;
+    flex-grow: 1;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+  }
+  
+  /* Webkit scrollbar styles */
+  .notifications-container::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .notifications-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .notifications-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 20px;
+  }
+  
+  /* Priority indicators */
+  .priority-indicator {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin: 10px;
+  }
+  
+  .priority-high {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+  }
+  
+  .priority-medium {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+  }
+  
+  .priority-normal {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+  }
+  
+  .dark-mode .priority-high {
+    background-color: rgba(239, 68, 68, 0.2);
+  }
+  
+  .dark-mode .priority-medium {
+    background-color: rgba(245, 158, 11, 0.2);
+  }
+  
+  .dark-mode .priority-normal {
+    background-color: rgba(16, 185, 129, 0.2);
+  }

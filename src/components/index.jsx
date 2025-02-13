@@ -24,7 +24,7 @@ export { default as SliderPreview } from "./Admin/Event/SliderPreview/SwiperPrev
 // home
 export { default as FilterButton } from "./Admin/Home/FilterButton/FilterButton";
 export { default as QuickActionCard } from "./Admin/Home/QuickActionCard/QuickActionCard";
-
+export {default as NotificationsSection} from "./Admin/Home/Notification/NotificationsSection"
 // events
 export { default as EventManager } from "./Admin/Event/EventUpdates/EventManager";
 //Manage Alumni

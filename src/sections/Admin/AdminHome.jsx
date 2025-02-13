@@ -4,7 +4,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { Users, Bell, Calendar, UserCog, Moon, Sun } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './AdminHome.css';
-import { QuickActionCard, FilterButton } from '../../components';
+import { QuickActionCard, FilterButton, NotificationsSection } from '../../components';
 
 const mockData = [
   { name: 'Jan', alumni: 400 },
@@ -62,13 +62,8 @@ const AdminHome = ({adminAuthData}) => {
         </div>
         
         <div className="filters-container">
-          <h2 className="section-title">Quick Filters</h2>
-          <div className="filters">
-            <FilterButton label="Graduation Year" />
-            <FilterButton label="Department" />
-            <FilterButton label="Location" />
-            <FilterButton label="Industry" />
-          </div>
+           {/* add notification components */}
+          <NotificationsSection/>
         </div>
       </div>
     </div>
