@@ -1,30 +1,13 @@
-// AdminHome.jsx
-import React, { useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { Users, Bell, Calendar, UserCog, Moon, Sun } from 'lucide-react';
+import React from 'react';
+import { Users, Bell, Calendar, UserCog } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import './AdminHome.css';
-import { QuickActionCard, FilterButton, NotificationsSection } from '../../components';
+import { QuickActionCard, NotificationsSection, AlumniFeedback, AlumniStats } from '../../components';
+import './AdminHome.css'
 
-const mockData = [
-  { name: 'Jan', alumni: 400 },
-  { name: 'Feb', alumni: 300 },
-  { name: 'Mar', alumni: 200 },
-  { name: 'Apr', alumni: 278 },
-  { name: 'May', alumni: 189 },
-  { name: 'Jun', alumni: 239 },
-];
 
 const AdminHome = ({adminAuthData}) => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle('dark-mode');
-  };
-
   return (
-    <div className={`admin-home ${darkMode ? 'dark-mode' : ''}`}>
+    <div className="admin-home">
       <div className="admin-header">
         <h1 className="admin-title">KCE Alumni Admin Dashboard</h1>
         <p className="admin-username">{adminAuthData.username}</p>
@@ -46,25 +29,10 @@ const AdminHome = ({adminAuthData}) => {
       </div>
       
       <div className="dashboard-content">
-        <div className="chart-container">
-          <h2 className="section-title">Alumni Registration Trend</h2>
-          <div className="chart">
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={mockData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Line type="monotone" dataKey="alumni" stroke="#8884d8" strokeWidth={2} dot={{ r: 4 }} />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
         
-        <div className="filters-container">
-           {/* add notification components */}
-          <NotificationsSection/>
-        </div>
+       <AlumniStats/>
+        <AlumniFeedback/>
+        <NotificationsSection />
       </div>
     </div>
   );
