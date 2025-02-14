@@ -126,7 +126,7 @@ const CSVUpload = () => {
 
     try {
       const response = await fetch(
-        "https://alumni-apis.vercel.app/uploadexcel",
+        "https://alumni-apis.onrender.com/uploadexcel",
         {
           method: "POST",
           body: formData,
