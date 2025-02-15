@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {   EventBackground, Footer, Header, Loading, NavBar, UpcomingEvents } from '../../components';
-
+import {   EventBackground, Footer, Header, Loading, NavBar, PageBanner, UpcomingEvents } from '../../components';
+import bannerImg from '../../assets/images/Event.jpeg'
 const Event = ({alumniAuthData,handleAlumniLogout}) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -40,9 +40,9 @@ const Event = ({alumniAuthData,handleAlumniLogout}) => {
   return (
     <div className="">
       <Header alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>
-      <EventBackground imageUrl={eventBannerUrl}>
+       <PageBanner imageUrl={bannerImg} title={"About Us"} subtitle={"Celebrating Memories, Strengthening Bonds, Inspiring Futures!"} />
        
-      </EventBackground>
+    
       {loading ? (
          <Loading/>
       ) : error ? (

@@ -1,0 +1,76 @@
+.page-banner-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .page-banner-background {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .page-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .page-banner-content {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 0 20px;
+  }
+  
+  .page-banner-title {
+    font-size: 3rem;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: page-banner-fade-up 0.8s ease forwards;
+  }
+  
+  .page-banner-subtitle {
+    font-size: 1.2rem;
+    margin: 10px 0 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: page-banner-fade-up 0.8s ease forwards 0.2s;
+  }
+  
+  @keyframes page-banner-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .page-banner-container {
+      height: 200px;
+    }
+  
+    .page-banner-title {
+      font-size: 2rem;
+    }
+  
+    .page-banner-subtitle {
+      font-size: 1rem;
+    }
+  }

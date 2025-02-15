@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ChevronDown, X, Calendar, MapPin, Clock } from "lucide-react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "./UpcomingEvents.css";
-
+import bannerImg from '../../../../assets/images/carousel3.png'
 // Event Card Component
 const EventCard = ({ event }) => {
   const eventDate = new Date(event.event_date);

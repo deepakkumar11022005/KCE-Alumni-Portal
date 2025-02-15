@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./AboutUs.css";
-import { Footer, Header, NavBar } from "../../components";
+import { Footer, Header, NavBar, PageBanner } from "../../components";
 import aboutData from "../../assets/JSON/AlumniAboutUs.json";
 import aboutimg from "../../assets/images/about.png";
-
+import aboutBanner from '../../assets/images/About.jpeg'
+// import aboutBanner from '../../assets/images/newpaper.png'
 const AboutUs = ({alumniAuthData}) => {
   const [activeSection, setActiveSection] = useState("About Alumni");
   const [sectionData, setSectionData] = useState({});
@@ -18,10 +19,8 @@ const AboutUs = ({alumniAuthData}) => {
   return (
     <div className="about-fill">
       <Header alumniAuthData={alumniAuthData} />
-      <div className="about-header">
-        <h1>About Us</h1>
-        <p className="about-subtitle">All the News and Updates from KCE ALUMNI</p>
-      </div>
+      <PageBanner imageUrl={aboutBanner} title={"About Us"} subtitle={"Connecting alumni, sharing memories, building future"} />
+      
       <div className="about-us-container">
         <div className="main-content">
           {sectionData && (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Gallery.css";
-import { Footer, Header, NavBar } from "../../components";
-
+import { Footer, Header, NavBar, PageBanner } from "../../components";
+import bannerImg from '../../assets/images/Gallery.jpeg'
 const images = [
   {
     src: "https://images.unsplash.com/photo-1521747116042-5a810fda9664?auto=format&fit=crop&w=668&q=80",
@@ -122,11 +122,8 @@ const Gallery = ({alumniAuthData}) => {
     <>
       <Header alumniAuthData={alumniAuthData}/>
       <div className="gall">
-      
-        <div className="gallery-header">
-        <h1 className="gallery-title">Alumni Gallery</h1>
-          <p className="gallery-subtitle">Showcasing Alumni Success Stories</p>
-        </div>
+        <PageBanner imageUrl={bannerImg} title={"Alumni Gallery"} subtitle={"Showcasing Alumni Success Stories"} />
+       
 
         <div className="gallery-container">
           <div className="gallery-grid">

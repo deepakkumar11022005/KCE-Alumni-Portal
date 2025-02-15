@@ -37,6 +37,7 @@ import LandingAlumni from "./sections/Landing/LandingAlumni";
 import LandingAdmin from "./sections/Landing/LandingAdmin";
 import AlumniProfile from "./sections/Alumni/Profile";
 
+
 // Protected Route for Alumni
 const ProtectedAlumniRoute = ({ children }) => {
   const { alumniAuthData } = useContext(AuthContext);
@@ -50,7 +51,7 @@ const ProtectedAdminRoute = ({ children }) => {
 };
 
 function App() {
-  const API_BASE_URL = 'https://alumni-apis.onrender.com/student';
+  const API_BASE_URL = 'https://alumni-apis.onrender.com';
 
 
 
@@ -83,11 +84,13 @@ function App() {
 
   // Handlers for Login and Logout
   const handleAlumniLogin = async (credentials) => {
+   
+    
     const result = await alumniLogin(credentials);
     if (result.success) {
       const newAuthData = { ...result.data, role: "alumni" };
       setAlumniAuthData(newAuthData);
-      console.log(newAuthData);
+      // console.log(newAuthData);
       
       return { success: true };
     }
@@ -138,7 +141,7 @@ function App() {
                 alumniAuthData ? (
                   <Navigate to="/alumni" replace />
                 ) : (
-                  <LandingAlumni />
+                  <LandingAlumni handleAlumniLogin={handleAlumniLogin}/>
                 )
               }
             />
@@ -150,9 +153,9 @@ function App() {
                 </ProtectedAlumniRoute>
               }
             />
-            <Route index element={<Home API_BASE_URL={API_BASE_URL} alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>} />
+            <Route index element={<Home  alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>} />
             <Route path="events" element={<Event API_BASE_URL={API_BASE_URL} alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>} />
-            <Route path="profile/:id" element={<AlumniProfile API_BASE_URL={API_BASE_URL} alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>} />
+            <Route path="profile/:id" element={<AlumniProfile alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>} />
             <Route path="event/:id" element={<EventDetails API_BASE_URL={API_BASE_URL} alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>} />
             <Route path="newsroom" element={<NewsRoom API_BASE_URL={API_BASE_URL} alumniAuthData={alumniAuthData}/>} handleAlumniLogout={handleAlumniLogout}/>
             <Route path="about-us" element={<AboutUs API_BASE_URL={API_BASE_URL} alumniAuthData={alumniAuthData}/>} handleAlumniLogout={handleAlumniLogout}/>

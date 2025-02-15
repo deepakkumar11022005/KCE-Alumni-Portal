@@ -12,7 +12,7 @@ export { default as EventBackground } from "./Alumni/Event/EventBackground/Event
 export { default as EventDetails } from "./Alumni/Event/EventDetails/EventDetails";
 export { default as UpcomingEvents } from "./Alumni/Event/UpcomingEvents/UpcomingEvents";
 export { default as EventCard } from "./Alumni/Event/EventCard/EventCard";
-
+export {default as PageBanner} from './Alumni/Home/PageBanner/PageBanner'
 // admin componenets event
 export { default as AdminEventDetails } from "./Admin/Event/AdminEventDetails/AdminEventDetails";
 export { default as CarouselPreview } from "./Admin/Event/Carousel/Carousel";

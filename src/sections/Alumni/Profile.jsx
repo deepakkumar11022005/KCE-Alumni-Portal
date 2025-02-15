@@ -1,8 +1,9 @@
-import { ProfileHeader ,PersonalInfo,EducationInfo,WorkInfo,TabNavigation, Loading, Header } from '../../components/index';
+import { ProfileHeader, PersonalInfo, EducationInfo, WorkInfo, TabNavigation, Loading, Header } from '../../components/index';
 import './Profile.css';
-import { useParams,useNavigate   } from 'react-router-dom';
-import { useState,useEffect  } from 'react';
-const AlumniProfile = () => {
+import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+const AlumniProfile = ({alumniAuthData}) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [profileData, setProfileData] = useState(null);
@@ -23,29 +24,33 @@ const AlumniProfile = () => {
       setLoading(false);
       return;
     }
-  
+
     try {
       setLoading(true);
-  
-      // Make an API request with a request body
-      // const response = await fetch(`https://alumni-apis.onrender.com/student/${id}`, {
-      //   method: 'POST', // Specify POST or PUT depending on API design
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({ batch: "2024" }),
-      // });
-  
-      // if (!response.ok) {
-      //   throw new Error('Failed to load profile data');
-      // }
-  
-      // const data = await response.json();
-  const data={"success":true,"data":{"_id":"67186adb1ba8576e422bcd37","student_image_id":"img_001","roll_no":"2023CSE1004","student_name":"Deepak S","batch":"2024","degree":"B.Tech","branch":"Computer Science","department":"Engineering","email":"john224.doe@ample.com","mobile_number":"0000000000","aadhar_number":12345529012,"fathers_name":"Richard D","fathers_mobile":9876543211,"fathers_email":"richard.doe@example.com","mothers_name":"Jane Doe","mothers_mobile":9876543212,"mothers_email":"jane.doe@example.com","education":[{"institute_name":"ABC School","course":"High School","passed_out_year":"2020","grade":"A","_id":"67186adb1ba8576e422bcd38"}],"work_domain":"Software Development","is_entrepreneur":false,"is_employee":true,"is_unemployee":false,"is_highereducation":false,"is_exam":false,"work_experience":[{"company_name":"Tech Corp","company_address":"1234, Tech Park, NY","work_domain":"Web Development","company_url":"https://techcorp.com","company_type":"Private","designation":"Intern","from_year":"2023","to_year":"2024","_id":"67186adb1ba8576e422bcd39"}],"__v":0}};
+      // Get the current batch from your app's state/context if available
+      const batch =  alumniAuthData?.batch; // Replace with actual batch value from your app state
+      
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_URL}/student/${id}?batch=${batch}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${alumniAuthData?.token}`,
+          }
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to load profile data');
+      }
+
+      const data = await response.json();
+      
       if (!data.success) {
         throw new Error(data.message || 'Failed to load profile data');
       }
-  
+
       setProfileData(data.data);
       setEditableData(data.data);
     } catch (err) {
@@ -55,17 +60,61 @@ const AlumniProfile = () => {
       setLoading(false);
     }
   };
-  
 
   const handleSave = async () => {
     try {
       setSaveLoading(true);
-      // API call would go here
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulating API call
+      
+      const updateData = {
+        batch: editableData.batch,
+        email: editableData.email,
+        // Add any other fields that need to be updated
+        student_name: editableData.student_name,
+        degree: editableData.degree,
+        branch: editableData.branch,
+        department: editableData.department,
+        mobile_number: editableData.mobile_number,
+        fathers_name: editableData.fathers_name,
+        mothers_name: editableData.mothers_name,
+        education: editableData.education,
+        work_experience: editableData.work_experience,
+        work_domain: editableData.work_domain,
+        is_entrepreneur: editableData.is_entrepreneur,
+        is_employee: editableData.is_employee,
+        is_unemployee: editableData.is_unemployee,
+        is_highereducation: editableData.is_highereducation,
+        is_exam: editableData.is_exam
+      };
+
+      const response = await fetch(
+        `https://alumni-apis.onrender.com/student/${id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updateData)
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to update profile');
+      }
+
+      const data = await response.json();
+      
+      if (!data.success) {
+        throw new Error(data.message || 'Failed to update profile');
+      }
+
       setProfileData(editableData);
       setIsEditing(false);
+      // Optionally show a success message
+      alert('Profile updated successfully!');
     } catch (err) {
       setError('Failed to save changes. Please try again.');
+      console.error('Profile update error:', err);
+      alert('Failed to update profile. Please try again.');
     } finally {
       setSaveLoading(false);
     }
@@ -88,7 +137,7 @@ const AlumniProfile = () => {
 
   return (
     <div className="alumni-profile-container">
-        <Header/>
+      <Header />
       <ProfileHeader 
         editableData={editableData}
         isEditing={isEditing}

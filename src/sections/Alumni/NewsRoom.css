@@ -46,7 +46,68 @@
   color: var(--text-secondary);
   font-size: 1.1rem;
 }
+/* Add these styles to your existing NewsRoom.css file */
 
+.error {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  padding: calc(var(--spacing-unit) * 4);
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error h2 {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.error p {
+  color: var(--text-secondary);
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.error .clear-button {
+  /* Reusing the existing clear-button styles with some modifications */
+  background-color: transparent;
+  border: 2px solid #007BFF;
+  color: #007BFF;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.error .clear-button:hover {
+  background-color: #007BFF;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .error {
+    margin: 10px;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+  
+  .error h2 {
+    font-size: 1.3rem;
+  }
+  
+  .error p {
+    font-size: 0.9rem;
+  }
+}
 /* Main content */
 .main-content {
   padding: calc(var(--spacing-unit) * 2);

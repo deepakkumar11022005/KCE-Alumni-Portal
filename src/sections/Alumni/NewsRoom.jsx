@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDown, Calendar, X } from "lucide-react";
 import "./NewsRoom.css";
-import { Footer, Header, Loading, NavBar } from "../../components";
-
+import { Footer, Header, Loading, NavBar, PageBanner } from "../../components";
+import newBanner from '../../assets/images/newpaper.png'
 const generateArchiveData = (startYear, newsData) => {
-  // Ensure newsData is an array
   if (!Array.isArray(newsData)) {
     return {};
   }
@@ -22,7 +21,6 @@ const generateArchiveData = (startYear, newsData) => {
       const monthName = new Date(year, month).toLocaleString("default", {
         month: "long",
       });
-      // Count news for this month
       const count = newsData.filter((news) => {
         try {
           const newsDate = new Date(news.date.split("/").reverse().join("-"));
@@ -35,13 +33,11 @@ const generateArchiveData = (startYear, newsData) => {
         }
       }).length;
 
-      // Only add months with non-zero counts
       if (count > 0) {
         archiveData[year][monthName] = count;
       }
     }
 
-    // Remove years with no months
     if (Object.keys(archiveData[year]).length === 0) {
       delete archiveData[year];
     }
@@ -82,7 +78,7 @@ const formatDate = (dateString) => {
     })}, ${year}`;
   } catch (error) {
     console.error("Error formatting date:", error);
-    return dateString; // Return original string if formatting fails
+    return dateString;
   }
 };
 
@@ -92,14 +88,13 @@ const parseDate = (dateString) => {
     return new Date(year, month - 1, day);
   } catch (error) {
     console.error("Error parsing date:", error);
-    return new Date(); // Return current date as fallback
+    return new Date();
   }
 };
 
 const isValidBase64Image = (str) => {
   if (!str?.startsWith("data:image")) return false;
   try {
-    // Check if the string after removing the data URL prefix is valid base64
     const base64Data = str.split(",")[1];
     return btoa(atob(base64Data)) === base64Data;
   } catch (e) {
@@ -112,7 +107,6 @@ const ImageDisplay = ({ imageData, title, className }) => {
 
   if (!imageData) return null;
 
-  // Handle base64 image
   if (isValidBase64Image(imageData)) {
     return (
       <img
@@ -125,7 +119,6 @@ const ImageDisplay = ({ imageData, title, className }) => {
     );
   }
 
-  // Handle regular URL
   return (
     <img
       src={imageData}
@@ -137,7 +130,7 @@ const ImageDisplay = ({ imageData, title, className }) => {
   );
 };
 
-const NewsRoom = ({alumniAuthData,handleAlumniLogout}) => {
+const NewsRoom = ({ alumniAuthData, handleAlumniLogout }) => {
   const [selectedYear, setSelectedYear] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -147,40 +140,54 @@ const NewsRoom = ({alumniAuthData,handleAlumniLogout}) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filteredNewsData, setFilteredNewsData] = useState([]);
+  const [retryCount, setRetryCount] = useState(0);
+  const MAX_RETRIES = 3;
+  const RETRY_DELAY = 3000; // 3 seconds
 
   const clearFilters = () => {
     setSelectedYear(null);
     setSelectedMonth(null);
   };
 
-  // Fetch news data from API
+  // Enhanced fetch news with retry logic
   useEffect(() => {
     const fetchNews = async () => {
       try {
         setLoading(true);
+        setError(null);
+        
         const response = await fetch("https://alumni-apis.vercel.app/news");
         if (!response.ok) {
-          throw new Error("Failed to fetch news");
+          throw new Error(`Failed to fetch news: ${response.statusText}`);
         }
+        
         const data = await response.json();
+        if (!data || !data.data) {
+          throw new Error("Invalid data format received");
+        }
 
         const newsArray = Array.isArray(data.data) ? data.data : [];
         setNewsData(newsArray);
         setFilteredNewsData(newsArray);
+        setRetryCount(0); // Reset retry count on success
       } catch (err) {
         console.error("Error fetching news:", err);
         setError(err.message);
-        setNewsData([]);
-        setFilteredNewsData([]);
+        
+        // Implement retry logic
+        if (retryCount < MAX_RETRIES) {
+          setTimeout(() => {
+            setRetryCount(prev => prev + 1);
+          }, RETRY_DELAY);
+        }
       } finally {
         setLoading(false);
       }
     };
 
     fetchNews();
-  }, []);
+  }, [retryCount]);
 
-  // Update archive data when news data changes
   useEffect(() => {
     if (Array.isArray(newsData) && newsData.length > 0) {
       setArchiveData(generateArchiveData(2022, newsData));
@@ -239,18 +246,37 @@ const NewsRoom = ({alumniAuthData,handleAlumniLogout}) => {
 
   if (loading) {
     return (
-      <div className="newsroom">
-         <Loading/>
+      <div className="newsrooms">
+        <Header alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout} />
+        <div className="container">
+          <Loading />
+        </div>
+        <Footer />
+        <NavBar />
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="newsroom">
+      <div className="newsrooms">
+        <Header alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout} />
         <div className="container">
-          <div className="error">Error: {error}</div>
+          <div className="error">
+            <h2>Error Loading News</h2>
+            <p>{error}</p>
+            {retryCount < MAX_RETRIES && (
+              <button 
+                onClick={() => setRetryCount(prev => prev + 1)}
+                className="clear-button"
+              >
+                Try Again
+              </button>
+            )}
+          </div>
         </div>
+        <Footer />
+        <NavBar />
       </div>
     );
   }
@@ -259,16 +285,10 @@ const NewsRoom = ({alumniAuthData,handleAlumniLogout}) => {
     <div className="newsrooms">
       <Header alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>
       <div className="container">
-        <div className="about-header">
-          <h1 className="newsroom-title">Newsroom </h1>
-          <p className="about-subtitle">
-            All the News and Updates from KCE ALUMNI
-          </p>
-        </div>
+        <PageBanner imageUrl={newBanner} title={"Newsroom"} subtitle={"  All the News and Updates from KCE ALUMNI"} />
+        
         <div className="newsroom-layout">
-          {/* Main Content */}
           <div className="main-content">
-            {/* Mobile Filter */}
             {isMobile && (
               <div className="mobile-filter">
                 <button
@@ -306,14 +326,12 @@ const NewsRoom = ({alumniAuthData,handleAlumniLogout}) => {
               </div>
             )}
 
-            {/* News Items */}
             <div className="news-list">
               {filteredNewsData.length > 0 ? (
                 filteredNewsData.map((news) => (
                   <article key={news._id} className="news-item">
                     {isValidBase64Image(news.image_id) && !isMobile && (
                       <div className="news-image">
-                        {/* <img src={news.image} alt={news.title} /> */}
                         <ImageDisplay
                           imageData={news.image_id}
                           title={news.title}
@@ -339,7 +357,6 @@ const NewsRoom = ({alumniAuthData,handleAlumniLogout}) => {
             </div>
           </div>
 
-          {/* Desktop Sidebar */}
           {!isMobile && (
             <aside className="sidebarr">
               <div className="archive-widget">

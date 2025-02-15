@@ -6,11 +6,13 @@ import './AdminHome.css'
 
 
 const AdminHome = ({adminAuthData}) => {
+  // console.log(JSON.stringify(adminAuthData)+"home");
+  
   return (
     <div className="admin-home">
       <div className="admin-header">
         <h1 className="admin-title">KCE Alumni Admin Dashboard</h1>
-        <p className="admin-username">{adminAuthData.username}</p>
+        <p className="admin-username">{adminAuthData.data.username}</p>
       </div>
       
       <div className="quick-actions">
@@ -30,9 +32,9 @@ const AdminHome = ({adminAuthData}) => {
       
       <div className="dashboard-content">
         
-       <AlumniStats/>
-        <AlumniFeedback/>
-        <NotificationsSection />
+       <AlumniStats adminAuthData={adminAuthData}/>
+        <AlumniFeedback adminAuthData={adminAuthData}/>
+        <NotificationsSection adminAuthData={adminAuthData} />
       </div>
     </div>
   );

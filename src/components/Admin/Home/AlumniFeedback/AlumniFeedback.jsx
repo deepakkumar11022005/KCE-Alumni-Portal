@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, ChevronDown, AlertCircle, Loader } from 'lucide-react';
 import './AlumniFeedback.css'
-const AlumniFeedback = () => {
+const AlumniFeedback = ({adminAuthData}) => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -9,14 +9,23 @@ const AlumniFeedback = () => {
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
+     
+      
       try {
-        const response = await fetch('https://alumni-apis.onrender.com/feedback');
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/feedback`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${adminAuthData?.token}`,
+          },
+        });
+  
         const result = await response.json();
-        
+  
         if (result.success) {
           setFeedbacks(result.data);
         } else {
-          throw new Error('Failed to fetch feedback');
+          throw new Error("Failed to fetch feedback");
         }
       } catch (err) {
         setError(err.message);
@@ -24,9 +33,10 @@ const AlumniFeedback = () => {
         setLoading(false);
       }
     };
-
+  
     fetchFeedbacks();
-  }, []);
+  }, [adminAuthData]);  
+  
 
   const toggleExpand = (id) => {
     setExpandedId(expandedId === id ? null : id);

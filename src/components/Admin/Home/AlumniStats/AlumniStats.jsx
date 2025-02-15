@@ -46,7 +46,7 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
-const AlumniStats = () => {
+const AlumniStats = ({ adminAuthData }) => {
   const [statsData, setStatsData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -56,8 +56,16 @@ const AlumniStats = () => {
     const fetchStats = async () => {
       try {
         const response = await fetch(
-          "https://alumni-apis.onrender.com/students-count"
+          `${import.meta.env.VITE_BASE_URL}/students-count`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${adminAuthData?.token}`,
+            },
+          }
         );
+
         const data = await response.json();
 
         if (data.success) {
@@ -73,7 +81,7 @@ const AlumniStats = () => {
     };
 
     fetchStats();
-  }, []);
+  }, [adminAuthData]);
 
   if (loading) {
     return (
@@ -102,9 +110,10 @@ const AlumniStats = () => {
       .filter((batch) => batch.count > 0)
       .map((batch) => ({
         ...batch,
+        year: parseInt(batch.batch.replace("batch_", "")),
         percentage: (batch.count / statsData.totalStudentsCount) * 100,
       }))
-      .sort((a, b) => b.count - a.count);
+      .sort((a, b) => a.year - b.year); // Sort by year in ascending order
   };
 
   const chartData = prepareChartData();
@@ -146,13 +155,15 @@ const AlumniStats = () => {
           {chartType === "bar" ? (
             <BarChart
               data={chartData}
-              margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+              margin={{ top: 20, right: 30, left: 20, bottom: 25 }}
             >
-              <XAxis
-                dataKey={(d) => d.batch.replace("batch_", "")}
-                angle={-45}
-                textAnchor="end"
-                height={60}
+              <XAxis 
+                dataKey={(d) => ""}
+                label={{ 
+                  value: 'Batches', 
+                  position: 'bottom',
+                  offset: 0
+                }}
               />
               <YAxis />
               <Tooltip content={<CustomTooltip />} />

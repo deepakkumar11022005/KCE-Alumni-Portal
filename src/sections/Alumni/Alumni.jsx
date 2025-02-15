@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Footer, Header, Loading, NavBar } from "../../components";
+import { Footer, Header, Loading, NavBar, PageBanner } from "../../components";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import images from "../../assets/JSON/imageLink.json"
 import "./Alumni.css";
@@ -137,17 +137,7 @@ const Alumni = ({alumniAuthData,handleAlumniLogout}) => {
   return (
     <div className="a-alumni-page">
       <Header alumniAuthData={alumniAuthData} handleAlumniLogout={handleAlumniLogout}/>
-      <div className="a-banner">
-        <img
-          src="https://www.aluminati.net/wp-content/uploads/2022/12/How-do-you-form-an-Alumni-Association-.jpg"
-          alt="Alumni Banner"
-          className="a-banner-image"
-        />
-        <div className="a-banner-text">
-          <h1>Alumni Network</h1>
-          <p>Connecting Generations of Excellence</p>
-        </div>
-      </div>
+      <PageBanner imageUrl={"https://www.aluminati.net/wp-content/uploads/2022/12/How-do-you-form-an-Alumni-Association-.jpg"} title={"Alumni Network"} subtitle={"Connecting alumni, sharing memories, building future"} />
 
       <div className="a-alumni-content">
         <div className="a-filters">
